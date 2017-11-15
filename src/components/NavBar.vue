@@ -38,7 +38,6 @@ export default {
   font-size: 20px;
 }
 .el-menu-demo {
-  /* background-color: rgba(255,255,255,0.01); */
   background-image: url("../assets/banner-bg-1.jpg");
   border-bottom: none;
 }
