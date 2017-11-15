@@ -2,6 +2,7 @@
   <div id="app">
     <NavBar v-if="$route.path != '/'"></NavBar> <!--don't display in root directory-->
     <router-view/>
+    <Footer/>
   </div>
 </template>
 
