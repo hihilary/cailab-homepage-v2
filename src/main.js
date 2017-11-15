@@ -8,6 +8,7 @@ import locale from 'element-ui/lib/locale/lang/en'
 
 import router from './router'
 import NavBar from '@/components/NavBar'
+import Footer from '@/components/Footer'
 
 import App from './App'
 
@@ -15,6 +16,7 @@ Vue.config.productionTip = false
 
 // global registered
 Vue.component('NavBar', NavBar)
+Vue.component('Footer', Footer)
 Vue.use(ElementUI, {locale})
 
 /* eslint-disable no-new */
