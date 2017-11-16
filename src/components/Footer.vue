@@ -1,3 +1,47 @@
 <template>
-  <footer>footer here</footer>
+  <footer>
+    <p>We thank these research councils and industrial partners for their generous support</p>
+    <div>
+      <img src="../assets/logo/bbsrc-logo.png">
+      <img src="../assets/logo/erasynbio-logo.png">
+      <img src="../assets/logo/EPSRC.png" class="smallLogo">
+    </div>
+    <div>
+      <img src="../assets/logo/Wellcome_Trust.png">
+      <img src="../assets/logo/gates.png">
+    </div>
+    <div>
+      <img src="../assets/logo/thermo.png" class="smallLogo">
+      <img src="../assets/logo/agilent_tech.png" class="smallLogo">
+      <img src="../assets/logo/bgi.png" class="smallLogo">
+    </div>
+  </footer>
 </template>
+
+<script>
+export default {
+  name: 'Footer',
+  data () {
+    return {}
+  }
+}
+</script>
+
+<style scoped>
+footer {
+  line-height: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 40px;
+}
+footer img {
+  padding: 10px;
+  width: 150px;
+  height: auto;
+  vertical-align: middle;
+}
+
+footer img.smallLogo{
+  width: 110px;
+}
+</style>
