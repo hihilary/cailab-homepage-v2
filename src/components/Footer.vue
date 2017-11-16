@@ -40,7 +40,6 @@ footer img {
   height: auto;
   vertical-align: middle;
 }
-
 footer img.smallLogo{
   width: 110px;
 }
