@@ -1,16 +1,12 @@
 <template>
   <div class="page-container">
     <h1>Publications</h1>
-    <table>
-      <tbody>
-        <p v-for="(publicationsItem, key) in publications" :key="key">
-          
-            <span>{{publicationsItem.index}}.</span>
-            <span v-html="publicationsItem.htmlText"></span>
-          
-        </p>
-      </tbody>
-    </table>
+    <p v-for="(publicationsItem, key) in publications" :key="key">
+        
+        <span>{{publicationsItem.index}}.</span>
+        <span v-html="publicationsItem.htmlText"></span>
+        
+    </p>
   </div>
 </template>
 
