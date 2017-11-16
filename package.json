@@ -6,8 +6,8 @@
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "start": "npm run dev",
-    "backend": "node ./build/start-backend.js",
+    "start": "start_dev",
+    "backend": "supervisor -w backend ./build/start-backend.js",
     "unit": "jest test/unit/specs --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
@@ -15,16 +15,17 @@
     "build": "node build/build.js"
   },
   "dependencies": {
-    "element-ui": "^2.0.4",
-    "vue": "^2.5.2",
-    "vue-router": "^3.0.1",
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.9",
+    "element-ui": "^2.0.4",
     "express": "~4.15.5",
+    "mongoose": "^4.13.3",
     "morgan": "~1.9.0",
     "pug": "2.0.0-beta11",
-    "serve-favicon": "~2.4.5"
+    "serve-favicon": "~2.4.5",
+    "vue": "^2.5.2",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
