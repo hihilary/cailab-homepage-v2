@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <NavBar v-if="$route.path != '/'"></NavBar> <!--don't display in root directory-->
+    <NavBar v-if="$route.path != '/'" /><!--don't display in root directory-->
     <router-view/>
     <Footer/>
   </div>
