@@ -29,10 +29,14 @@ export default {
 
 <style scoped>
 footer {
+  box-sizing: border-box;
+  margin-left: 13%;
+  width: 74%;
   line-height: 40px;
   font-size: 24px;
   font-weight: bold;
-  padding: 40px;
+  padding: 40px 0;
+  clear: both;
 }
 footer img {
   padding: 10px;

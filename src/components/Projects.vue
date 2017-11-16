@@ -91,8 +91,8 @@
     neochromosome.
     <img src="../assets/img/recombinase.png" width="400px" class="block-center">
     <br><br><br><br>
-    <img src="../assets/img/yeastfab.png" width="400px" class="float-right">
     <div class="title2">YeastFab</div>
+    <img src="../assets/img/yeastfab.png" width="400px" class="float-right">
     The YeastFab project aims to construct the first comprehensive library 
     of standardised and well-characterised biological parts (promoters, 
     open-reading frames and terminators) for the Saccharomyces cerevisiae 
@@ -111,8 +111,8 @@
     metabolic engineering thus accelerating the iterations of the 
     Design-Build-Test cycle for heterologous expression of pathways. 
     <br><br><br><br>
-    <img src="../assets/img/synnp.png" width="400px" class="float-right">
     <div class="title2">Drug Discovery and Generating Impact</div>
+    <img src="../assets/img/synnp.png" width="400px" class="float-right">
     <div class="title3">Synthetic Natural Products (SynNP)</div>
     The SynNP project aims to apply synthetic biology to the discovery 
     and design of new antibiotics against tuberculosis and other infectious 
@@ -135,10 +135,15 @@ export default {
 </script>
 
 <style scoped>
+div{
+  box-sizing: border-box;
+}
 .page-container {
-  margin-left: 13%;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 50px;
   width: 74%;
+  max-width: 1280px;
   font-size: 14px;
   line-height: 20px;
   text-align: left;
@@ -157,6 +162,7 @@ export default {
   font-size: 30px;
   line-height: 40px;
   font-style: italic;
+  clear: both;
 }
 .title3 {
   font-size: 18px;

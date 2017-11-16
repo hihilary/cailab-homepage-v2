@@ -123,8 +123,10 @@ div{
   display: flex;
   color:#fff;
   width: 76%;
+  max-width: 1920px;
   margin-top: 100px;
-  margin-left: 13%;
+  margin-left: auto;
+  margin-right: auto;
   height: 400px;
   -webkit-align-items: center;
           align-items: center;
