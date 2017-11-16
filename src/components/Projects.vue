@@ -1,15 +1,15 @@
 <template>
   <div class="page-container">
-    <div class="title1">Projects</div><br>
-    <div class="title2">Synthetic Genomics</div>
-    <div class="title3">Sc2.0</div>
+    <h1 class="title1">Projects</h1><br>
+    <h2 class="title2">Synthetic Genomics</h2>
+    <h3 class="title3">Sc2.0</h3>
     Our group is heavily involved with the synthetic yeast genome consortium 
     (Sc2.0, www.syntheticyeast.org), which aims to re-design and synthesize 
     a 12 Mb designer yeast genome de novo (for details see Dymond, Nature 2010). 
     Our group will design and synthesize at least one chromosome in house, 
     so the success of this project will be of great significance and highly valuable 
     to the field of synthetic biology.
-    <div class="title3">Evolution of Synthetic Yeast genomes (IESY)</div>
+    <h3 class="title3">Evolution of Synthetic Yeast genomes (IESY)</h3>
     The Induced Evolution of Synthetic Yeast genomes (IESY) project builds on 
     pioneering developments from the Saccharomyces cerevisiae 2.0 (Sc2.0) consortium. 
     IESY represents an innovative concept in synthetic biology to explore combinatory 
@@ -20,7 +20,7 @@
     genome diversity with the capability of genome minimization and the ability to 
     produce new biological functions through rapid evolution of genome content, copy 
     number and gene order.
-    <div class="title3">tRNA Neochromosome</div>
+    <h3 class="title3">tRNA Neochromosome</h3>
     <img src="../assets/img/building_neochromosomes.png" width="600px" class="float-right">
     This project is part of the international synthetic yeast consortium. The goal 
     of this project is to design and build a tRNA neochromosome in yeast, hosting 
@@ -40,7 +40,7 @@
     which will enable us ‘SCRaMbLE’ the neochromosome and observe whether there is 
     a preference for tRNA copy number under different conditions.
     <br><br>
-    <div class="title3">Neochromosomes to Understand Chromosome Segregation</div>
+    <h3 class="title3">Neochromosomes to Understand Chromosome Segregation</h3>
     (In collaboration with the Adele Marston lab’) This project aims to better 
     understand the structure and function of the budding yeast pericentromere and 
     its role in chromosome segregation. Failure to accurately separate sister 
@@ -50,8 +50,8 @@
     effect of transcription on cohesin localisation and movement across the 
     pericentromere and how this influence sister chromatid cohesion. 
     <br><br><br><br>
-    <div class="title2">DNA Synthesis Automation and Technology Development</div>
-    <div class="title3">DNA Synthesis Automation</div>
+    <h2 class="title2">DNA Synthesis Automation and Technology Development</h2>
+    <h3 class="title3">DNA Synthesis Automation</h3>
     <img src="../assets/img/emma.png" width="400px" class="float-right">
     To close the gap between design and fabrication in synthetic biology, 
     we are proposing to automate the DNA synthesis process, utilizing liquid 
@@ -64,7 +64,7 @@
     Therefore, the second goal is to develop a workflow management system which 
     schedules experiments based on given optimization objectives, such as cost, 
     total time and minimal hands-on time.
-    <div class="title3">EMMA</div>
+    <h3 class="title3">EMMA</h3>
     Traditional cloning methods often require laborious manual design and 
     assembly of plasmids using tailored sequential cloning steps. This process 
     can be protracted, complicated, expensive and error-prone. In our lab, 
@@ -76,7 +76,7 @@
     of delivering megabase-size DNA constructs into mammalian cells. EMMA is 
     compatible with automated production and provides new opportunities for 
     mammalian synthetic biology.
-    <div class="title3">DNA Recombinase toolkit for synthetic biology</div>
+    <h3 class="title3">DNA Recombinase toolkit for synthetic biology</h3>
     Site-specific DNA recombinases are a family of DNA enzymes that can recognize 
     specific DNA sequences and drive DNA recombination between specific sites 
     to achieve deletion, inversion, integration or transposition of target DNA 
@@ -91,7 +91,7 @@
     neochromosome.
     <img src="../assets/img/recombinase.png" width="400px" class="block-center">
     <br><br><br><br>
-    <div class="title2">YeastFab</div>
+    <h2 class="title2">YeastFab</h2>
     <img src="../assets/img/yeastfab.png" width="400px" class="float-right">
     The YeastFab project aims to construct the first comprehensive library 
     of standardised and well-characterised biological parts (promoters, 
@@ -111,9 +111,9 @@
     metabolic engineering thus accelerating the iterations of the 
     Design-Build-Test cycle for heterologous expression of pathways. 
     <br><br><br><br>
-    <div class="title2">Drug Discovery and Generating Impact</div>
+    <h2 class="title2">Drug Discovery and Generating Impact</h2>
     <img src="../assets/img/synnp.png" width="400px" class="float-right">
-    <div class="title3">Synthetic Natural Products (SynNP)</div>
+    <h3 class="title3">Synthetic Natural Products (SynNP)</h3>
     The SynNP project aims to apply synthetic biology to the discovery 
     and design of new antibiotics against tuberculosis and other infectious 
     diseases. Based on a large Bio Synthetic Gene (BSG) library and yeast 
@@ -127,11 +127,11 @@
 
 <script>
 export default {
-  name: "Projects",
-  data() {
-    return {};
+  name: 'Projects',
+  data () {
+    return {}
   }
-};
+}
 </script>
 
 <style scoped>
