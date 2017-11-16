@@ -1,25 +1,19 @@
 <template>
   <div class="page-container">
     <h1>News</h1>
-    <table cellspacing="0" cellpadding="0" border="0" class="el-table__body" style="width: 652px;">
+    <table>
       <tbody>
-        <tr class="el-table__row" v-for="(newsItem, key) in news" :key="key">
-          <td class="el-table_1_column_1">
-            <div class="cell" v-html="newsItem.description"></div>
+        <tr v-for="(newsItem, key) in news" :key="key">
+          <td>
+            <div v-html="newsItem.description"></div>
           </td>
         </tr>
       </tbody>
     </table>
-
-    <el-table :data="news" style="width: 100%">
-      <el-table-column prop="description" label="Description" />
-    </el-table>
   </div>
 </template>
 
 <script>
-import 'element-ui/lib/theme-chalk/table.css'
-import 'element-ui/lib/theme-chalk/table-column.css'
 export default {
   name: 'News',
   data () {
@@ -65,14 +59,42 @@ div{
   line-height: 20px;
   text-align: left;
 }
-.h1,
-.h2,
-.h3 {
+h1,
+h2,
+h3 {
   margin: 10px 0;
   font-weight: bold;
 }
-.h1 {
+h1 {
   font-size: 36px;
   line-height: 40px;
+}
+table {
+  max-width: 100%;
+  border-color: grey;
+  border-collapse: collapse;
+  background-color: transparent;
+}
+tbody {
+  vertical-align: middle;
+}
+td {
+  border-top-style:solid;
+  border-top-width:1px;
+  border-top-color:rgb(221,221,221);
+  padding: 8px;
+}
+tr:hover {
+  background-color: #f5f5f5;
+}
+</style>
+
+<style>
+a {
+  color: rgb(0,136,204);
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(0,85,128);
 }
 </style>
