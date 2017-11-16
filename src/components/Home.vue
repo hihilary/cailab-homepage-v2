@@ -3,7 +3,7 @@
     <el-carousel :autoplay="false" arrow="always" indicator-position="none" height="500px" class="home-carousel">
       <el-carousel-item>
         <div class="container">
-          <div class="leftDiv">
+          <div class="leftDiv align-center">
             <img src="../assets/pic_art/newcairobot.png" class="robot">
           </div>
           <div class="rightDiv">
@@ -14,7 +14,7 @@
       </el-carousel-item>
       <el-carousel-item>
         <div class="container">
-          <div class="leftDiv">
+          <div class="leftDiv align-center">
             <img src="../assets/pic_art/CAIDNA.png" class="dna">
           </div>
           <div class="rightDiv">
@@ -200,6 +200,9 @@ img.dna {
 }
 a.panel-link:hover {
   color: #005580;
+}
+.align-center{
+  text-align: center;
 }
 </style>
 
