@@ -6,6 +6,7 @@ import Software from '@/components/Software'
 import News from '@/components/News'
 import Publications from '@/components/Publications'
 import People from '@/components/People'
+import Contact from '@/components/Contact'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/users',
       name: 'People',
       component: People
+    },
+    {
+      path: '/contact',
+      name: 'Contact',
+      component: Contact
     },
   ]
 })
