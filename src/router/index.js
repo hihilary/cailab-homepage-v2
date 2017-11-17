@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Projects from '@/components/Projects'
 import Software from '@/components/Software'
 import News from '@/components/News'
+import Publications from '@/components/Publications'
 
 Vue.use(Router)
 
@@ -28,6 +29,11 @@ export default new Router({
       path: '/news_items',
       name: 'News',
       component: News
+    },
+    {
+      path: '/publications',
+      name: 'Publications',
+      component: Publications
     },
   ]
 })
