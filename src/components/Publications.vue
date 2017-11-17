@@ -1,6 +1,7 @@
 <template>
   <div class="page-container">
     <h1>Publications</h1>
+    <div>{{message}}</div>
     <p v-for="(publicationsItem, key) in publications" :key="key">
         
         <span>{{publicationsItem.index}}.</span>
@@ -15,6 +16,7 @@ export default {
   name: 'Publications',
   data () {
     return {
+      message:'loading',
       publications: [],
     }
   },
@@ -27,6 +29,7 @@ export default {
         publications.push({index, htmlText})
         index--
       }
+      this.message = ''
       this.publications = publications
     }, (response) => {
       this.msg = response.statusText
