@@ -16,7 +16,7 @@ export default {
   name: 'Publications',
   data () {
     return {
-      message:'loading',
+      message: 'loading',
       publications: [],
     }
   },
