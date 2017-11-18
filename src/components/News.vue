@@ -1,6 +1,7 @@
 <template>
   <div class="page-container">
     <h1>News</h1>
+    <div>{{message}}</div>
     <table>
       <tbody>
         <tr v-for="(newsItem, key) in news" :key="key">
@@ -18,6 +19,7 @@ export default {
   name: 'News',
   data () {
     return {
+      message: 'loading',
       news: [],
     }
   },
@@ -37,6 +39,7 @@ export default {
         let htmlText = x.text.replace(/\[url=(.*?)\](.*?)\[\/url\]/g, '<a href="$1">$2</a>')
         descriptions.push({description: `${date}, ${htmlText}`})
       }
+      this.message = ''
       this.news = descriptions
     }, (response) => {
       this.msg = response.statusText
