@@ -1,19 +1,19 @@
 <template>
   <div class="page-container">
-    <div class="title1">Software</div>
-    <div class="title2">PaperClip</div>
+    <h1 class="title1">Software</h1>
+    <h2 class="title2">PaperClip</h2>
     Parts Assembly automation - a software to design bridging sequences (“Clips”) 
     for parts assembly. 
     <br><br>
-    <div class="title2">AutoGene</div>
+    <h2 class="title2">AutoGene</h2>
     DNA annotation automation - a software to automatically detect biological 
     features inside DNA sequences. 
     <br><br>
-    <div class="title2">GenomeCarver</div>
+    <h2 class="title2">GenomeCarver</h2>
     Parts construction automation - a software to mine out biological parts 
     from various genomes. 
     <br><br>
-    <div class="title2">YeastFab CAM</div>
+    <h2 class="title2">YeastFab CAM</h2>
     Computer Assisted Manufacture for design, fabricate and characterize ~18,000 
     standardized yeast genetic parts. 
   </div>
