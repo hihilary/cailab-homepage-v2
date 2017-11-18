@@ -8,22 +8,23 @@
 </template>
 
 <script>
+import alumni from '../assets/alumni.json'
 export default {
   name: 'Alumni',
   data () {
     return {
-      alumni: []
+      alumni,
     }
   },
   created () {
-    this.$http.post('/api/alumni').then((response) => {
-      for (let x of response.body) {
-        console.log(x)
-        this.alumni.push(x)
-      }
-    }, (response) => {
-      this.msg = response.statusText
-    })
+    // this.$http.post('/api/alumni').then((response) => {
+    //   for (let x of response.body) {
+    //     console.log(x)
+    //     this.alumni.push(x)
+    //   }
+    // }, (response) => {
+    //   this.msg = response.statusText
+    // })
   }
 }
 </script>

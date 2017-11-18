@@ -3,16 +3,44 @@
     <div class="page-container">
       <h1>People</h1>
     </div>
+    <div>{{leader.title}}{{leader.name}}</div>
+    <div>{{leader.email}}</div>
+    <div v-for="(member,idx) in crew" :key="idx">
+      <div>{{member.title}}{{member.name}}</div>
+      <div>{{member.email}}</div>
+      <div>{{shortDescription(member.description)}}</div>
+    </div>
     <Alumni/>
   </div>
 </template>
 
 <script>
+
+import crewMember from '../assets/people.json'
+
 export default {
   name: 'People',
   data () {
-    return {}
-  }
+    return {
+      leader: {
+        'title': 'Dr. ',
+        'name': 'Patrick Yizhi Cai',
+        'email': 'yizhi.cai@manchester.ac.uk',
+        'link': '/static/YCai-CV-Full-2017-11-9.pdf',
+        'protrait': 'patrick.jpg'
+      },
+      crew: crewMember,
+    }
+  },
+  methods: {
+    shortDescription (longDescription) {
+      if (longDescription) {
+        return longDescription.replace(/\[br\]/, '').substr(0, 140)
+      } else {
+        return ''
+      }
+    }
+  },
 }
 </script>
 
