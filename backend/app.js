@@ -13,6 +13,8 @@ var app = express()
 var news = require('../db/news.json')
 var publications = require('../db/publications.json')
 var alumni = require('../db/alumni.json')
+var fs = require('fs')
+var comparePassword = require('./comparePassword')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -29,8 +31,82 @@ app.use(express.static(path.join(__dirname, 'public')))
 // app.use('/', index)
 // app.use('/users', users)
 app.use(express.static('dist'))
+var session = require('express-session');
+var FileStore = require('session-file-store')(session);
 
 // -----------------------------------------API--------------------------------
+
+var requireAdmin = function (req, res, next) {
+  var sess = req.session
+  if (sess.admin) {
+    next()
+  } else {
+    res.status(401).send({message: 'require login'})
+  }
+}
+
+app.use(session({
+  name: 'cailab-homepage',
+  secret: 'cailab-homepage', // for signing session
+  store: new FileStore(),  // store in a local file
+  saveUninitialized: false,  
+  resave: false,
+  cookie: {
+      maxAge: 36 * 1000 
+  }
+}));
+
+app.use('/api/test2',requireAdmin, function(req, res) {
+  var sess = req.session;
+  res.send({cookie: req.cookie, sess: req.session})
+})
+
+app.post('/api/login', function(req, res, next){
+
+  console.log(req.body)
+  let password = req.body.password
+
+  comparePassword(password).then(
+    () => {
+      req.session.regenerate(function(err) {
+        if(err){
+            return res.status(500).json({message:'can not login'})
+        }
+        req.session.admin=true
+        res.json({message:'OK'})                   
+      });
+    },
+    (error) => {
+      res.json({message: error})
+    }
+  ) 
+})
+
+app.post('/api/myIdentity', (req, res) => {
+  var sess = req.session
+  if (sess.admin) {
+    res.send({id: 'admin'})
+  } else {
+    res.send({id: 'guest'})
+  }
+})
+
+// 退出登录
+app.get('/api/logout', function(req, res, next){
+
+  req.session.destroy(function(err) {
+      if(err){
+          res.status(500).json({message: 'error in log out'});
+          return;
+      }
+      
+      req.session.admin=false
+      res.clearCookie(identityKey);
+      res.redirect('/');
+  });
+});
+
+
 app.use('/api/test/', (req, res) => {
   res.send('hello world!')
 })
@@ -45,6 +121,21 @@ app.use('/api/listPublications', (req, res) => {
 
 app.use('/api/alumni', (req, res) => {
   res.send(alumni)
+})
+
+app.put('/api/updatePublications', requireAdmin, (req, res) => {
+
+  let token=req.cookies.token
+
+  let json = JSON.stringify(req.body)
+
+  fs.writeFile('db/publications.json', json, 'utf-8', (err, data) => {
+      if(err) {
+        res.send({err})
+      } else {
+        res.send({message: 'OK'})
+      }
+  })
 })
 // -----------------------------------------API--------------------------------
 
