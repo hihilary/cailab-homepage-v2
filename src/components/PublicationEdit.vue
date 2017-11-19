@@ -103,11 +103,6 @@ tr:hover {
 .label{
   text-align: right;
 }
-.item, 
-.label
-{
-  padding: 10px 0;
-}
 </style>
 
 <style>
@@ -122,7 +117,13 @@ a:hover {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 .delete-icon{
-  padding: 20px;
   cursor: pointer;
+}
+.item {
+  display         : flex;
+  justify-content : center;
+  align-items     : center;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 </style>

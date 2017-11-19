@@ -13,6 +13,8 @@
 </template>
 
 <script>
+import ubb2html from '../tools/ubb2html'
+
 export default {
   name: 'Publications',
   data () {
@@ -26,7 +28,7 @@ export default {
       let publications = []
       let index = response.body.length
       for (let x of response.body) {
-        let htmlText = x.replace(/\[b](.*?)\[\/b\]/g, '<b>$1</b>')
+        let htmlText = ubb2html(x)
         publications.push({index, htmlText})
         index--
       }
