@@ -7,6 +7,7 @@ import News from '@/components/News'
 import Publications from '@/components/Publications'
 import People from '@/components/People'
 import Contact from '@/components/Contact'
+import PublicationEdit from '@/components/PublicationEdit'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/publications',
       name: 'Publications',
       component: Publications
+    },
+    {
+      path: '/publication_edit',
+      name: 'PublicationEdit',
+      component: PublicationEdit
     },
     {
       path: '/users',

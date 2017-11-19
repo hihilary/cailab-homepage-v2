@@ -1,6 +1,7 @@
 <template>
   <div class="page-container">
     <h1>Publications</h1>
+    <el-button type="primary" @click="onClick">Edit</el-button>
     <p v-for="(publicationsItem, key) in publications" :key="key">
         
         <span>{{publicationsItem.index}}.</span>
@@ -31,6 +32,11 @@ export default {
     }, (response) => {
       this.msg = response.statusText
     })
+  },
+  methods: {
+    onClick () {
+      this.$router.push({ path: '/publication_edit' })
+    }
   }
 }
 </script>
