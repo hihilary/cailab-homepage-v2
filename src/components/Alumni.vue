@@ -57,4 +57,7 @@ h2 {
   font-size: 24px;
   line-height: 40px;
 }
+ul {
+  padding-left: 30px;
+}
 </style>
