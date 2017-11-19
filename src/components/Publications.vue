@@ -1,6 +1,7 @@
 <template>
   <div class="page-container">
     <h1>Publications</h1>
+    <div>{{message}}</div>
     <el-button type="primary" @click="onClick">Edit</el-button>
     <p v-for="(publicationsItem, key) in publications" :key="key">
         
@@ -16,6 +17,7 @@ export default {
   name: 'Publications',
   data () {
     return {
+      message: 'loading',
       publications: [],
     }
   },
@@ -28,6 +30,7 @@ export default {
         publications.push({index, htmlText})
         index--
       }
+      this.message = ''
       this.publications = publications
     }, (response) => {
       this.msg = response.statusText
