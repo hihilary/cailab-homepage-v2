@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import ubb2html from '../tools/ubb2html'
 export default {
   name: 'News',
   data () {
@@ -27,7 +28,7 @@ export default {
     this.$http.post('/api/listNews').then((response) => {
       let tmps = response.body
       // console.log(this.news)
-      let descriptions = []
+      let news = []
       for (let x of tmps) {
         let date = new Date(x.dateBegin).toLocaleDateString(
           undefined, {year: 'numeric', month: 'short', day: 'numeric'})
@@ -36,11 +37,12 @@ export default {
           undefined, {year: 'numeric', month: 'short', day: 'numeric'})
           date += ' - ' + endDate
         }
-        let htmlText = x.text.replace(/\[url=(.*?)\](.*?)\[\/url\]/g, '<a href="$1">$2</a>')
-        descriptions.push({description: `${date}, ${htmlText}`})
+        let htmlText = ubb2html(x.text)
+        console.log(htmlText)
+        news.push({description: `${date}, ${htmlText}`})
       }
       this.message = ''
-      this.news = descriptions
+      this.news = news
     }, (response) => {
       this.msg = response.statusText
     })

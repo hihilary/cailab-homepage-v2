@@ -2,6 +2,7 @@
   <div class="page-container">
     <h1>Publications</h1>
     <div>{{message}}</div>
+    <el-button type="primary" @click="onClick">Edit</el-button>
     <p v-for="(publicationsItem, key) in publications" :key="key">
         
         <span>{{publicationsItem.index}}.</span>
@@ -12,6 +13,8 @@
 </template>
 
 <script>
+import ubb2html from '../tools/ubb2html'
+
 export default {
   name: 'Publications',
   data () {
@@ -25,7 +28,7 @@ export default {
       let publications = []
       let index = response.body.length
       for (let x of response.body) {
-        let htmlText = x.replace(/\[b](.*?)\[\/b\]/g, '<b>$1</b>')
+        let htmlText = ubb2html(x)
         publications.push({index, htmlText})
         index--
       }
@@ -34,6 +37,11 @@ export default {
     }, (response) => {
       this.msg = response.statusText
     })
+  },
+  methods: {
+    onClick () {
+      this.$router.push({ path: '/publication_edit' })
+    }
   }
 }
 </script>
