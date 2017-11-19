@@ -2,13 +2,20 @@
   <div>
     <div class="page-container">
       <h1>People</h1>
-    </div>
-    <div>{{leader.title}}{{leader.name}}</div>
-    <div>{{leader.email}}</div>
-    <div v-for="(member,idx) in crew" :key="idx">
-      <div>{{member.title}}{{member.name}}</div>
-      <div>{{member.email}}</div>
-      <div>{{shortDescription(member.description)}}</div>
+      <div class="leader">
+        <img :src="getFullPortraitPath(leader.portrait)" class="img-leader">
+        <div class="info-leader">
+          <h2>{{leader.title}}{{leader.name}}</h2>
+          <div><a :href="'mailto:'+leader.email">{{leader.email}}</a></div>
+          <a href="/static/YCai-CV-Full-2017-11-9.pdf">Dr. Cai's CV</a>&nbsp;&nbsp;|&nbsp;
+          <router-link to="/about">Learn more about the lab</router-link>
+        </div>
+      </div>
+      <div v-for="(member,idx) in crew" :key="idx">
+        <div>{{member.title}}{{member.name}}</div>
+        <div>{{member.email}}</div>
+        <div>{{shortDescription(member.description)}}</div>
+      </div>
     </div>
     <Alumni/>
   </div>
@@ -27,7 +34,7 @@ export default {
         'name': 'Patrick Yizhi Cai',
         'email': 'yizhi.cai@manchester.ac.uk',
         'link': '/static/YCai-CV-Full-2017-11-9.pdf',
-        'protrait': 'patrick.jpg'
+        'portrait': 'Patrick.jpg'
       },
       crew: crewMember,
     }
@@ -39,6 +46,9 @@ export default {
       } else {
         return ''
       }
+    },
+    getFullPortraitPath (portrait) {
+      return require('../assets/portraits/' + portrait)
     }
   },
 }
@@ -67,5 +77,44 @@ h3 {
 h1 {
   font-size: 36px;
   line-height: 40px;
+}
+h2 {
+  font-size: 30px;
+  line-height: 40px;
+}
+.leader {
+  background-color: rgb(245,245,245);
+  border-color: rgb(227,227,227);
+  color: rgb(51,51,51);
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 3px;
+  padding: 9px;
+  min-height: 20px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
+  display: flex;
+  align-items: center;
+}
+.img-leader {
+  width: 150px;
+  border-collapse: collapse;
+  padding: 4px;
+  vertical-align: middle;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background-color: #fff;
+  cursor: auto;
+  margin-right: 30px;
+}
+.info-leader {
+  display: inline-block;
+}
+a {
+  color: rgb(0,136,204);
+  text-decoration: none;
+}
+a:hover {
+  color: rgb(0,85,128);
+  text-decoration: underline;
 }
 </style>

@@ -12,7 +12,6 @@ var app = express()
 
 var news = require('../db/news.json')
 var publications = require('../db/publications.json')
-var alumni = require('../db/alumni.json')
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'))
@@ -43,9 +42,6 @@ app.use('/api/listPublications', (req, res) => {
   res.send(publications)
 })
 
-app.use('/api/alumni', (req, res) => {
-  res.send(alumni)
-})
 // -----------------------------------------API--------------------------------
 
 // catch 404 and forward to error handler
