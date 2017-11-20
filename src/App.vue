@@ -3,6 +3,7 @@
     <NavBar v-if="$route.path != '/'" /><!--don't display in root directory-->
     <router-view/>
     <Footer/>
+    <LoginDialog/>
   </div>
 </template>
 
@@ -19,6 +20,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+}
+body{
+  margin: 0px;
 }
 
 </style>
