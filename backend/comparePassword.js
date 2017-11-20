@@ -8,9 +8,9 @@ module.exports = function comparePassword (password) {
   console.log(d)
   return new Promise((resolve, reject) => {
     if (d === secret.savedPassword) {
-        resolve(null)
+      resolve(null)
     } else {
-        reject('wrong password')
+      reject('wrong password')
     }
   })  
 }

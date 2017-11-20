@@ -11,6 +11,7 @@ import NavBar from '@/components/NavBar'
 import Footer from '@/components/Footer'
 import Alumni from '@/components/Alumni'
 import VueResource from 'vue-resource'
+import LoginDialog from '@/components/LoginDialog'
 
 import App from './App'
 
@@ -20,6 +21,7 @@ Vue.config.productionTip = false
 Vue.component('NavBar', NavBar)
 Vue.component('Footer', Footer)
 Vue.component('Alumni', Alumni)
+Vue.component('LoginDialog', LoginDialog)
 Vue.use(ElementUI, {locale})
 Vue.use(VueResource)
 

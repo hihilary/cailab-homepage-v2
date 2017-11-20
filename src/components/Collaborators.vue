@@ -2,7 +2,7 @@
   <div class="page-container">
     <h1>Collaborators</h1>
     <el-row justify="space-between">
-      <el-col :span="8" v-for="(item, idx) in coworkers" :key="idx" >
+      <el-col :xs="24" :sm="12" :xl="6" :md="8" :lg="8" v-for="(item, idx) in coworkers" :key="idx" >
         <div class="item-div">
           <img :src="getImg(item.img)" class="school-img">
           <span class="name">{{ item.name }}</span>
@@ -70,6 +70,7 @@ h1 {
 .item-div {
   display: flex;
   align-items: center;
+  height: 140px;
 }
 </style>
 <style>

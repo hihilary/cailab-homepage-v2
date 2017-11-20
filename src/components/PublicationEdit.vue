@@ -5,7 +5,8 @@
       <el-row>
         <el-col :offset="1" :span="20">
           <el-button type="primary" @click="addNewItem">new item</el-button>
-          <el-button type="primary" plain>save</el-button>
+          <el-button type="primary" plain @click="saveResult">save</el-button>
+          <el-button type="info" @click="cancelEdit">Cancel</el-button>
         </el-col>
       </el-row>
       
@@ -53,6 +54,18 @@ export default {
     },
     deleteItem (key) {
       this.publications.splice(key, 1)
+    },
+    cancelEdit () {
+      this.$router.push({ path: '/publications' })
+    },
+    saveResult () {
+      for (let i = 0; i < this.publications.length; i++) {
+        let str = this.publications[i].htmlText.trim()
+        if (str.length === 0) {
+          this.publications.splice(i, 1)
+          i--
+        }
+      }
     }
   }
 }
