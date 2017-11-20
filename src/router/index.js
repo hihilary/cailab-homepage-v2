@@ -8,6 +8,7 @@ import Publications from '@/components/Publications'
 import People from '@/components/People'
 import Contact from '@/components/Contact'
 import PublicationEdit from '@/components/PublicationEdit'
+import Collaborators from '@/components/Collaborators'
 
 Vue.use(Router)
 
@@ -52,6 +53,11 @@ export default new Router({
       path: '/contact',
       name: 'Contact',
       component: Contact
+    },
+    {
+      path: '/collaborators',
+      name: 'Collaborators',
+      component: Collaborators
     },
   ]
 })

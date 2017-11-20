@@ -38,7 +38,7 @@ export default {
           date += ' - ' + endDate
         }
         let htmlText = ubb2html(x.text)
-        console.log(htmlText)
+        // console.log(htmlText)
         news.push({description: `${date}, ${htmlText}`})
       }
       this.message = ''

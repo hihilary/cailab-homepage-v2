@@ -32,69 +32,69 @@
         "name": "Jamie Auxillos",
         "email": "s1469975@sms.ed.ac.uk",
         "description": "Jamie is a PhD student at the Cai lab under the supervision of Dr. Patrick Cai and Professor Chris French. She graduated with a BSc Hons in Biomedical Sciences with Medical Microbiology in 2014 at Newcastle University and an MSc in Systems and Synthetic Biology at the University of Edinburgh in 2015. [br]Her project focusses on the application of synthetic biology and high-throughput biology in drug discovery, specifically antibiotics against tuberculosis. This project is in collaboration with researchers at the Tyres lab (University of Montreal) and the Wright lab (McMaster University). Her interests lie in the application of synthetic biology in the development of treatments and therapies against diseases. ",
-        "portrait": ""
+        "portrait": "Jamie.jpg"
     },
     {
         "title": "Dr. ",
         "name": "Andrea Martella",
         "email": "martellandrea@tiscali.it",
         "description": "My research project is focused on development of new tools and strategies that facilitate the design and production of mammalian expression vectors and megabase-size DNA constructs. [br]My current project is in collaboration with Dr. Steve Pollard’s lab at the MRC Centre for Regenerative Medicine (CRM), a research centre based at the University of Edinburgh. I developed the EMMA toolkit that will be used to accelerate the discovery of new drugs for treatment of glioblastoma and to test new hypotheses in the field of regenerative medicine. [br]I obtained my doctorate degree in 2014 at the Erasmus Medical Center, Cell Biology department, Rotterdam, The Netherland. Under the supervision of Prof. Frank Grosveld, my research project was focused on transcription factors and signalling pathways involved in differentiation of mesodermal precursors towards hematopoietic and endothelial lineages. ",
-        "portrait": ""
+        "portrait": "Andrea.jpg"
     },
     {
         "title": "",
         "name": "Aileen Greig",
         "email": "aileen.greig@ed.ac.uk",
         "description": "Aileen. Married. Mother of 4. Loves cats and dogs. Enjoys a laugh. [br]Aileen has worked at Edinburgh University in a technical capacity for 26 years and was part of the ICMB within Prof Adrian Bird's lab until 2009, before becoming a member of Prof Mike Tyers' lab for 5 years. Aileen now supports the Cai lab in most technical disciplines. ",
-        "portrait": ""
+        "portrait": "Aileen.jpg"
     },
     {
         "title": "Dr. ",
         "name": "Dariusz Abramczyk",
         "email": "dabramcz@staffmail.ed.ac.uk",
         "description": "My scientific interest lies in the field of fungal molecular biology and microbiology. I graduated with MSc in Biotechnology and PhD in Molecular Biology from Maria Curie-Sklodowska University in Poland. Following postdoctoral training at the University of Texas at Austin and University of Manchester, I joined University of Edinburgh working on short-term projects including the regulation of ribosome biosynthesis in yeast and, subsequently, an industrial project applying the engineering of metabolic pathways in bacteria for production of fungal polysaccharides. Currently, I am a researcher in Dr. Patrick Cai group working on projects related to the synthetic yeast genome project (Sc2.0). [br]My main research goals:[br]Creating strains with multiple synthetic chromosomes in one cell[br]Phenotypic study of yeast synthetic strains[br]To establish a SCRaMbLE protocol for cell batch transfer to evaluate independent strain evolution and generate synthetic yeast strains with valuable phenotypes for growth, such as high ethanol concentration and glucose-limiting conditions.",
-        "portrait": ""
+        "portrait": "Dariusz.jpg"
     },
     {
         "title": "",
         "name": "Emily Scher",
         "email": "scher.emily@gmail.com",
         "description": "Emily is a PhD Student in the Cai Lab. She graduated in 2014 with a BSc in Computer Science from John's Hopkins University. She has had internships at several software companies including Google and Cisco, and before her PhD was working as a Software Development Engineer at Amazon. ",
-        "portrait": ""
+        "portrait": "Emily.jpg"
     },
     {
         "title": "",
         "name": "Katarina Jonsson",
         "email": "s1140622@sms.ed.ac.uk",
         "description": "Katarina graduated from the University of Edinburgh in June 2015 with a BSc (Hons) in Molecular Biology. She is continuing her studies here in Edinburgh as a PhD student in the Cai and Marston labs where she is synthesising mini-yeast chromosomes and testing their ability to segregate during mitosis. During Katarina’s spare time she likes to read, hike and go to the cinema. ",
-        "portrait": ""
+        "portrait": "Katarina.jpg"
     },
     {
         "title": "Dr. ",
         "name": "Eva Garcia-Ruiz",
         "email": "egarcia2@exseed.ed.ac.uk",
         "description": "Eva works at Cai’s group at University of Edinburgh as a postdoctoral research associate. Prior to coming to Edinburgh, she gained extensive research experience from several fellowships and internships at industry (MSD) and academia. She received her B.S. in Biology from Universidad de Alcala de Henares in Spain, and went on to receive her M.S. and Ph.D. from the Universidad Complutense de Madrid at the Spanish Research Council supervised by Prof. Miguel Alcalde and Prof. Angel T. Martinez. Following graduation, she worked as a postdoctoral research associate at Huimin Zhao’s group at University of Illinois (UIUC) for 3 years. [br]   Her current research is focused on engineering and biosynthesizing diversified natural product-like drugs active against human pathogens. She is also working on automation of synthetic biology protocols. [br]In her free time, she enjoys cooking, ice skating and painting. ",
-        "portrait": ""
+        "portrait": "Eva.jpg"
     },
     {
         "title": "",
         "name": "Nahuel Manzanaro Moreno",
         "email": "s1578730@sms.ed.ac.uk",
         "description": "In 2016 I started my PhD in the SwainLab, co-supervised by Dr. Patrick Cai. My project focuses on developing burden sensors for eukaryotic cells, mainly working with yeast, plate readers and microfluidics. My background includes a bachelor’s degree in biochemistry by the University of the Balearic Islands (Spain) and a MSc in Synthetic Biology and Biotechnology by the University of Edinburgh. ",
-        "portrait": ""
+        "portrait": "Nahuel.jpeg"
     },
     {
         "title": "Dr. ",
         "name": "Daniel Schindler",
         "email": "daniel.schindler@synmikro.uni-marburg.de",
         "description": "Daniel Schindler is currently working as postdoctoral research associate in the lab of Dr Patrick Cai. He obtained his Ph.D. in Biology at the Philipps-Universität Marburg in Germany, at the LOEWE Center for Synthetic Microbiology under Prof Torsten Waldminghaus. His research focused on the construction of synthetic secondary chromosomes to analyse chromosome maintenance systems in Escherichia coli. [br]His current research projects are straightened to the design, construction and characterization of neochromosomes in baker´s yeast Saccharomyces cerevisiae. In his opinion there are many open questions in the field of chromosome research and recent progress in Synthetic Biology can provide answers through construction of synthetic chromosomes.[br]In his free time, Daniel enjoys outdoor sports (climbing, mountaineering and running), travelling and good food. ",
-        "portrait": ""
+        "portrait": "Daniel.png"
     },
     {
         "title": "",
         "name": "Ute Koeber",
         "email": "s1583846@sms.ed.ac.uk",
         "description": "I am interested in using the tools of synthetic biology to explore neural stem cell regulators and how they are disrupted in glioblastoma. This way I hope to identify new drugs that target glioblastoma at the transcriptional level. I did my undergraduate studies in biochemistry in Tuebingen, Germany and my master studies in Molecular Life Science in Jena, Germany with my final thesis focussing on the role of vitamin A in muscle stem cells in the Rudolph Lab at the Leibniz Institute on Aging / Fritz Lipmann Institute. During my master programme I had the chance to broaden my scientific knowledge during an internship at the Harvard Department for Stem Cell and Regenerative Biology in the Rubin Lab. ",
-        "portrait": ""
+        "portrait": "Ute.jpg"
     }
 ]

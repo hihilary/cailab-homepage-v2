@@ -58,7 +58,6 @@ app.use('/api/test2', requireAdmin, function (req, res) {
 })
 
 app.post('/api/login', function (req, res, next) {
-
   console.log(req.body)
   let password = req.body.password
 
@@ -73,7 +72,7 @@ app.post('/api/login', function (req, res, next) {
       })
     },
     (error) => {
-      res.json({message: error})
+      res.status(401).json({message: error})
     }
   )
 })
