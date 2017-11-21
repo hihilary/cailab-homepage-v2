@@ -25,7 +25,7 @@ export default {
     }
   },
   created () {
-    this.$http.post('/api/listNews').then((response) => {
+    this.$http.get('/api/listNews').then((response) => {
       let tmps = response.body
       // console.log(this.news)
       let news = []

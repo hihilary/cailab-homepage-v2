@@ -1,30 +1,32 @@
 <template>
   <div class="page-container">
     <h1>Publications</h1>
-    <div>{{message}}</div>
-    <el-button type="primary" @click="onClick">Edit</el-button>
-    <p v-for="(publicationsItem, key) in publications" :key="key">
-        
-        <span>{{publicationsItem.index}}.</span>
-        <span v-html="publicationsItem.htmlText"></span>
-        
-    </p>
+    <h1>{{message}}</h1>
+    <div v-loading="loading" element-loading-text="loading...">
+      <el-button type="primary" @click="onClick" v-if="canEdit">Edit</el-button>
+      <p v-for="(publicationsItem, key) in publications" :key="key">
+          <span>{{publicationsItem.index}}.</span>
+          <span v-html="publicationsItem.htmlText"></span>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
 import ubb2html from '../tools/ubb2html'
-
+import Global from '@/Global'
 export default {
   name: 'Publications',
   data () {
     return {
-      message: 'loading',
+      message: '',
+      loading: true,
       publications: [],
+      canEdit: false,
     }
   },
   created () {
-    this.$http.post('/api/listPublications').then((response) => {
+    this.$http.get('/api/listPublications').then((response) => {
       let publications = []
       let index = response.body.length
       for (let x of response.body) {
@@ -32,10 +34,24 @@ export default {
         publications.push({index, htmlText})
         index--
       }
-      this.message = ''
+      this.loading = false
       this.publications = publications
     }, (response) => {
-      this.msg = response.statusText
+      this.message = response.statusText
+    })
+
+    // edit button will appear when you are an admin while the component crated.
+    this.$http.post('/api/myIdentity').then((response) => {
+      console.log(response.body)
+      if (response.body.id==='admin') {
+        this.canEdit = true
+      }
+    })
+
+    // edit button will appear when you log in while you are in this component already.
+    Global.bus.$on('adminLogin', () => {
+      console.log('received adminLogin event')
+      this.canEdit = true
     })
   },
   methods: {

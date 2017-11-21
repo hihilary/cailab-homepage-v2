@@ -16,3 +16,4 @@ selenium-debug.log
 *.njsproj
 *.sln
 /backend/secret.json
+/sessions
