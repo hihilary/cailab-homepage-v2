@@ -4,6 +4,8 @@ var favicon = require('serve-favicon')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
+var session = require('express-session')
+var FileStore = require('session-file-store')(session)
 
 var app = express()
 
@@ -18,17 +20,25 @@ app.set('view engine', 'pug')
 
 // uncomment after placing your favicon in /public
 // app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')))
-
+app.use(cookieParser()) // req.headers => req.cookie
+// app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static('dist'))
 // app.use('/', index)
 // app.use('/users', users)
-app.use(express.static('dist'))
-var session = require('express-session');
-var FileStore = require('session-file-store')(session);
+app.use(session({   // req.cookie => req.session
+  name: 'cailab-homepage',
+  secret: 'cailab-homepage', // for signing session
+  store: new FileStore(),  // store in a local file
+  saveUninitialized: false,
+  resave: false,
+  cookie: {
+    maxAge: 3600 * 1000
+  }
+}))
 
 // -----------------------------------------API--------------------------------
 
@@ -41,19 +51,7 @@ var requireAdmin = function (req, res, next) {
   }
 }
 
-app.use(session({
-  name: 'cailab-homepage',
-  secret: 'cailab-homepage', // for signing session
-  store: new FileStore(),  // store in a local file
-  saveUninitialized: false,
-  resave: false,
-  cookie: {
-    maxAge: 36 * 1000
-  }
-}));
-
 app.use('/api/test2', requireAdmin, function (req, res) {
-  var sess = req.session
   res.send({cookie: req.cookie, sess: req.session})
 })
 
@@ -68,10 +66,12 @@ app.post('/api/login', function (req, res, next) {
           return res.status(500).json({message: 'can not login'})
         }
         req.session.admin = true
+        console.log('logged in')
         res.json({message: 'OK'})
       })
     },
     (error) => {
+      console.log('401 forbidden')
       res.status(401).json({message: error})
     }
   )
@@ -115,7 +115,7 @@ app.put('/api/updatePublications', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body)
   fs.writeFile('db/publications.json', json, 'utf-8', (err, data) => {
     if (err) {
-      res.send({err})
+      res.status(500).send({err})
     } else {
       res.send({message: 'OK'})
     }

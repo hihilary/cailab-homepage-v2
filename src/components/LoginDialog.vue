@@ -2,8 +2,9 @@
   <el-dialog title="Login" :visible.sync="dialogFormVisible" width="300px">
     <el-input v-model="username" auto-complete="off"  placeholder="username"></el-input>
     <el-input type="password" v-model="password" auto-complete="off"  placeholder="password"></el-input>
+    <div v-if="message">{{message}}</div>
     <div slot="footer">
-      <el-button type="primary" @click="dialogFormVisible = false">Submit</el-button>
+      <el-button type="primary" @click="login">Submit</el-button>
       <el-button @click="dialogFormVisible = false">Cancel</el-button>
     </div>
   </el-dialog>
@@ -17,6 +18,7 @@ export default {
       dialogFormVisible: false,
       username: '',
       password: '',
+      message: '',
       formLabelWidth: '80px',
     }
   },
@@ -25,6 +27,19 @@ export default {
     Global.bus.$on('openLoginDialog', () => {
       this.dialogFormVisible = true
     })
+  },
+  methods: {
+    login () {
+      this.$http.post('/api/login', {password: this.password}).then((response) => {
+        if(response.status == 200) {
+          this.dialogFormVisible = false
+          Global.bus.$emit('adminLogin')
+        } else {
+          message = response.body.message
+        }
+      })
+      
+    }
   }
 }
 </script>
