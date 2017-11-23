@@ -1,16 +1,18 @@
 <template>
   <div class="page-container">
-    <h1>News</h1>
-    <div>{{message}}</div>
-    <table>
-      <tbody>
-        <tr v-for="(newsItem, key) in news" :key="key">
-          <td>
-            <div v-html="newsItem.description"></div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <h1>News</h1>{{msg}}
+    <div v-loading="loading" element-loading-text="loading...">
+      <el-button type="primary" @click="onClick" v-if="canEdit">Edit All</el-button>
+      <table>
+        <tbody>
+          <tr v-for="(newsItem, key) in news" :key="key">
+            <td>
+              <div v-html="newsItem.description"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </template>
 
@@ -20,8 +22,10 @@ export default {
   name: 'News',
   data () {
     return {
-      message: 'loading',
       news: [],
+      canEdit: false,
+      loading: true,
+      msg: '',
     }
   },
   created () {
@@ -31,21 +35,34 @@ export default {
       let news = []
       for (let x of tmps) {
         let date = new Date(x.dateBegin).toLocaleDateString(
-          undefined, {year: 'numeric', month: 'short', day: 'numeric'})
+          'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
         if (x.dateEnd) {
           let endDate = new Date(x.dateEnd).toLocaleDateString(
-          undefined, {year: 'numeric', month: 'short', day: 'numeric'})
+          'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
           date += ' - ' + endDate
         }
         let htmlText = ubb2html(x.text)
         // console.log(htmlText)
         news.push({description: `${date}, ${htmlText}`})
       }
-      this.message = ''
+      this.loading = false
       this.news = news
     }, (response) => {
       this.msg = response.statusText
     })
+
+    this.$http.post('/api/myIdentity').then((response) => {
+      if (response.body.id === 'admin') {
+        this.canEdit = true
+      }
+    }, (response) => {
+      this.msg = response.statusText
+    })
+  },
+  methods: {
+    onClick () {
+      this.$router.push({ path: '/news_edit' })
+    }
   }
 }
 </script>

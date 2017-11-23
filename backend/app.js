@@ -52,7 +52,7 @@ var requireAdmin = function (req, res, next) {
 }
 
 app.use('/api/test2', requireAdmin, function (req, res) {
-  res.send({cookie: req.cookie, sess: req.session})
+  res.send({cookie: req.cookies, sess: req.session})
 })
 
 app.post('/api/login', function (req, res, next) {
@@ -112,7 +112,8 @@ app.use('/api/listPublications', (req, res) => {
 })
 
 app.put('/api/updatePublications', requireAdmin, (req, res) => {
-  let json = JSON.stringify(req.body)
+  let json = JSON.stringify(req.body, null, 2)
+  publications = req.body
   fs.writeFile('db/publications.json', json, 'utf-8', (err, data) => {
     if (err) {
       res.status(500).send({err})

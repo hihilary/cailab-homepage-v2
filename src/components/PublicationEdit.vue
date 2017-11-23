@@ -1,7 +1,7 @@
 <template>
   <div class="page-container">
     <h1>Publications</h1>
-
+      {{message}}
       <el-row>
         <el-col :offset="1" :span="20">
           <el-button type="primary" @click="addNewItem">new item</el-button>
@@ -32,6 +32,7 @@ export default {
   data () {
     return {
       publications: [],
+      message: '',
     }
   },
   created () {
@@ -47,6 +48,15 @@ export default {
     }, (response) => {
       this.msg = response.statusText
     })
+  },
+  computed: {
+    pubsubmit: function () {
+      let newArray = []
+      for (let i in this.publications) {
+        newArray.push(this.publications[i].htmlText)
+      }
+      return newArray
+    }
   },
   methods: {
     addNewItem () {
@@ -66,6 +76,15 @@ export default {
           i--
         }
       }
+      this.$http.put('/api/updatePublications', this.pubsubmit).then((response) => {
+        this.$message({
+          message: 'submit succeeded!',
+          type: 'success'
+        })
+        this.$router.push({ path: '/publications' })
+      }, (response) => {
+        this.message = response.statusText
+      })
     }
   }
 }
