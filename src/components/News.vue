@@ -5,13 +5,14 @@
       <el-button type="primary" @click="onClick" v-if="canEdit">Edit All</el-button>
       <table>
         <tbody>
-          <tr v-for="(newsItem, key) in news" :key="key">
+          <tr v-for="(newsItem, key) in news" :key="key" v-if="ifShowPage(key)">
             <td>
               <div v-html="newsItem.description"></div>
             </td>
           </tr>
         </tbody>
       </table>
+      <el-pagination layout="prev, pager, next" :total="news.length" :page-size="pageSize" @current-change="changePage" />
     </div>
   </div>
 </template>
@@ -26,7 +27,11 @@ export default {
       canEdit: false,
       loading: true,
       msg: '',
+      currentPage: 1,
+      pageSize: 20,
     }
+  },
+  computed: {
   },
   created () {
     this.$http.get('/api/listNews').then((response) => {
@@ -62,6 +67,12 @@ export default {
   methods: {
     onClick () {
       this.$router.push({ path: '/news_edit' })
+    },
+    changePage (currentPage) {
+      this.currentPage = currentPage
+    },
+    ifShowPage (itemIdx) {
+      return itemIdx >= (this.currentPage-1) * 20 && itemIdx < (this.currentPage) * 20
     }
   }
 }
