@@ -31,14 +31,13 @@ export default {
   methods: {
     login () {
       this.$http.post('/api/login', {password: this.password}).then((response) => {
-        if(response.status == 200) {
+        if (response.status === 200) {
           this.dialogFormVisible = false
           Global.bus.$emit('adminLogin')
         } else {
-          message = response.body.message
+          this.message = response.body.message
         }
       })
-      
     }
   }
 }
