@@ -1,5 +1,5 @@
 <template>
-  <el-dialog class="publication-dialog" width="500px" top="27vh" title="Edit Publication" :visible="visible" v-on:update:visible="val => this.$emit('update:visible', val)"> 
+  <el-dialog class="publication-dialog" width="500px" top="27vh" title="Publication" :visible="visible" v-on:update:visible="val => this.$emit('update:visible', val)"> 
     <el-input type="textarea" autosize v-model="editingText"></el-input>
     <span slot="footer">
       <el-button type="primary" @click="editSubmit">Submit</el-button>
@@ -34,6 +34,7 @@ export default {
       }
       if (submitText === this.text) {
         ifSubmit = false
+        this.editingText = submitText
       }
       if (ifSubmit) {
         this.$emit('textChanged', submitText)
@@ -52,5 +53,4 @@ export default {
 .publication-dialog .el-dialog__header {
   padding: 20px 20px 5px 20px;
 }
-
 </style>
