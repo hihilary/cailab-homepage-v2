@@ -62,7 +62,7 @@
         <div>
           <img src="../assets/pic_art/germ1.png" class="germ"><br>
           <div class="font18">Projects</div>
-          The Cai Lab is a Synthetic Biology research group based out of the University of Edinburgh.
+          The Cai Lab is a Synthetic Biology research group based out of the University of Manchester.
           <router-link to="/about" class="panel-link">Click here</router-link> in order to learn more about our research.
         </div>
       </el-col>

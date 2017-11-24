@@ -3,7 +3,8 @@
     <h1>Publications</h1>
     <h1>{{message}}</h1>
     <div v-loading="loading" element-loading-text="loading...">
-        <el-button type="primary" @click="onClick" v-if="canEdit">Edit All</el-button>
+        <el-button type="primary" @click="toEditAllPage" v-if="canEdit" icon="el-icon-edit-outline">Edit All</el-button>
+        <el-button type="primary" @click="openNewItemDialog" v-if="canEdit" icon="el-icon-circle-plus-outline">New Item</el-button>
         <el-row :gutter="10" v-for="(item, key) in publications" :key="key" v-if="ifShowPage(key)" class="row-panel">
             <el-col :span="leftSpan">
               <span>{{item.index}}.</span>
@@ -89,7 +90,7 @@ export default {
     })
   },
   methods: {
-    onClick () {
+    toEditAllPage () {
       this.$router.push({ path: '/publication_edit' })
     },
     ifShowPage (idx) {
@@ -110,7 +111,16 @@ export default {
         }, (response) => {
           this.$message.error('Update error!')
         })
+      } else if (this.editingIndex === -1) {
+        console.log(this.editingIndex)
+        this.publications.unshift({index: this.publications.length + 1, ubbText: editingText, htmlText: ubb2html(editingText)})
+        this.$http.put('/api/updatePublications', this.pubsubmit).then((response) => {
+          this.$message({type: 'success', message: 'New item succeeded!'})
+        }, (response) => {
+          this.$message.error('New item error!')
+        })
       }
+      this.editingIndex = undefined
     },
     deleteItem (idx) {
       this.$confirm('Confirm deleting?', '', {
@@ -128,6 +138,11 @@ export default {
         this.$message({type: 'info', message: 'Delete canceled!'})
       })
     },
+    openNewItemDialog () {
+      this.ifShowEditDialog = true
+      this.editingIndex = -1
+      this.ubbText = ''
+    }
   }
 }
 </script>

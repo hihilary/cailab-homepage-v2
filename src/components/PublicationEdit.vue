@@ -4,9 +4,9 @@
       {{message}}
       <el-row>
         <el-col :offset="1" :span="20">
-          <el-button type="primary" @click="addNewItem">new item</el-button>
-          <el-button type="primary" plain @click="saveResult">save</el-button>
-          <el-button type="info" @click="cancelEdit">Cancel</el-button>
+          <el-button type="info" @click="cancelEdit" icon="el-icon-arrow-left">Back</el-button>
+          <el-button type="primary" @click="addNewItem" icon="el-icon-circle-plus-outline">New item</el-button>
+          <el-button type="primary" plain @click="saveResult" icon="el-icon-circle-check-outline">Save</el-button>
         </el-col>
       </el-row>
       
@@ -18,7 +18,7 @@
           <el-input v-model="item.ubbText" type="textarea" autosize class="text-area"/>
         </el-col>
         <el-col :span="1">
-          <i class="el-icon-delete delete-icon" @click="deleteItem(key)"></i>
+          <i class="el-icon-circle-close-outline" @click="deleteItem(key)"></i>
         </el-col>
       </el-row>
     </el-form>
@@ -71,6 +71,7 @@ export default {
     saveResult () {
       for (let i = 0; i < this.publications.length; i++) {
         let str = this.publications[i].ubbText.trim()
+        this.publications[i].ubbText = str
         if (str.length === 0) {
           this.publications.splice(i, 1)
           i--
@@ -148,7 +149,7 @@ a:hover {
 .text-area > .el-textarea__inner {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
-.delete-icon{
+.el-icon-circle-close-outline{
   cursor: pointer;
 }
 .item {
