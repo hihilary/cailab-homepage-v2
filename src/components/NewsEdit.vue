@@ -34,7 +34,6 @@ export default {
   created () {
     this.$http.get('/api/listNews').then((response) => {
       let tmps = response.body
-      // console.log(this.news)
       let news = []
       for (let x of tmps) {
         let item = {}
@@ -102,6 +101,12 @@ td {
 tr:hover {
   background-color: #f5f5f5;
 }
+.el-date-editor.el-input {
+  width: 135px;
+}
+.multiple-date {
+  display: inline-block;
+}
 </style>
 
 <style>
@@ -112,15 +117,8 @@ a {
 a:hover {
   color: rgb(0,85,128);
 }
-.el-date-editor.el-input {
-  width: 135px;
-}
-.multiple-date {
-  display: inline-block;
-}
 .date-line {
   margin:5px 0;
-
 }
 .table-panel {
   width: 100%

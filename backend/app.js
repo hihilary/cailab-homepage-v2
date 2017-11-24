@@ -122,6 +122,18 @@ app.put('/api/updatePublications', requireAdmin, (req, res) => {
     }
   })
 })
+
+app.put('/api/updateNews', requireAdmin, (req, res) => {
+  let json = JSON.stringify(req.body, null, 2)
+  news = req.body
+  fs.writeFile('db/news.json', json, 'utf-8', (err, data) => {
+    if (err) {
+      res.status(500).send({err})
+    } else {
+      res.send({message: 'OK'})
+    }
+  })
+})
 // -----------------------------------------API--------------------------------
 
 // catch 404 and forward to error handler
