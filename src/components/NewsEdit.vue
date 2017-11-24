@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import ubb2html from '../tools/ubb2html'
 export default {
   name: 'News',
   data () {
@@ -38,7 +37,6 @@ export default {
       // console.log(this.news)
       let news = []
       for (let x of tmps) {
-        let date = []
         let item = {}
         item.dateBegin = new Date(x.dateBegin)
         let wayOfDateTmp = false

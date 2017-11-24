@@ -3,16 +3,10 @@
     <h1>News</h1>{{msg}}
     <div v-loading="loading" element-loading-text="loading...">
       <el-button type="primary" @click="onClick" v-if="canEdit">Edit All</el-button>
-      <table>
-        <tbody>
-          <tr v-for="(newsItem, key) in news" :key="key" v-if="ifShowPage(key)">
-            <td>
-              <div v-html="newsItem.description"></div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <el-pagination layout="prev, pager, next" :total="news.length" :page-size="pageSize" @current-change="changePage" />
+        <div v-for="(newsItem, key) in news" :key="key" v-if="ifShowPage(key)" class="item-panel">
+          <span v-html="newsItem.description"></span>
+        </div>
+      <el-pagination layout="prev, pager, next" :total="news.length" :page-size="pageSize" :current-page.sync="currentPage" />
     </div>
   </div>
 </template>
@@ -36,7 +30,6 @@ export default {
   created () {
     this.$http.get('/api/listNews').then((response) => {
       let tmps = response.body
-      // console.log(this.news)
       let news = []
       for (let x of tmps) {
         let date = new Date(x.dateBegin).toLocaleDateString(
@@ -68,11 +61,8 @@ export default {
     onClick () {
       this.$router.push({ path: '/news_edit' })
     },
-    changePage (currentPage) {
-      this.currentPage = currentPage
-    },
     ifShowPage (itemIdx) {
-      return itemIdx >= (this.currentPage-1) * 20 && itemIdx < (this.currentPage) * 20
+      return itemIdx >= (this.currentPage - 1) * 20 && itemIdx < (this.currentPage) * 20
     }
   }
 }
@@ -102,22 +92,13 @@ h1 {
   font-size: 36px;
   line-height: 40px;
 }
-table {
+.item-panel {
   max-width: 100%;
-  border-color: grey;
   border-collapse: collapse;
-  background-color: transparent;
-}
-tbody {
-  vertical-align: middle;
-}
-td {
-  border-top-style:solid;
-  border-top-width:1px;
-  border-top-color:rgb(221,221,221);
+  border-top: 1px solid #ddd;
   padding: 8px;
 }
-tr:hover {
+.item-panel:hover {
   background-color: #f5f5f5;
 }
 </style>

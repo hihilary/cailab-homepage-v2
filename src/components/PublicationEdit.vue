@@ -15,7 +15,7 @@
           {{ item.index }}
         </el-col>
         <el-col :span="22">
-          <el-input v-model="item.htmlText" type="textarea" autosize class="text-area"/>
+          <el-input v-model="item.ubbText" type="textarea" autosize class="text-area"/>
         </el-col>
         <el-col :span="1">
           <i class="el-icon-delete delete-icon" @click="deleteItem(key)"></i>
@@ -39,9 +39,9 @@ export default {
     this.$http.post('/api/listPublications').then((response) => {
       let publications = []
       let index = response.body.length
-      for (let htmlText of response.body) {
+      for (let ubbText of response.body) {
         // let htmlText = x.replace(/\[b](.*?)\[\/b\]/g, '<b>$1</b>')
-        publications.push({index, htmlText})
+        publications.push({index, ubbText})
         index--
       }
       this.publications = publications
@@ -53,14 +53,14 @@ export default {
     pubsubmit: function () {
       let newArray = []
       for (let i in this.publications) {
-        newArray.push(this.publications[i].htmlText)
+        newArray.push(this.publications[i].ubbText)
       }
       return newArray
     }
   },
   methods: {
     addNewItem () {
-      this.publications.unshift({ index: this.publications.length + 1, htmlText: '' })
+      this.publications.unshift({ index: this.publications.length + 1, ubbText: '' })
     },
     deleteItem (key) {
       this.publications.splice(key, 1)
@@ -70,7 +70,7 @@ export default {
     },
     saveResult () {
       for (let i = 0; i < this.publications.length; i++) {
-        let str = this.publications[i].htmlText.trim()
+        let str = this.publications[i].ubbText.trim()
         if (str.length === 0) {
           this.publications.splice(i, 1)
           i--

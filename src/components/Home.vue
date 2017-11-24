@@ -20,7 +20,7 @@
           <div class="rightDiv">
             <div class="font56">Synthetic Genomics</div>
             <div class="font42">
-              <router-link to="/"><b>Click here</b></router-link>
+              <router-link to="/" class="carousel-link">Click here</router-link>
               to learn more about our research.
             </div>
           </div>
@@ -39,7 +39,7 @@
           <div class="rightDiv">
             <div class="font56">Synthetic Genomics</div>
             <div class="font42">
-              <router-link to="/"><b>Click here</b></router-link>
+              <router-link to="/" class="carousel-link">Click here</router-link>
               to learn more about open positions in the lab.
             </div>
           </div>
@@ -201,6 +201,12 @@ img.dna {
 }
 a.panel-link:hover {
   color: #005580;
+}
+.carousel-link{
+  font-weight: bold;
+}
+a.carousel-link:hover {
+  color: #fff;
 }
 .align-center{
   text-align: center;
