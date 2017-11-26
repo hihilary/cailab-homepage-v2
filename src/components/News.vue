@@ -2,14 +2,17 @@
   <div class="page-container">
     <h1>News</h1>{{msg}}
     <div v-loading="loading" element-loading-text="loading...">
-      <el-button type="primary" @click="onClick" v-if="canEdit">Edit All</el-button>
+      <!--<el-button type="primary" @click="onClick" v-if="canEdit">Edit All</el-button>-->
+      <el-button type="primary" @click="openNewItemDialog" v-if="canEdit" icon="el-icon-circle-plus-outline" class="new-button">New Item</el-button>
         <el-row v-for="(item, key) in news" :key="key" v-if="ifShowPage(key)" class="row-panel">
           <el-col :span="leftSpan">
             <span v-html="item.description"></span>
           </el-col>
           <el-col :span="2" v-if="canEdit">
+            <div class="oper-panel">
             <i class="el-icon-edit" @click="editItem(key)"></i>&nbsp;
             <i class="el-icon-delete" @click="deleteItem(key)"></i>
+            </div>
           </el-col>
         </el-row>
       <el-pagination layout="prev, pager, next" :total="news.length" :page-size="pageSize" :current-page.sync="currentPage" />
@@ -115,23 +118,36 @@ export default {
       }
       this.submitNews = {dateBegin, dateEnd, text: this.news[idx].text}
     },
-    submitItem (news) {
+    submitItem (newsItem) {
       this.ifShowEditDialog = false
+      console.log(newsItem)
+      let dateBeginISO = null
+      let dateEndISO = null
+      if (newsItem.dateBegin) {
+        dateBeginISO = newsItem.dateBegin.toISOString()
+      }
+      if (newsItem.dateEnd) {
+        dateEndISO = newsItem.dateEnd.toISOString()
+      }
       if (this.editingIndex >= 0) {
-        if (news.dateBegin) {
-          this.news[this.editingIndex].dateBegin = news.dateBegin.toISOString()
-        }
-        if (news.dateEnd) {
-          this.news[this.editingIndex].dateEnd = news.dateEnd.toISOString()
-        }
-        this.news[this.editingIndex].text = news.text
-        this.$set(this.news[this.editingIndex], 'description', this.getDescription(news))
+        this.news[this.editingIndex].dateBegin = dateBeginISO
+        this.news[this.editingIndex].dateEnd = dateEndISO
+        this.news[this.editingIndex].text = newsItem.text
+        this.$set(this.news[this.editingIndex], 'description', this.getDescription(newsItem))
         this.$http.put('/api/updateNews', this.newsSubmitArray).then((response) => {
           this.$message({type: 'success', message: 'Update succeeded!'})
         }, (response) => {
           this.$message.error('Update error!')
         })
+      } else if (this.editingIndex === -1) {
+        this.news.unshift({description: this.getDescription(newsItem), dateBegin: dateBeginISO, dateEnd: dateEndISO, text: newsItem.text})
+        this.$http.put('/api/updateNews', this.newsSubmitArray).then((response) => {
+          this.$message({type: 'success', message: 'New item succeeded!'})
+        }, (response) => {
+          this.$message.error('New item error!')
+        })
       }
+      this.editingIndex = undefined
     },
     deleteItem (idx) {
       this.$confirm('Confirm deleting?', '', {
@@ -149,6 +165,11 @@ export default {
         this.$message({type: 'info', message: 'Delete canceled!'})
       })
     },
+    openNewItemDialog () {
+      this.ifShowEditDialog = true
+      this.editingIndex = -1
+      this.submitNews = {}
+    }
   }
 }
 </script>
@@ -189,6 +210,12 @@ h1 {
 }
 .el-icon-delete, .el-icon-edit {
   cursor: pointer;
+}
+.new-button {
+  margin-bottom: 5px;
+}
+.oper-panel {
+  text-align: center;
 }
 </style>
 

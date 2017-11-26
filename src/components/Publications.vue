@@ -112,7 +112,7 @@ export default {
           this.$message.error('Update error!')
         })
       } else if (this.editingIndex === -1) {
-        console.log(this.editingIndex)
+        // console.log(this.editingIndex)
         this.publications.unshift({index: this.publications.length + 1, ubbText: editingText, htmlText: ubb2html(editingText)})
         this.$http.put('/api/updatePublications', this.pubsubmit).then((response) => {
           this.$message({type: 'success', message: 'New item succeeded!'})
