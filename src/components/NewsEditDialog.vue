@@ -8,7 +8,7 @@
         <el-date-picker v-model="item.dateEnd" type="date" placeholder="End date" format="dd-MM-yyyy"></el-date-picker>
       </span>
     </div>
-    <el-input type="textarea" autosize v-model="item.text" class="margin-between"></el-input>
+    <el-input type="textarea" :autosize="{minRows: 2, maxRows: 6}" v-model="item.text" class="margin-between"></el-input>
     <span slot="footer">
       <el-button type="primary" @click="editSubmit">Submit</el-button>
       <el-button @click="cancelDialog">Cancel</el-button>
@@ -25,10 +25,10 @@ export default {
       ifMultipleDate: false
     }
   },
-  props: ['visible', 'data'],
+  props: ['visible', 'newsdata'],
   watch: {
-    data: function (val, oldVal) {
-      this.item = {...val}
+    newsdata: function (val, oldVal) {
+      this.item = {...val} // value copy
       // this.item = val
       if (val.dateEnd) {
         this.ifMultipleDate = true
@@ -42,6 +42,22 @@ export default {
       this.$emit('update:visible', false)
     },
     editSubmit () {
+      if (!this.item.dateBegin) {
+        this.$message({message: 'Start date is necessary!', type: 'warning'})
+        return
+      }
+      let text = this.item.text.trim()
+      if (text.length === 0) {
+        this.$message({message: 'Content is necessary!', type: 'warning'})
+        return
+      }
+      // console.log(this.item)
+      if (this.item.dateBegin === this.newsdata.dateBegin &&
+      this.item.dateEnd === this.newsdata.dateEnd && text === this.newsdata.text) {
+        this.$emit('update:visible', false)
+      } else {
+        this.$emit('dataChanged', this.item)
+      }
     }
   }
 }
