@@ -6,7 +6,7 @@
       <p v-if="positions&&positions.length">We are currently looking to fill a few openings:</p>
       <el-row :gutter="10" v-for="(item, key) in positions" :key="key" class="row-panel">
         <el-col :span="leftSpan">
-          <span>{{key+1}}. {{item.text}}: <a :href="item.link" v-if="item.link&&item.link.trim().length">link</a></span>
+          <span>{{key+1}}. {{item.text}}: <a :href="item.link" target="_blank" v-if="item.link&&item.link.trim().length">link</a></span>
         </el-col>
         <el-col :span="2" v-if="canEdit">
           <i class="el-icon-edit" @click="editItem(key)"></i>&nbsp;
@@ -100,7 +100,9 @@ export default {
     },
     positionSubmit (item) {
       this.ifShowEditDialog = false
-      console.log(item)
+      if (!item.link.match(/^https?:\/\//)) {
+        item.link = 'http://' + item.link
+      }
       if (this.editingIndex >= 0) {
         this.$set(this.positions, this.editingIndex, item)
         this.$http.put('/api/updateOpenPositions', this.positions).then((response) => {
@@ -150,5 +152,13 @@ h1 {
 }
 .el-icon-edit, .el-icon-delete{
   cursor: pointer;
+}
+a {
+  color: #08c;
+  text-decoration: none;
+}
+a:hover {
+  color: #005580;
+  text-decoration: underline;
 }
 </style>
