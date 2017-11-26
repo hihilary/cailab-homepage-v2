@@ -10,6 +10,7 @@ import Contact from '@/components/Contact'
 import PublicationEdit from '@/components/PublicationEdit'
 import Collaborators from '@/components/Collaborators'
 import NewsEdit from '@/components/NewsEdit'
+import OpenPositions from '@/components/OpenPositions'
 
 Vue.use(Router)
 
@@ -65,5 +66,10 @@ export default new Router({
       name: 'NewsEdit',
       component: NewsEdit
     },
+    {
+      path: '/openpositions',
+      name: 'OpenPositions',
+      component: OpenPositions
+    }
   ]
 })

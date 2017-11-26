@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     cancelDialog () {
+      this.item = {}
       this.$emit('update:visible', false)
     },
     editSubmit () {
@@ -50,14 +51,14 @@ export default {
         this.$message({message: 'Content is necessary!', type: 'warning'})
         return
       }
-      let text = this.item.text.trim()
-      if (text.length === 0) {
+      this.item.text = this.item.text.trim()
+      if (this.item.text.length === 0) {
         this.$message({message: 'Content is necessary!', type: 'warning'})
         return
       }
       if (this.item.dateBegin === this.newsdata.dateBegin &&
-      this.item.dateEnd === this.newsdata.dateEnd && text === this.newsdata.text) {
-        this.$emit('update:visible', false)
+      this.item.dateEnd === this.newsdata.dateEnd && this.item.text === this.newsdata.text) {
+        this.cancelDialog()
       } else {
         this.$emit('dataChanged', this.item)
       }

@@ -11,6 +11,7 @@ var app = express()
 
 var news = require('../db/news.json')
 var publications = require('../db/publications.json')
+var openpositions = require('../db/openpositions.json')
 var fs = require('fs')
 var comparePassword = require('./comparePassword')
 
@@ -111,13 +112,17 @@ app.use('/api/listPublications', (req, res) => {
   res.send(publications)
 })
 
+app.use('/api/listOpenPositions', (req, res) => {
+  res.send(openpositions)
+})
+
 app.put('/api/updatePublications', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
-  publications = req.body
   fs.writeFile('db/publications.json', json, 'utf-8', (err, data) => {
     if (err) {
       res.status(500).send({err})
     } else {
+      publications = req.body
       res.send({message: 'OK'})
     }
   })
@@ -125,11 +130,23 @@ app.put('/api/updatePublications', requireAdmin, (req, res) => {
 
 app.put('/api/updateNews', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
-  news = req.body
   fs.writeFile('db/news.json', json, 'utf-8', (err, data) => {
     if (err) {
       res.status(500).send({err})
     } else {
+      news = req.body
+      res.send({message: 'OK'})
+    }
+  })
+})
+
+app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
+  let json = JSON.stringify(req.body, null, 2)
+  fs.writeFile('db/openpositions.json', json, 'utf-8', (err, data) => {
+    if (err) {
+      res.status(500).send({err})
+    } else {
+      openpositions = req.body
       res.send({message: 'OK'})
     }
   })

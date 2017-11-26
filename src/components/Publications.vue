@@ -139,9 +139,9 @@ export default {
       })
     },
     openNewItemDialog () {
-      this.ifShowEditDialog = true
       this.editingIndex = -1
       this.ubbText = ''
+      this.ifShowEditDialog = true
     }
   }
 }
