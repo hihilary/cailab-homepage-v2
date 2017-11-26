@@ -14,7 +14,7 @@
         </el-row>
       <el-pagination layout="prev, pager, next" :total="news.length" :page-size="pageSize" :current-page.sync="currentPage" />
     </div>
-    <NewsEditDialog :visible.sync="ifShowEditDialog" :data="data"/>
+    <NewsEditDialog :visible.sync="ifShowEditDialog" :newsdata="submitNews" @dataChanged="submitItem"/>
   </div>
 </template>
 
@@ -35,7 +35,7 @@ export default {
       pageSize: 20,
       ifShowEditDialog: false,
       editingIndex: undefined,
-      data: {}
+      submitNews: {}
     }
   },
   components: {
@@ -49,7 +49,7 @@ export default {
         return 22
       }
     },
-    newsSubmit: function () {
+    newsSubmitArray: function () {
       let newArray = []
       for (let x of this.news) {
         newArray.push({dateBegin: x.dateBegin, dateEnd: x.dateEnd, text: x.text})
@@ -62,15 +62,7 @@ export default {
       let tmps = response.body
       let news = []
       for (let x of tmps) {
-        let date = new Date(x.dateBegin).toLocaleDateString(
-          'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
-        if (x.dateEnd) {
-          let endDate = new Date(x.dateEnd).toLocaleDateString(
-          'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
-          date += ' - ' + endDate
-        }
-        let htmlText = ubb2html(x.text)
-        news.push({description: `${date}, ${htmlText}`, dateBegin: x.dateBegin, dateEnd: x.dateEnd, text: x.text})
+        news.push({description: this.getDescription(x), dateBegin: x.dateBegin, dateEnd: x.dateEnd, text: x.text})
       }
       this.loading = false
       this.news = news
@@ -93,6 +85,17 @@ export default {
     })
   },
   methods: {
+    getDescription (news) {
+      let date = new Date(news.dateBegin).toLocaleDateString(
+          'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
+      if (news.dateEnd) {
+        let endDate = new Date(news.dateEnd).toLocaleDateString(
+          'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
+        date += ' - ' + endDate
+      }
+      let htmlText = ubb2html(news.text)
+      return `${date}, ${htmlText}`
+    },
     onClick () {
       this.$router.push({ path: '/news_edit' })
     },
@@ -110,8 +113,25 @@ export default {
       if (this.news[idx].dateEnd) {
         dateEnd = new Date(this.news[idx].dateEnd)
       }
-      this.data = {dateBegin, dateEnd, text: this.news[idx].text}
-      console.log(this.data)
+      this.submitNews = {dateBegin, dateEnd, text: this.news[idx].text}
+    },
+    submitItem (news) {
+      this.ifShowEditDialog = false
+      if (this.editingIndex >= 0) {
+        if (news.dateBegin) {
+          this.news[this.editingIndex].dateBegin = news.dateBegin.toISOString()
+        }
+        if (news.dateEnd) {
+          this.news[this.editingIndex].dateEnd = news.dateEnd.toISOString()
+        }
+        this.news[this.editingIndex].text = news.text
+        this.$set(this.news[this.editingIndex], 'description', this.getDescription(news))
+        this.$http.put('/api/updateNews', this.newsSubmitArray).then((response) => {
+          this.$message({type: 'success', message: 'Update succeeded!'})
+        }, (response) => {
+          this.$message.error('Update error!')
+        })
+      }
     },
     deleteItem (idx) {
       this.$confirm('Confirm deleting?', '', {
@@ -120,7 +140,7 @@ export default {
         type: 'warning'
       }).then(() => {
         this.news.splice(idx, 1)
-        this.$http.put('/api/updateNews', this.newsSubmit).then((response) => {
+        this.$http.put('/api/updateNews', this.newsSubmitArray).then((response) => {
           this.$message({type: 'success', message: 'Delete succeeded!'})
         }, (response) => {
           this.$message.error('Delete error!')

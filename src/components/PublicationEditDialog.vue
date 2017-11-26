@@ -1,6 +1,6 @@
 <template>
   <el-dialog class="publication-dialog" width="500px" top="27vh" title="Publication" :visible="visible" v-on:update:visible="val => this.$emit('update:visible', val)"> 
-    <el-input type="textarea" autosize v-model="editingText"></el-input>
+    <el-input type="textarea" :autosize="{minRows: 2, maxRows: 6}" v-model="editingText"></el-input>
     <span slot="footer">
       <el-button type="primary" @click="editSubmit">Submit</el-button>
       <el-button @click="cancelDialog">Cancel</el-button>
@@ -30,7 +30,8 @@ export default {
       let submitText = this.editingText.trim()
       let ifSubmit = true
       if (submitText.length === 0) {
-        ifSubmit = false
+        this.$message({message: 'Content is necessary!', type: 'warning'})
+        return
       }
       if (submitText === this.text) {
         ifSubmit = false
