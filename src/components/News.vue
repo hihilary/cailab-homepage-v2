@@ -120,7 +120,6 @@ export default {
     },
     submitItem (newsItem) {
       this.ifShowEditDialog = false
-      console.log(newsItem)
       let dateBeginISO = null
       let dateEndISO = null
       if (newsItem.dateBegin) {

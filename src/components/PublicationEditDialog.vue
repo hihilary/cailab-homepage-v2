@@ -24,26 +24,22 @@ export default {
   },
   methods: {
     cancelDialog () {
+      this.editingText = ''
       this.$emit('update:visible', false)
     },
     editSubmit () {
-      let submitText = this.editingText.trim()
-      let ifSubmit = true
-      if (submitText.length === 0) {
+      this.editingText = this.editingText.trim()
+      if (this.editingText.length === 0) {
         this.$message({message: 'Content is necessary!', type: 'warning'})
         return
       }
-      if (submitText === this.text) {
-        ifSubmit = false
-        this.editingText = submitText
-      }
-      if (ifSubmit) {
-        this.$emit('textChanged', submitText)
+      if (this.editingText === this.text) {
+        this.cancelDialog()
       } else {
-        this.$emit('update:visible', false)
+        this.$emit('textChanged', this.editingText)
       }
     }
-  }
+  },
 }
 </script>
 
