@@ -8,6 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "start_dev",
     "backend": "supervisor -w backend ./build/start-backend.js",
+    "production": "sh ./start_prod.sh",
     "unit": "jest test/unit/specs --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
@@ -22,9 +23,7 @@
     "element-ui": "^2.0.4",
     "express": "~4.15.5",
     "express-session": "^1.15.6",
-    "mongoose": "^4.13.3",
     "morgan": "~1.9.0",
-    "pug": "2.0.0-beta11",
     "serve-favicon": "~2.4.5",
     "session-file-store": "^1.1.2",
     "vue": "^2.5.2",
@@ -32,6 +31,7 @@
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
+    "pug": "2.0.0-beta11",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-eslint": "^7.1.1",
