@@ -69,6 +69,11 @@ export default {
       console.log('received adminLogin event')
       this.canEdit = true
     })
+
+    Global.bus.$on('adminLogout', () => {
+      console.log('received adminLogout event')
+      this.canEdit = false
+    })
   },
   methods: {
     openNewItemDialog () {
@@ -100,7 +105,7 @@ export default {
     },
     positionSubmit (item) {
       this.ifShowEditDialog = false
-      if (!item.link.match(/^https?:\/\//)) {
+      if (item.link && !item.link.match(/^https?:\/\//)) {
         item.link = 'http://' + item.link
       }
       if (this.editingIndex >= 0) {

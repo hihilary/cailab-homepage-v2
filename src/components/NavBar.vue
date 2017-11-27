@@ -17,7 +17,8 @@
       <el-menu-item index="8" route="/collaborators">Collaborators</el-menu-item>
       <el-menu-item index="9" route="/contact">Contact</el-menu-item>
       <el-menu-item index="10" route="/openpositions" >Open Positions</el-menu-item>
-      <li class="itemxx" @click="onOpenLogin">login</li>
+      <li class="itemxx" @click="onOpenLogin" v-if="!adminLoggedIn">login</li>
+      <li class="itemxx" @click="onLogout" v-else>logout</li>
     </el-menu>
     <div class="line"></div>
   </div>
@@ -30,7 +31,20 @@ export default {
   data () {
     return {
       activeIndex: '1',
+      adminLoggedIn: false
     }
+  },
+  created () {
+    this.$http.post('/api/myIdentity').then((response) => {
+      if (response.body.id === 'admin') {
+        this.adminLoggedIn = true
+      }
+    })
+
+    Global.bus.$on('adminLogin', () => {
+      console.log('received adminLogin event')
+      this.adminLoggedIn = true
+    })
   },
   methods: {
     // handleSelect (key, keyPath) {
@@ -38,6 +52,13 @@ export default {
     // }
     onOpenLogin () {
       Global.bus.$emit('openLoginDialog')
+    },
+    onLogout () {
+      this.$http.post('/api/logout').then((response) => {
+        this.$message({message: 'You\'ve logged out', type: 'success'})
+        this.adminLoggedIn = false
+        Global.bus.$emit('adminLogout')
+      })
     }
   }
 }
