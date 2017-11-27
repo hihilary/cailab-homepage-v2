@@ -123,6 +123,21 @@ app.use('/api/listOpenPositions', (req, res) => {
   res.send(openpositions)
 })
 
+app.use('/api/listLabPics', (req, res) => {
+  let dir = './static/labPics'
+  fs.readdir(dir, (err, files) => {
+    if (err) {
+      res.status(500).send({err})
+    } else {
+      for (let x in files) {
+        files[x] = path.posix.join('/static/labPics', files[x])
+      }
+      console.log(files)
+      res.send(files)
+    }
+  })
+})
+
 app.put('/api/updatePublications', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
   fs.writeFile('db/publications.json', json, 'utf-8', (err, data) => {
@@ -137,7 +152,7 @@ app.put('/api/updatePublications', requireAdmin, (req, res) => {
 
 app.put('/api/updateNews', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
-  fs.writeFile('db/news.json', json, 'utf-8', (err, data) => {
+  fs.writeFile('./db/news.json', json, 'utf-8', (err, data) => {
     if (err) {
       res.status(500).send({err})
     } else {
@@ -149,7 +164,7 @@ app.put('/api/updateNews', requireAdmin, (req, res) => {
 
 app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
-  fs.writeFile('db/openpositions.json', json, 'utf-8', (err, data) => {
+  fs.writeFile('./db/openpositions.json', json, 'utf-8', (err, data) => {
     if (err) {
       res.status(500).send({err})
     } else {
