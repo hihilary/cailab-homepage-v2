@@ -88,15 +88,22 @@ app.post('/api/myIdentity', (req, res) => {
 })
 
 // 退出登录
-app.get('/api/logout', function (req, res, next) {
+app.post('/api/logout', function (req, res, next) {
+  // req.session.admin = false
+  let message
+  if (req.session && req.session.admin) {
+    message = 'admin logged out'
+  } else {
+    message = 'not logged in'
+  }
+
   req.session.destroy(function (err) {
     if (err) {
-      res.status(500).json({message: 'error in log out'});
+      res.status(500).json({message: 'error in log out'})
       return
     }
-    req.session.admin = false
     res.clearCookie('cailab-homepage')
-    res.redirect('/')
+    res.send({ message })
   })
 })
 

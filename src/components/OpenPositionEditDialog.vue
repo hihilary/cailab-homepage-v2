@@ -29,11 +29,12 @@ export default {
       this.$emit('update:visible', false)
     },
     editSubmit () {
-      this.item.text = this.item.text.trim()
-      this.item.link = this.item.link.trim()
-      if (this.item.text.length === 0) {
+      if (!this.item.text || (this.item.text = this.item.text.trim()).length === 0) {
         this.$message({message: 'Text is necessary!', type: 'warning'})
         return
+      }
+      if (this.item.link) {
+        this.item.link = this.item.link.trim()
       }
       if (this.item.text === this.data.text && this.item.link === this.data.link) {
         this.cancelDialog()
