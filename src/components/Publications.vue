@@ -1,9 +1,8 @@
 <template>
   <div class="page-container">
     <h1>Publications</h1>
-    <h1>{{message}}</h1>
+    {{message}}
     <div v-loading="loading" element-loading-text="loading...">
-        <el-button type="primary" @click="toEditAllPage" v-if="canEdit" icon="el-icon-edit-outline">Edit All</el-button>
         <el-button type="primary" @click="openNewItemDialog" v-if="canEdit" icon="el-icon-circle-plus-outline">New Item</el-button>
         <el-row :gutter="10" v-for="(item, key) in publications" :key="key" v-if="ifShowPage(key)" class="row-panel">
             <el-col :span="leftSpan">
@@ -61,17 +60,20 @@ export default {
     }
   },
   created () {
-    this.$http.get('/api/listPublications').then((response) => {
-      let publications = []
-      let index = response.body.length
-      for (let x of response.body) {
-        let ubbText = x
-        let htmlText = ubb2html(x)
-        publications.push({index, htmlText, ubbText})
-        index--
+    let strPubs = localStorage.getItem('publications') // get string of localStorage item
+    if (strPubs) {
+      try {
+        this.loadPublications(JSON.parse(strPubs))
+      } catch (err) {
+        localStorage.removeItem('publications')
       }
-      this.loading = false
-      this.publications = publications
+    }
+
+    this.$http.get('/api/listPublications').then((response) => {
+      let backendPubs = response.body
+      let publications = JSON.stringify(backendPubs)
+      localStorage.setItem('publications', publications)
+      this.loadPublications(backendPubs)
     }, (response) => {
       this.message = response.statusText
     })
@@ -95,6 +97,18 @@ export default {
     })
   },
   methods: {
+    loadPublications (backendPubs) {
+      let publications = []
+      let index = backendPubs.length
+      for (let x of backendPubs) {
+        let ubbText = x
+        let htmlText = ubb2html(x)
+        publications.push({index, htmlText, ubbText})
+        index--
+      }
+      this.loading = false
+      this.publications = publications
+    },
     toEditAllPage () {
       this.$router.push({ path: '/publication_edit' })
     },

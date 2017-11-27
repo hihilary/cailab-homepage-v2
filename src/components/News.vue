@@ -2,7 +2,6 @@
   <div class="page-container">
     <h1>News</h1>{{msg}}
     <div v-loading="loading" element-loading-text="loading...">
-      <!--<el-button type="primary" @click="onClick" v-if="canEdit">Edit All</el-button>-->
       <el-button type="primary" @click="openNewItemDialog" v-if="canEdit" icon="el-icon-circle-plus-outline" class="new-button">New Item</el-button>
         <el-row v-for="(item, key) in news" :key="key" v-if="ifShowPage(key)" class="row-panel">
           <el-col :span="leftSpan">
@@ -61,14 +60,20 @@ export default {
     }
   },
   created () {
-    this.$http.get('/api/listNews').then((response) => {
-      let tmps = response.body
-      let news = []
-      for (let x of tmps) {
-        news.push({description: this.getDescription(x), dateBegin: x.dateBegin, dateEnd: x.dateEnd, text: x.text})
+    let strNews = localStorage.getItem('news') // get string of localStorage item
+    if (strNews) {
+      try {
+        this.loadNews(JSON.parse(strNews))
+      } catch (err) {
+        localStorage.removeItem('news')
       }
-      this.loading = false
-      this.news = news
+    }
+
+    this.$http.get('/api/listNews').then((response) => {
+      let backendNews = response.body
+      let news = JSON.stringify(backendNews)
+      localStorage.setItem('news', news)
+      this.loadNews(backendNews)
       // console.log(this.news)
     }, (response) => {
       this.msg = response.statusText
@@ -93,6 +98,14 @@ export default {
     })
   },
   methods: {
+    loadNews (backendNews) {
+      let news = []
+      for (let x of backendNews) {
+        news.push({description: this.getDescription(x), dateBegin: x.dateBegin, dateEnd: x.dateEnd, text: x.text})
+      }
+      this.loading = false
+      this.news = news
+    },
     getDescription (news) {
       let date = new Date(news.dateBegin).toLocaleDateString(
           'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})

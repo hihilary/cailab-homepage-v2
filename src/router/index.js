@@ -11,6 +11,7 @@ import PublicationEdit from '@/components/PublicationEdit'
 import Collaborators from '@/components/Collaborators'
 import NewsEdit from '@/components/NewsEdit'
 import OpenPositions from '@/components/OpenPositions'
+import Lab from '@/components/Lab'
 
 Vue.use(Router)
 
@@ -70,6 +71,11 @@ export default new Router({
       path: '/openpositions',
       name: 'OpenPositions',
       component: OpenPositions
+    },
+    {
+      path: '/pictures',
+      name: 'Lab',
+      component: Lab
     }
   ]
 })
