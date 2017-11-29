@@ -99,10 +99,13 @@ export default {
   margin: 0;
 }
 
+.el-carousel__item {
+  background-size:cover;
+}
+
 .el-carousel__item:nth-child(3n) {
   background-image: url("../assets/banner-bg-1.jpg");
 }
-
 .el-carousel__item:nth-child(3n + 1) {
   background-image: url("../assets/banner-bg-2.jpg");
 }

@@ -79,7 +79,7 @@ export default {
       this.msg = response.statusText
     })
 
-    this.$http.post('/api/myIdentity').then((response) => {
+    this.$http.post('/api/myIdentity', {}).then((response) => {
       if (response.body.id === 'admin') {
         this.canEdit = true
       }

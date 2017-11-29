@@ -79,10 +79,12 @@ export default {
     })
 
     // edit button will appear when you are an admin while the component created.
-    this.$http.post('/api/myIdentity').then((response) => {
+    this.$http.post('/api/myIdentity', '').then((response) => {
       if (response.body.id === 'admin') {
         this.canEdit = true
       }
+    }, (response) => {
+      this.message = response.statusText
     })
 
     // edit button will appear when you log in while you are in this component already.

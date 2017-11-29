@@ -112,6 +112,7 @@ app.use('/api/test/', (req, res) => {
 })
 
 app.use('/api/listNews', (req, res) => {
+  console.log(req.body)
   res.send(news)
 })
 
