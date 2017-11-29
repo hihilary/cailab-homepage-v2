@@ -35,7 +35,7 @@ export default {
     }
   },
   created () {
-    this.$http.post('/api/myIdentity').then((response) => {
+    this.$http.post('/api/myIdentity', {}).then((response) => {
       if (response.body.id === 'admin') {
         this.adminLoggedIn = true
       }
@@ -54,7 +54,7 @@ export default {
       Global.bus.$emit('openLoginDialog')
     },
     onLogout () {
-      this.$http.post('/api/logout').then((response) => {
+      this.$http.post('/api/logout', {}).then((response) => {
         this.$message({message: 'You\'ve logged out', type: 'success'})
         this.adminLoggedIn = false
         Global.bus.$emit('adminLogout')
@@ -71,6 +71,14 @@ export default {
 .el-menu-demo {
   background-image: url("../assets/banner-bg-1.jpg");
   border-bottom: none;
+  background-size:cover;
+  display: -webkit-flex;
+  display: flex;
+  justify-content:center;
+}
+.el-menu-item {
+  display: -webkit-inline-flex;
+  display: inline-flex;
 }
 .special-nav-bar > .el-menu-demo {
   background-color: rgba(255,255,255, 0.1 );
