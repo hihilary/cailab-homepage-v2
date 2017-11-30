@@ -156,6 +156,9 @@ a:hover {
   display         : flex;
   justify-content : center;
   align-items     : center;
+  -webkit-display         : flex;
+  -webkit-justify-content : center;
+  -webkit-align-items     : center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
