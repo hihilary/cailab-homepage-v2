@@ -73,6 +73,8 @@ div{
 .image-panel {
   margin-top: 80px;
   display: flex;
+  display: -webkit-flex;
+
 }
 .img-single:hover {
   cursor: pointer;

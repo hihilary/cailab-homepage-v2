@@ -56,6 +56,7 @@ h1 {
 }
 .co-container {
   align-items: center;
+  -webkit-align-items: center;
 }
 .school-img {
   width: 100px;
@@ -68,7 +69,9 @@ h1 {
   font-weight: bold;
 }
 .item-div {
+  display: -webkit-flex;
   display: flex;
+  -webkit-align-items: center;
   align-items: center;
   height: 140px;
 }

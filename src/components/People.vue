@@ -121,7 +121,9 @@ h5 {
   min-height: 20px;
   box-shadow: inset 0 1px 1px rgba(0,0,0,0.05);
   display: flex;
+  display: -webkit-flex;
   align-items: center;
+  -webkit-align-items: center;
   margin-bottom: 20px;
 }
 .img-leader {
@@ -140,7 +142,9 @@ h5 {
 }
 .crew {
   padding: 30px 10px 10px 10px;
+  display: -webkit-flex;
   display: flex;
+  -webkit-align-items: flex-start;
   align-items: flex-start;
 }
 .img-crew {
