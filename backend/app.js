@@ -130,6 +130,7 @@ app.use('/api/listLabPics', (req, res) => {
     if (err) {
       res.status(500).send({err})
     } else {
+      files = files.filter(fileName => /.*\.jpg$/.test(fileName))
       for (let x in files) {
         files[x] = path.posix.join('/static/labPics', files[x])
       }
