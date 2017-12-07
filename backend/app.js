@@ -150,6 +150,10 @@ app.put('/api/updatePublications', requireAdmin, (req, res) => {
       res.send({message: 'OK'})
     }
   })
+  let date = new Date()
+  fs.writeFile('db/publications_' + date.toISOString().replace(/:/g,'-') + '.json', json, 'utf-8', (err, data) => {
+    if (err) console.log('backup failed')
+  })
 })
 
 app.put('/api/updateNews', requireAdmin, (req, res) => {
@@ -162,6 +166,10 @@ app.put('/api/updateNews', requireAdmin, (req, res) => {
       res.send({message: 'OK'})
     }
   })
+  let date = new Date()
+  fs.writeFile('db/news_' + date.toISOString().replace(/:/g,'-') + '.json', json, 'utf-8', (err, data) => {
+    if (err) console.log('backup failed')
+  })
 })
 
 app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
@@ -173,6 +181,10 @@ app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
       openpositions = req.body
       res.send({message: 'OK'})
     }
+  })
+  let date = new Date()
+  fs.writeFile('db/openpositions_' + date.toISOString().replace(/:/g,'-') + '.json', json, 'utf-8', (err, data) => {
+    if (err) console.log('backup failed')
   })
 })
 // -----------------------------------------API--------------------------------
