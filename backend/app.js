@@ -57,7 +57,7 @@ app.use('/api/test2', requireAdmin, function (req, res) {
 })
 
 app.post('/api/login', function (req, res, next) {
-  console.log(req.body)
+  // console.log(req.body)
   let password = req.body.password
 
   comparePassword(password).then(
