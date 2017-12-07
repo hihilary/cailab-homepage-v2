@@ -12,6 +12,7 @@ import Footer from '@/components/Footer'
 import Alumni from '@/components/Alumni'
 import VueResource from 'vue-resource'
 import LoginDialog from '@/components/LoginDialog'
+import VueLazyload from 'vue-lazyload'
 
 import App from './App'
 
@@ -24,6 +25,7 @@ Vue.component('Alumni', Alumni)
 Vue.component('LoginDialog', LoginDialog)
 Vue.use(ElementUI, {locale})
 Vue.use(VueResource)
+Vue.use(VueLazyload, {lazyComponent: true})
 
 /* eslint-disable no-new */
 new Vue({

@@ -2,9 +2,11 @@
 <div class="page-container">
   {{msg}}
   <div v-if="pics.length">
-    <el-carousel :autoplay="autoplay" arrow="always" indicator-position="none" height="480px" :interval="5000" ref="carousel">
+    <el-carousel :autoplay="autoplay" arrow="always" indicator-position="none" height="480px" :interval="4000" ref="carousel" @change="onCarouselChange">
       <el-carousel-item v-for="(item, key) in pics" :key="key">
-        <img :src="item" class="lab-pic">
+        <lazy-component>
+          <img :src="item" class="lab-pic" @load="onPicLoad(key)">
+        </lazy-component>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -24,11 +26,16 @@ export default {
       pics: [],
       thumbs: [],
       index: 0,
-      autoplay: true,
+      autoplay: false,
       msg: ''
     }
   },
   created () {
+    this.loadedPic = {}
+    this.loadedPicCount = 0
+    this.lockedPicIdx = null
+    this.currentIdx = 0
+
     this.$http.get('/api/listLabPics').then((response) => {
       let thumbs = []
       let pics = response.body
@@ -45,13 +52,38 @@ export default {
   methods: {
     changeImg (idx) {
       this.autoplay = false
+      this.lockedPicIdx = idx
       this.$refs.carousel.setActiveItem(idx)
     },
     onBlur () {
-      this.autoplay = true
+      this.lockedPicIdx = null
+      if (this.loadedPic.lengh >= this.pics.length) {
+        this.autoplay = true
+      }
     },
     getThumbURL (url) {
       return url.replace(/(.*)\/(.*\.jpg)$/, '$1/thumbs/$2')
+    },
+    onPicLoad (key) {
+      console.log('onPicLoad', key)
+      this.loadedPic[key] = true
+      this.loadedPicCount++
+      if (this.lockedPicIdx === null && key === this.currentIdx) {
+        this.autoplay = true
+        console.log('playing=', this.autoplay)
+      }
+    },
+    onCarouselChange (currentIdx) {
+      console.log('carouselChange', currentIdx)
+      this.currentIdx = currentIdx
+      console.log('currentIdx=', this.currentIdx)
+      if (!this.loadedPic[currentIdx]) {
+        this.autoplay = false
+        console.log('playing=', this.autoplay)
+      } else if (this.lockedPicIdx === null) {
+        this.autoplay = true
+        console.log('playing=', this.autoplay)
+      }
     }
   }
 }
