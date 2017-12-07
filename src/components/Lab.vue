@@ -12,7 +12,7 @@
   </div>
   <div class="image-panel">
     <div v-for="(item, key) in thumbs" :key="key" class="img-div">
-      <img :src="item" @click="changeImg(key)" class="img-single" @blur="onBlur" :tabIndex="key">
+      <img :src="item" @click="changeImg(key)" class="img-single" @blur="onBlur(key)" :tabIndex="key">
     </div>
   </div>
 </div>
@@ -56,17 +56,15 @@ export default {
       this.lockedPicIdx = idx
       this.$refs.carousel.setActiveItem(idx)
     },
-    onBlur () {
+    onBlur (idx) {
       this.lockedPicIdx = null
-      if (this.loadedPic.lengh >= this.pics.length) {
-        this.autoplay = true
-      }
+      this.onCarouselChange(idx)
     },
     getThumbURL (url) {
       return url.replace(/(.*)\/(.*\.jpg)$/, '$1/thumbs/$2')
     },
     onPicLoad (key) {
-      console.log('onPicLoad', key)
+      // console.log('onPicLoad', key)
       this.loadedPic[key] = true
       this.loadedPicCount++
 
@@ -76,7 +74,7 @@ export default {
 
       if (this.lockedPicIdx === null && this.expectedPics.length === 0) {
         this.autoplay = true
-        console.log('playing')
+        // console.log('playing')
       }
     },
     onCarouselChange (currentIdx) {
@@ -96,11 +94,11 @@ export default {
       }
       if (this.expectedPics.length > 0) {
         this.autoplay = false
-        console.log('paused')
+        // console.log('paused')
       // otherwise, check if picture is locked (by clicking thumbs)
       } else if (this.lockedPicIdx === null) {
         this.autoplay = true
-        console.log('playing')
+        // console.log('playing')
       }
     }
   }
