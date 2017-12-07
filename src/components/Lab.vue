@@ -2,7 +2,7 @@
 <div class="page-container">
   {{msg}}
   <div v-if="pics.length">
-    <el-carousel :autoplay="autoplay" arrow="always" indicator-position="none" height="480px" :interval="2000" ref="carousel">
+    <el-carousel :autoplay="autoplay" arrow="always" indicator-position="none" height="480px" :interval="5000" ref="carousel">
       <el-carousel-item v-for="(item, key) in pics" :key="key">
         <img :src="item" class="lab-pic">
       </el-carousel-item>
