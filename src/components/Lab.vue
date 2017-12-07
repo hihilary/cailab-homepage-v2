@@ -7,10 +7,10 @@
         <img :src="item" class="lab-pic">
       </el-carousel-item>
     </el-carousel>
-    <div class="image-panel">
-      <div v-for="(item, key) in pics" :key="key" class="img-div">
-        <img :src="item" @click="changeImg(key)" class="img-single" @blur="onBlur" :tabIndex="key">
-      </div>
+  </div>
+  <div class="image-panel">
+    <div v-for="(item, key) in thumbs" :key="key" class="img-div">
+      <img :src="item" @click="changeImg(key)" class="img-single" @blur="onBlur" :tabIndex="key">
     </div>
   </div>
 </div>
@@ -22,6 +22,7 @@ export default {
   data () {
     return {
       pics: [],
+      thumbs: [],
       index: 0,
       autoplay: true,
       msg: ''
@@ -29,7 +30,14 @@ export default {
   },
   created () {
     this.$http.get('/api/listLabPics').then((response) => {
-      this.pics = response.body
+      let thumbs = []
+      let pics = response.body
+      for (let picItem of pics) {
+        let thumb = this.getThumbURL(picItem)
+        thumbs.push(thumb)
+      }
+      this.thumbs = thumbs
+      this.pics = pics
     }, (response) => {
       this.msg = response.statusText
     })
@@ -41,6 +49,9 @@ export default {
     },
     onBlur () {
       this.autoplay = true
+    },
+    getThumbURL (url) {
+      return url.replace(/(.*)\/(.*\.jpg)$/, '$1/thumbs/$2')
     }
   }
 }
@@ -74,6 +85,8 @@ div{
   margin-top: 80px;
   display: flex;
   display: -webkit-flex;
+  flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
 
 }
 .img-single:hover {
