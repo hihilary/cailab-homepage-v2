@@ -108,7 +108,7 @@ export default {
     },
     getDescription (news) {
       let date = new Date(news.dateBegin).toLocaleDateString(
-          'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
+        'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
       if (news.dateEnd) {
         let endDate = new Date(news.dateEnd).toLocaleDateString(
           'en-GB', {year: 'numeric', month: 'short', day: 'numeric'})
