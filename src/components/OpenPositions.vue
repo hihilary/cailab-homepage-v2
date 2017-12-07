@@ -66,12 +66,12 @@ export default {
     })
 
     Global.bus.$on('adminLogin', () => {
-      console.log('received adminLogin event')
+      // console.log('received adminLogin event')
       this.canEdit = true
     })
 
     Global.bus.$on('adminLogout', () => {
-      console.log('received adminLogout event')
+      // console.log('received adminLogout event')
       this.canEdit = false
     })
   },
