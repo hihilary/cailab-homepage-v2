@@ -1,9 +1,9 @@
 <template>
   <div>
-    <el-menu :router="true" 
-      :default-active="activeIndex" 
-      class="el-menu-demo" 
-      mode="horizontal" 
+    <el-menu :router="true"
+      :default-active="activeIndex"
+      class="el-menu-demo"
+      mode="horizontal"
       text-color="#ffffff"
       active-text-color="#ffeecc"
       >
@@ -42,7 +42,7 @@ export default {
     })
 
     Global.bus.$on('adminLogin', () => {
-      console.log('received adminLogin event')
+      // console.log('received adminLogin event')
       this.adminLoggedIn = true
     })
   },
