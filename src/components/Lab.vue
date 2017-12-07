@@ -27,7 +27,7 @@ export default {
       thumbs: [],
       index: 0,
       autoplay: false,
-      msg: ''
+      msg: '',
     }
   },
   created () {
@@ -35,6 +35,7 @@ export default {
     this.loadedPicCount = 0
     this.lockedPicIdx = null
     this.currentIdx = 0
+    this.expectedPics = []
 
     this.$http.get('/api/listLabPics').then((response) => {
       let thumbs = []
@@ -68,21 +69,38 @@ export default {
       console.log('onPicLoad', key)
       this.loadedPic[key] = true
       this.loadedPicCount++
-      if (this.lockedPicIdx === null && key === this.currentIdx) {
+
+      if (this.expectedPics.length > 0) {
+        this.expectedPics = this.expectedPics.filter(val => this.loadedPic[val] !== true)
+      }
+
+      if (this.lockedPicIdx === null && this.expectedPics.length === 0) {
         this.autoplay = true
-        console.log('playing=', this.autoplay)
+        console.log('playing')
       }
     },
     onCarouselChange (currentIdx) {
-      console.log('carouselChange', currentIdx)
+      // console.log('carouselChange', currentIdx)
       this.currentIdx = currentIdx
-      console.log('currentIdx=', this.currentIdx)
+      // console.log(currentIdx + 1)
+      let nextIndex = currentIdx + 1
+      if (nextIndex >= this.pics.length) nextIndex = 0
+      // console.log('current', this.currentIdx, 'next', nextIndex, this.pics)
+      this.expectedPics = []
+      // if neither current picture nor next picture is loaded, pause.
       if (!this.loadedPic[currentIdx]) {
+        this.expectedPics.push(currentIdx)
+      }
+      if (!this.loadedPic[nextIndex]) {
+        this.expectedPics.push(nextIndex)
+      }
+      if (this.expectedPics.length > 0) {
         this.autoplay = false
-        console.log('playing=', this.autoplay)
+        console.log('paused')
+      // otherwise, check if picture is locked (by clicking thumbs)
       } else if (this.lockedPicIdx === null) {
         this.autoplay = true
-        console.log('playing=', this.autoplay)
+        console.log('playing')
       }
     }
   }
