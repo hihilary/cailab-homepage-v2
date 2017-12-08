@@ -55,6 +55,7 @@ export default {
       this.autoplay = false
       this.lockedPicIdx = idx
       this.$refs.carousel.setActiveItem(idx)
+      console.log('pause_click')
     },
     onBlur (idx) {
       this.lockedPicIdx = null
@@ -74,7 +75,7 @@ export default {
 
       if (this.lockedPicIdx === null && this.expectedPics.length === 0) {
         this.autoplay = true
-        // console.log('playing')
+        console.log('playing_load')
       }
     },
     onCarouselChange (currentIdx) {
@@ -94,11 +95,11 @@ export default {
       }
       if (this.expectedPics.length > 0) {
         this.autoplay = false
-        // console.log('paused')
+        console.log('paused')
       // otherwise, check if picture is locked (by clicking thumbs)
       } else if (this.lockedPicIdx === null) {
         this.autoplay = true
-        // console.log('playing')
+        console.log('playing')
       }
     }
   }

@@ -7,7 +7,7 @@
       <img src="../assets/logo/EPSRC.png" class="smallLogo">
     </div>
     <div>
-      <img src="../assets/logo/Wellcome_Trust.png">
+      <img src="../assets/logo/wctrust.png">
       <img src="../assets/logo/gates.png">
     </div>
     <div>
