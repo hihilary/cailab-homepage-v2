@@ -56,12 +56,15 @@ export default {
       this.lockedPicIdx = idx
       this.carouselInterval = 60000
       this.$refs.carousel.setActiveItem(idx)
-      console.log('pause_click')
+      console.log('pause_click', this.lockedPicIdx)
     },
     onBlur (idx) {
-      this.lockedPicIdx = null
-      this.carouselInterval = 4000
-      this.onCarouselChange(idx)
+      if (idx === this.lockedPicIdx) {
+        this.lockedPicIdx = null
+        this.carouselInterval = 4000
+        console.log('blur', this.lockedPicIdx)
+        this.onCarouselChange(idx)
+      }
     },
     getThumbURL (url) {
       return url.replace(/(.*)\/(.*\.jpg)$/, '$1/thumbs/$2')
@@ -76,7 +79,7 @@ export default {
 
       if (this.lockedPicIdx === null && this.expectedPics.length === 0) {
         this.autoplay = true
-        console.log('playing_load')
+        console.log('playing_load', this.lockedPicIdx)
       }
     },
     onCarouselChange (currentIdx) {
@@ -96,11 +99,11 @@ export default {
       }
       if (this.expectedPics.length > 0) {
         this.autoplay = false
-        console.log('paused')
+        console.log('paused', this.lockedPicIdx)
       // otherwise, check if picture is locked (by clicking thumbs)
       } else if (this.lockedPicIdx === null) {
         this.autoplay = true
-        console.log('playing')
+        console.log('playing', this.lockedPicIdx)
       }
     }
   }
