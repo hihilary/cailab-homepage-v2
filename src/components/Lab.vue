@@ -2,7 +2,7 @@
 <div class="page-container">
   {{msg}}
   <div v-if="pics.length">
-    <el-carousel :autoplay="autoplay" arrow="always" indicator-position="none" height="480px" :interval="4000" ref="carousel" @change="onCarouselChange">
+    <el-carousel :autoplay="autoplay" arrow="always" indicator-position="none" height="480px" :interval="carouselInterval" ref="carousel" @change="onCarouselChange">
       <el-carousel-item v-for="(item, key) in pics" :key="key">
         <lazy-component>
           <img :src="item" class="lab-pic" @load="onPicLoad(key)">
@@ -28,12 +28,12 @@ export default {
       index: 0,
       autoplay: false,
       msg: '',
+      lockedPicIdx: null,
+      carouselInterval: 4000,
     }
   },
   created () {
     this.loadedPic = {}
-    this.loadedPicCount = 0
-    this.lockedPicIdx = null
     this.currentIdx = 0
     this.expectedPics = []
 
@@ -54,11 +54,13 @@ export default {
     changeImg (idx) {
       this.autoplay = false
       this.lockedPicIdx = idx
+      this.carouselInterval = 60000
       this.$refs.carousel.setActiveItem(idx)
       console.log('pause_click')
     },
     onBlur (idx) {
       this.lockedPicIdx = null
+      this.carouselInterval = 4000
       this.onCarouselChange(idx)
     },
     getThumbURL (url) {
@@ -67,7 +69,6 @@ export default {
     onPicLoad (key) {
       // console.log('onPicLoad', key)
       this.loadedPic[key] = true
-      this.loadedPicCount++
 
       if (this.expectedPics.length > 0) {
         this.expectedPics = this.expectedPics.filter(val => this.loadedPic[val] !== true)
@@ -79,7 +80,7 @@ export default {
       }
     },
     onCarouselChange (currentIdx) {
-      // console.log('carouselChange', currentIdx)
+      console.log('carouselChange', currentIdx)
       this.currentIdx = currentIdx
       // console.log(currentIdx + 1)
       let nextIndex = currentIdx + 1
