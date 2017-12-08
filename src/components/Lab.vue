@@ -54,14 +54,12 @@ export default {
     changeImg (idx) {
       this.autoplay = false
       this.lockedPicIdx = idx
-      this.carouselInterval = 60000
       this.$refs.carousel.setActiveItem(idx)
       console.log('pause_click', this.lockedPicIdx)
     },
     onBlur (idx) {
       if (idx === this.lockedPicIdx) {
         this.lockedPicIdx = null
-        this.carouselInterval = 4000
         console.log('blur', this.lockedPicIdx)
         this.onCarouselChange(idx)
       }
