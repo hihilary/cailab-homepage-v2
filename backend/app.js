@@ -1,6 +1,6 @@
 var express = require('express')
 var path = require('path')
-var favicon = require('serve-favicon')
+// var favicon = require('serve-favicon')
 var logger = require('morgan')
 var cookieParser = require('cookie-parser')
 var bodyParser = require('body-parser')
@@ -30,10 +30,10 @@ app.use(cookieParser()) // req.headers => req.cookie
 app.use(express.static('dist'))
 // app.use('/', index)
 // app.use('/users', users)
-app.use(session({   // req.cookie => req.session
+app.use(session({ // req.cookie => req.session
   name: 'cailab-homepage',
   secret: 'cailab-homepage', // for signing session
-  store: new FileStore(),  // store in a local file
+  store: new FileStore(), // store in a local file
   saveUninitialized: false,
   resave: false,
   cookie: {
@@ -151,14 +151,14 @@ app.put('/api/updatePublications', requireAdmin, (req, res) => {
     }
   })
   let date = new Date()
-  fs.writeFile('db/publications_' + date.toISOString().replace(/:/g,'-') + '.json', json, 'utf-8', (err, data) => {
+  fs.writeFile('db/publications_' + date.toISOString().replace(/:/g, '-') + '.json', json, 'utf-8', (err, data) => {
     if (err) console.log('backup failed')
   })
 })
 
 app.put('/api/updateNews', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
-  fs.writeFile('./db/news.json', json, 'utf-8', (err, data) => {
+  fs.writeFile('db/news.json', json, 'utf-8', (err, data) => {
     if (err) {
       res.status(500).send({err})
     } else {
@@ -167,14 +167,14 @@ app.put('/api/updateNews', requireAdmin, (req, res) => {
     }
   })
   let date = new Date()
-  fs.writeFile('db/news_' + date.toISOString().replace(/:/g,'-') + '.json', json, 'utf-8', (err, data) => {
+  fs.writeFile('db/news_' + date.toISOString().replace(/:/g, '-') + '.json', json, 'utf-8', (err, data) => {
     if (err) console.log('backup failed')
   })
 })
 
 app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
-  fs.writeFile('./db/openpositions.json', json, 'utf-8', (err, data) => {
+  fs.writeFile('db/openpositions.json', json, 'utf-8', (err, data) => {
     if (err) {
       res.status(500).send({err})
     } else {
@@ -183,9 +183,16 @@ app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
     }
   })
   let date = new Date()
-  fs.writeFile('db/openpositions_' + date.toISOString().replace(/:/g,'-') + '.json', json, 'utf-8', (err, data) => {
+  fs.writeFile('db/openpositions_' + date.toISOString().replace(/:/g, '-') + '.json', json, 'utf-8', (err, data) => {
     if (err) console.log('backup failed')
   })
+})
+
+app.use('/favicon.ico', (req, res) => {
+  res.sendFile('static/favicon.ico')
+})
+app.use('/robots.txt', (req, res) => {
+  res.sendFile('static/robots.txt')
 })
 // -----------------------------------------API--------------------------------
 
