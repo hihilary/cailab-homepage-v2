@@ -17,3 +17,4 @@ selenium-debug.log
 *.sln
 /backend/secret.json
 /sessions
+/package-lock.json
