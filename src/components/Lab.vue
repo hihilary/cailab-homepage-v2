@@ -1,15 +1,15 @@
 <template>
 <div class="page-container">
   {{msg}}
-  <div v-if="pics.length">
-    <el-carousel :autoplay="autoplay" arrow="always" indicator-position="none" height="480px" :interval="carouselInterval" ref="carousel" @change="onCarouselChange">
+  <!-- <div v-if="pics.length"> -->
+    <MyCarousel :autoplay="autoplay" arrow="always" indicator-position="none" height="480px" :interval="carouselInterval" ref="carousel" @change="onCarouselChange">
       <el-carousel-item v-for="(item, key) in pics" :key="key">
         <lazy-component>
           <img :src="item" class="lab-pic" @load="onPicLoad(key)">
         </lazy-component>
       </el-carousel-item>
-    </el-carousel>
-  </div>
+    </MyCarousel>
+  <!-- </div> -->
   <div class="image-panel">
     <div v-for="(item, key) in thumbs" :key="key" class="img-div">
       <img :src="item" @click="changeImg(key)" class="img-single" @blur="onBlur(key)" :tabIndex="key">
@@ -19,8 +19,13 @@
 </template>
 
 <script>
+import MyCarousel from './MyCarousel'
+
 export default {
   name: 'Lab',
+  components: {
+    MyCarousel,
+  },
   data () {
     return {
       pics: [],
@@ -68,7 +73,7 @@ export default {
       return url.replace(/(.*)\/(.*\.jpg)$/, '$1/thumbs/$2')
     },
     onPicLoad (key) {
-      // console.log('onPicLoad', key)
+      console.log('onPicLoad', key)
       this.loadedPic[key] = true
 
       if (this.expectedPics.length > 0) {
@@ -78,6 +83,8 @@ export default {
       if (this.lockedPicIdx === null && this.expectedPics.length === 0) {
         this.autoplay = true
         console.log('playing_load', this.lockedPicIdx)
+      } else {
+        console.log('loaded but not play')
       }
     },
     onCarouselChange (currentIdx) {
@@ -103,6 +110,7 @@ export default {
         this.autoplay = true
         console.log('playing', this.lockedPicIdx)
       }
+      console.log('autoplay:', this.autoplay)
     }
   }
 }
