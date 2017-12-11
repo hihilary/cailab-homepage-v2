@@ -212,6 +212,6 @@ a:hover, .full-text:hover {
   cursor: pointer;
 }
 .email {
-  margin-bottom:10px;
+  margin: 5px 0;
 }
 </style>
