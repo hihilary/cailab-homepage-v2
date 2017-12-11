@@ -9,6 +9,7 @@
           <div class="rightDiv">
             <div class="font56">Synthetic Genomics</div>
             <div class="font42">Design, Synthesis, Characterization.</div>
+            <div class="font42">Automated.</div>
           </div>
         </div>
       </el-carousel-item>
@@ -53,7 +54,7 @@
         <div>
           <img src="../assets/pic_art/germ2.png" class="germ"><br>
           <div class="font18">News</div>
-          <router-link to="/news_items" class="panel-link">Click here</router-link> to learn more about recent news from the Cai Lab. 
+          <router-link to="/news_items" class="panel-link">Click here</router-link> to learn more about recent news from the Cai Lab.
           <router-link to="/publications" class="panel-link">Click here</router-link> to find a list of recent publications from the Cai Lab.
         </div>
       </el-col>

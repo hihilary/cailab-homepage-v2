@@ -30,7 +30,7 @@
     {
         "title": "Dr. ",
         "name": "Eva Garcia-Ruiz",
-        "email": "egarcia2@exseed.ed.ac.uk",
+        "email": "evagarciaruiz.edu@gmail.com",
         "description": "Eva works at Cai’s group at University of Edinburgh as a postdoctoral research associate. Prior to coming to Edinburgh, she gained extensive research experience from several fellowships and internships at industry (MSD) and academia. She received her B.S. in Biology from Universidad de Alcala de Henares in Spain, and went on to receive her M.S. and Ph.D. from the Universidad Complutense de Madrid at the Spanish Research Council supervised by Prof. Miguel Alcalde and Prof. Angel T. Martinez. Following graduation, she worked as a postdoctoral research associate at Huimin Zhao’s group at University of Illinois (UIUC) for 3 years. [br]   Her current research is focused on engineering and biosynthesizing diversified natural product-like drugs active against human pathogens. She is also working on automation of synthetic biology protocols. [br]In her free time, she enjoys cooking, ice skating and painting. ",
         "portrait": "Eva.jpg"
     },
@@ -40,5 +40,12 @@
         "email": "daniel.schindler@synmikro.uni-marburg.de",
         "description": "Daniel Schindler is currently working as postdoctoral research associate in the lab of Dr Patrick Cai. He obtained his Ph.D. in Biology at the Philipps-Universität Marburg in Germany, at the LOEWE Center for Synthetic Microbiology under Prof Torsten Waldminghaus. His research focused on the construction of synthetic secondary chromosomes to analyse chromosome maintenance systems in Escherichia coli. [br]His current research projects are straightened to the design, construction and characterization of neochromosomes in baker´s yeast Saccharomyces cerevisiae. In his opinion there are many open questions in the field of chromosome research and recent progress in Synthetic Biology can provide answers through construction of synthetic chromosomes.[br]In his free time, Daniel enjoys outdoor sports (climbing, mountaineering and running), travelling and good food. ",
         "portrait": "Daniel.jpg"
+    },
+    {
+        "title": "",
+        "name": "Sally Jones",
+        "email": "sally.jones-3@manchester.ac.uk",
+        "description": "Sally is acting as a laboratory research technician in the Cai lab. She graduated from the University of Bath in June 2017 with a BSc (Hons) in Biochemistry. In her free time she enjoys painting and gardening.",
+        "portrait": "Sally.jpg"
     }
 ]
