@@ -13,7 +13,6 @@
       <el-menu-item index="4" route="/publications">Publications</el-menu-item>
       <el-menu-item index="5" route="/users">People</el-menu-item>
       <el-menu-item index="6" route="/pictures">Lab</el-menu-item>
-      <el-menu-item index="7" route="/software">Software</el-menu-item>
       <el-menu-item index="8" route="/collaborators">Collaborators</el-menu-item>
       <el-menu-item index="9" route="/contact">Contact</el-menu-item>
       <el-menu-item index="10" route="/openpositions" >Open Positions</el-menu-item>

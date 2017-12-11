@@ -2,7 +2,6 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Projects from '@/components/Projects'
-import Software from '@/components/Software'
 import News from '@/components/News'
 import Publications from '@/components/Publications'
 import People from '@/components/People'
@@ -26,11 +25,6 @@ export default new Router({
       path: '/about',
       name: 'Projects',
       component: Projects
-    },
-    {
-      path: '/software',
-      name: 'Software',
-      component: Software
     },
     {
       path: '/news_items',

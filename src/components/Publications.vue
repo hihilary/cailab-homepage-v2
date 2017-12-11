@@ -4,7 +4,7 @@
     {{message}}
     <div v-loading="loading" element-loading-text="loading...">
         <el-button type="primary" @click="openNewItemDialog" v-if="canEdit" icon="el-icon-circle-plus-outline">New Item</el-button>
-        <el-row :gutter="10" v-for="(item, key) in publications" :key="key" v-if="ifShowPage(key)" class="row-panel">
+        <el-row :gutter="10" v-for="(item, key) in publications" :key="key" class="row-panel">
             <el-col :span="leftSpan">
               <span>{{item.index}}.</span>
               <span v-html="item.htmlText"></span>
@@ -14,7 +14,6 @@
               <i class="el-icon-delete" @click="deleteItem(key)"></i>
             </el-col>
         </el-row>
-        <el-pagination :page-size="pageSize" layout="prev, pager, next" :total="publications.length" :current-page.sync="currentPage" />
     </div>
     <PublicationEditDialog :visible.sync="ifShowEditDialog" :text="ubbText" @textChanged="textSubmit"/>
   </div>
@@ -33,8 +32,6 @@ export default {
       loading: true,
       publications: [],
       canEdit: false,
-      pageSize: 20,
-      currentPage: 1,
       ifShowEditDialog: false,
       ubbText: '',
       editingIndex: undefined,
@@ -113,9 +110,6 @@ export default {
     },
     toEditAllPage () {
       this.$router.push({ path: '/publication_edit' })
-    },
-    ifShowPage (idx) {
-      return idx >= (this.currentPage - 1) * 20 && idx < (this.currentPage) * 20
     },
     editItem (idx) {
       this.ifShowEditDialog = true
