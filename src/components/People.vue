@@ -29,7 +29,7 @@
     <el-dialog
       :title=bigPicDetail.name
       :visible.sync="bigPicVisible"
-      @close="bigPicDetail={name:'', picturePath:''}"
+      @close="bigPicDetail={name: '', picturePath: ''}"
       width="664px"
       center>
       <div @click="bigPicVisible = false">
@@ -59,9 +59,9 @@ export default {
       crew: crewMember,
       isFullText: [],
       bigPicVisible: false,
-      bigPicDetail:{
-        name:'',
-        picturePath:'',
+      bigPicDetail: {
+        name: '',
+        picturePath: '',
       }
     }
   },
@@ -91,7 +91,10 @@ export default {
       this.$set(this.isFullText, index, !this.isFullText[index])
     },
     clickMember (member) {
-      this.bigPicDetail = {name: member.title+member.name, picturePath: this.getFullPortraitPath(member.portrait)}
+      this.bigPicDetail = {
+        name: member.title + member.name,
+        picturePath: this.getFullPortraitPath(member.portrait)
+      }
       this.bigPicVisible = true
     },
   },
