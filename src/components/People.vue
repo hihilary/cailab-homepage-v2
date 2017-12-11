@@ -15,14 +15,20 @@
         <img :src="getThumbPortraitPath(member.portrait)" class="img-crew" @click="clickMember(member)">
         <div class="info-crew">
           <h5>{{member.title}}{{member.name}}</h5>
-          <div><a :href="'mailto:'+member.email">{{member.email}}</a></div>
-          <div v-if="!isFullText[idx]">
-            {{shortDescription(member.description)}}... <span @click="changeFullText(idx)" class="full-text">More</span>
-          </div>
-          <div v-else>
+          <div class="email"><a :href="'mailto:'+member.email">{{member.email}}</a></div>
+          <template v-if="longDescription(member.description).length <= shortDescriptionLength">
+            <div><span v-html="longDescription(member.description)" /></div>
+          </template>
+          <template v-else>
+            <div v-if="!isFullText[idx]">
+              {{shortDescription(member.description)}}... <span @click="changeFullText(idx)" class="full-text">More</span>
+            </div>
+            <div v-else>
             <span v-html="longDescription(member.description)" /><br>
             <span @click="changeFullText(idx)" class="full-text">Collapse</span>
-          </div>
+            </div>
+          </template>
+
         </div>
       </div>
     </div>
@@ -62,7 +68,8 @@ export default {
       bigPicDetail: {
         name: '',
         picturePath: '',
-      }
+      },
+      shortDescriptionLength: 400,
     }
   },
   created () {
@@ -73,7 +80,7 @@ export default {
   methods: {
     shortDescription (longDescription) {
       if (longDescription) {
-        return longDescription.replace(/\[br\]/, '').substr(0, 140)
+        return longDescription.replace(/\[br\]/, '').substr(0, this.shortDescriptionLength)
       } else {
         return ''
       }
@@ -203,5 +210,8 @@ a:hover, .full-text:hover {
 }
 .full-text {
   cursor: pointer;
+}
+.email {
+  margin-bottom:10px;
 }
 </style>
