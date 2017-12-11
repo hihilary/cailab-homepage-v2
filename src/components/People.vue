@@ -3,7 +3,7 @@
     <div class="page-container">
       <h1>People</h1>
       <div class="leader">
-        <img :src="getFullPortraitPath(leader.portrait)" class="img-leader">
+        <img :src="getThumbPortraitPath(leader.portrait)" class="img-leader" @click="clickMember(leader)">
         <div class="info-leader">
           <h2>{{leader.title}}{{leader.name}}</h2>
           <div><a :href="'mailto:'+leader.email">{{leader.email}}</a></div>
@@ -12,7 +12,7 @@
         </div>
       </div>
       <div v-for="(member,idx) in crew" :key="idx" class="crew">
-        <img :src="getFullPortraitPath(member.portrait)" class="img-crew">
+        <img :src="getThumbPortraitPath(member.portrait)" class="img-crew" @click="clickMember(member)">
         <div class="info-crew">
           <h5>{{member.title}}{{member.name}}</h5>
           <div><a :href="'mailto:'+member.email">{{member.email}}</a></div>
@@ -26,6 +26,16 @@
         </div>
       </div>
     </div>
+    <el-dialog
+      :title=bigPicDetail.name
+      :visible.sync="bigPicVisible"
+      @close="bigPicDetail={name:'', picturePath:''}"
+      width="664px"
+      center>
+      <div @click="bigPicVisible = false">
+      <img :src="bigPicDetail.picturePath" class="img-full">
+      </div>
+    </el-dialog>
     <Alumni/>
   </div>
 </template>
@@ -47,7 +57,12 @@ export default {
         'portrait': 'Patrick.jpg'
       },
       crew: crewMember,
-      isFullText: []
+      isFullText: [],
+      bigPicVisible: false,
+      bigPicDetail:{
+        name:'',
+        picturePath:'',
+      }
     }
   },
   created () {
@@ -69,9 +84,16 @@ export default {
     getFullPortraitPath (portrait) {
       return require('../assets/portraits/' + portrait)
     },
+    getThumbPortraitPath (portrait) {
+      return require('../assets/portraits/thumbs/' + portrait)
+    },
     changeFullText (index) {
       this.$set(this.isFullText, index, !this.isFullText[index])
-    }
+    },
+    clickMember (member) {
+      this.bigPicDetail = {name: member.title+member.name, picturePath: this.getFullPortraitPath(member.portrait)}
+      this.bigPicVisible = true
+    },
   },
 }
 </script>
@@ -127,14 +149,14 @@ h5 {
   margin-bottom: 20px;
 }
 .img-leader {
-  width: 150px;
+  width: 250px;
   border-collapse: collapse;
   padding: 4px;
   vertical-align: middle;
   border: 1px solid rgba(0,0,0,0.2);
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   background-color: #fff;
-  cursor: auto;
+  cursor: pointer;
   margin-right: 30px;
 }
 .info-leader, .info-crew {
@@ -148,15 +170,25 @@ h5 {
   align-items: flex-start;
 }
 .img-crew {
-  width: 100px;
+  width: 200px;
   border-collapse: collapse;
   padding: 4px;
   vertical-align: middle;
   border: 1px solid rgba(0,0,0,0.2);
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
   background-color: #fff;
-  cursor: auto;
-  margin:0 25px;
+  cursor: pointer;
+  margin:0px 25px 0px 25px;
+}
+.img-full {
+  width: 500px;
+  border-collapse: collapse;
+  padding: 4px;
+  vertical-align: middle;
+  border: 1px solid rgba(0,0,0,0.2);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  background-color: #fff;
+  margin:50px;
 }
 a, .full-text {
   color: rgb(0,136,204);

@@ -14,7 +14,7 @@
     "test": "npm run unit && npm run e2e",
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
     "build": "node build/build.js",
-    "createThumbs": "node build/createThumbs.js"
+    "createThumbs": "node build/createThumbs.js && node build/createThumbsPortraits.js"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
