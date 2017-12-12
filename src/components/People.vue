@@ -24,8 +24,8 @@
               {{shortDescription(member.description)}}... <span @click="changeFullText(idx)" class="full-text">More</span>
             </div>
             <div v-else>
-            <span v-html="longDescription(member.description)" /><br>
-            <span @click="changeFullText(idx)" class="full-text">Collapse</span>
+              <span v-html="longDescription(member.description)" /><br>
+              <span @click="changeFullText(idx)" class="full-text">Collapse</span>
             </div>
           </template>
 

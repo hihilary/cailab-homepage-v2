@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-carousel :autoplay="false" arrow="always" indicator-position="none" height="500px">
+    <el-carousel :autoplay="true" arrow="always" height="500px">
       <el-carousel-item>
         <div class="container">
           <div class="leftDiv align-center">
