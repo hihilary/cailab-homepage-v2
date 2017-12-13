@@ -7,15 +7,14 @@
       text-color="#ffffff"
       active-text-color="#ffeecc"
       >
-      <el-menu-item index="1" route="/" class="brand">The Cai Lab</el-menu-item>
-      <el-menu-item index="2" route="/about">Projects</el-menu-item>
-      <el-menu-item index="3" route="/news_items">News</el-menu-item>
-      <el-menu-item index="4" route="/publications">Publications</el-menu-item>
-      <el-menu-item index="5" route="/users">People</el-menu-item>
-      <el-menu-item index="6" route="/pictures">Lab</el-menu-item>
-      <el-menu-item index="8" route="/collaborators">Collaborators</el-menu-item>
-      <el-menu-item index="9" route="/contact">Contact</el-menu-item>
-      <el-menu-item index="10" route="/openpositions" >Open Positions</el-menu-item>
+      <el-menu-item
+        v-for="item in routes"
+        :key="item.index"
+        :index="item.index"
+        :route="item.path"
+        :class="item.class">
+          {{item.text}}
+      </el-menu-item>
       <li class="itemxx" @click="onOpenLogin" v-if="!adminLoggedIn">login</li>
       <li class="itemxx" @click="onLogout" v-else>logout</li>
     </el-menu>
@@ -30,7 +29,64 @@ export default {
   data () {
     return {
       activeIndex: '1',
-      adminLoggedIn: false
+      adminLoggedIn: false,
+      routes: [
+        {
+          index: '1',
+          path: '/',
+          text: 'The Cai Lab',
+          class: 'brand',
+        },
+        {
+          index: '2',
+          path: '/about',
+          text: 'Projects',
+          class: '',
+        },
+        {
+          index: '3',
+          path: '/news_items',
+          text: 'News',
+          class: '',
+        },
+        {
+          index: '4',
+          path: '/publications',
+          text: 'Publications',
+          class: '',
+        },
+        {
+          index: '5',
+          path: '/users',
+          text: 'People',
+          class: '',
+        },
+        {
+          index: '6',
+          path: '/pictures',
+          text: 'Lab',
+          class: '',
+        },
+        {
+          index: '7',
+          path: '/collaborators',
+          text: 'Collaborators',
+          class: '',
+        },
+        {
+          index: '8',
+          path: '/contact',
+          text: 'Contact',
+          class: '',
+        },
+        {
+          index: '9',
+          path: '/openpositions',
+          text: 'Open Positions',
+          class: '',
+        },
+
+      ],
     }
   },
   created () {
@@ -44,11 +100,12 @@ export default {
       // console.log('received adminLogin event')
       this.adminLoggedIn = true
     })
+    this.activeIndex = this.routes.find(element => element.path === this.$route.path).index
+  },
+  beforeUpdate () {
+    this.activeIndex = this.routes.find(element => element.path === this.$route.path).index
   },
   methods: {
-    // handleSelect (key, keyPath) {
-    //   console.log(key, keyPath)
-    // }
     onOpenLogin () {
       Global.bus.$emit('openLoginDialog')
     },
@@ -58,7 +115,7 @@ export default {
         this.adminLoggedIn = false
         Global.bus.$emit('adminLogout')
       })
-    }
+    },
   }
 }
 </script>
