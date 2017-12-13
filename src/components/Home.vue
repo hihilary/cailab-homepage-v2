@@ -21,7 +21,7 @@
           <div class="rightDiv">
             <div class="font56">Synthetic Genomics</div>
             <div class="font42">
-              <router-link to="/" class="carousel-link">Click here</router-link>
+              <router-link to="/about" class="carousel-link">Click here</router-link>
               to learn more about our research.
             </div>
           </div>
@@ -40,7 +40,7 @@
           <div class="rightDiv">
             <div class="font56">Synthetic Genomics</div>
             <div class="font42">
-              <router-link to="/" class="carousel-link">Click here</router-link>
+              <router-link to="/openpositions" class="carousel-link">Click here</router-link>
               to learn more about open positions in the lab.
             </div>
           </div>
