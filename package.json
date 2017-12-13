@@ -8,13 +8,13 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "start_dev",
     "backend": "supervisor -w backend ./build/start-backend.js",
+    "build": "node build/build.js",
+    "createThumbs": "node build/createThumbs.js && node build/createThumbsPortraits.js",
     "production": "sh ./start_prod.sh",
     "unit": "jest test/unit/specs --coverage",
     "e2e": "node test/e2e/runner.js",
     "test": "npm run unit && npm run e2e",
-    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs",
-    "build": "node build/build.js",
-    "createThumbs": "node build/createThumbs.js && node build/createThumbsPortraits.js"
+    "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
