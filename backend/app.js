@@ -189,10 +189,10 @@ app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
 })
 
 app.use('/favicon.ico', (req, res) => {
-  res.sendFile('favicon.ico', { root: path.resolve(__dirname, '../static') })
+  res.sendFile('favicon.ico', { root: path.resolve(__dirname, '../') })
 })
 app.use('/robots.txt', (req, res) => {
-  res.sendFile('robots.txt', { root: path.resolve(__dirname, '../static') })
+  res.sendFile('robots.txt', { root: path.resolve(__dirname, '../') })
 })
 // -----------------------------------------API--------------------------------
 

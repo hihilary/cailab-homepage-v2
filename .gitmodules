@@ -1,3 +1,6 @@
 [submodule "static/labPics"]
 	path = static/labPics
 	url = https://github.com/hihilary/cailab-hompage-pictures.git
+[submodule "mobile/static/labPics"]
+	path = static/labPics
+	url = https://github.com/hihilary/cailab-hompage-pictures.git

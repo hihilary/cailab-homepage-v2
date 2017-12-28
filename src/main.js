@@ -13,10 +13,15 @@ import Alumni from '@/components/Alumni'
 import VueResource from 'vue-resource'
 import LoginDialog from '@/components/LoginDialog'
 import VueLazyload from 'vue-lazyload'
+import device from 'current-device'
 
 import App from './App'
 
 Vue.config.productionTip = false
+
+if (device.mobile()) {
+  window.location = 'https://m.cailab.org'
+}
 
 // global registered
 Vue.component('NavBar', NavBar)

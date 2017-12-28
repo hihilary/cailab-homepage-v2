@@ -8,6 +8,7 @@
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
     "start": "start_dev",
     "backend": "supervisor -w backend ./build/start-backend.js",
+    "mobileBackend": "supervisor -w backend ./build/start-mobile-backend.js",
     "build": "node build/build.js",
     "createThumbs": "node build/createThumbs.js && node build/createThumbsPortraits.js",
     "production": "sh ./start_prod.sh",
@@ -19,6 +20,7 @@
   "dependencies": {
     "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
+    "current-device": "^0.7.2",
     "debug": "~3.1.0",
     "element-ui": "^2.0.4",
     "express": "~4.16.2",
