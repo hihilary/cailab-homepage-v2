@@ -1,0 +1,48 @@
+<template>
+  <div class="page-container">
+    <h2>Alumni</h2>
+    <ul>
+      <li v-for="(item, key) in alumni" :key="key">{{item}}</li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import alumni from '../assets/alumni.json'
+export default {
+  name: 'Alumni',
+  data () {
+    return {
+      alumni,
+    }
+  },
+  created () {
+  }
+}
+</script>
+
+<style scoped>
+div{
+  box-sizing: border-box;
+}
+.page-container {
+  padding:20px;
+}
+h1,
+h2,
+h3 {
+  margin: 10px 0;
+  font-weight: bold;
+}
+h1 {
+  font-size: 36px;
+  line-height: 40px;
+}
+h2 {
+  font-size: 24px;
+  line-height: 40px;
+}
+ul {
+  padding-left: 30px;
+}
+</style>
