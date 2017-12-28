@@ -9,7 +9,7 @@
     <div v-loading="loading" element-loading-text="loading...">
       <p v-if="positions&&positions.length">We are currently looking to fill a few openings:</p>
       <li v-for="(item, key) in positions" :key="key" class="row-panel">
-          <span> {{item.text}}: <a :href="item.link" target="_blank" v-if="item.link&&item.link.trim().length"><mt-button type="primary" size="small">click here</mt-button></a></span>
+          <a :href="item.link" target="_blank" v-if="item.link&&item.link.trim().length">{{item.text}}</a>
       </li>
       <p v-if="positions&&positions.length">Our group also has a number of PhD student openings. Please get in touch with Prof. Cai to discuss potential projects if interested.</p>
       <p v-else>To enquire about open positions, please send your CV and a cover letter to Dr. Patrick Cai at <a :href="'mailto:yizhi.cai@manchester.ac.uk'">yizhi.cai@manchester.ac.uk</a></p>
@@ -110,5 +110,9 @@ div{
 }
 .row-panel {
   margin: 20px;
+}
+a{
+  text-decoration: none;
+  color: inherit;
 }
 </style>

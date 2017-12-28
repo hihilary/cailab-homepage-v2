@@ -8,7 +8,7 @@
       <div class="font42">Automated.</div>
     </div>
     <svg aria-hidden="true" data-fa-processed="" data-prefix="fas" data-icon="angle-double-down" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512" class="icon svg-inline--fa fa-angle-double-down fa-w-10 fa-3x"><path fill="currentColor" d="M143 256.3L7 120.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0L313 86.3c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.4 9.5-24.6 9.5-34 .1zm34 192l136-136c9.4-9.4 9.4-24.6 0-33.9l-22.6-22.6c-9.4-9.4-24.6-9.4-33.9 0L160 352.1l-96.4-96.4c-9.4-9.4-24.6-9.4-33.9 0L7 278.3c-9.4 9.4-9.4 24.6 0 33.9l136 136c9.4 9.5 24.6 9.5 34 .1z" class=""></path></svg>
-    <Nav/>
+    <Nav :hideNav="true"/>
   </div>
 </template>
 
@@ -42,6 +42,7 @@ a{
   img,div {
     margin: 10px;
   }
+  width:100%;
 }
 .inline {
   display: inline-block;
@@ -58,15 +59,15 @@ a:hover{
   text-decoration: underline;
 }
 img.robot {
-  height: 228px;
-  width: 200px;
+  width: 50%;
+  max-width: 200px;
 }
 .font56{
   font-weight: bold;
   font-size: 56px;
 }
 .font42{
-  font-size: 42px;
+  font-size: 34px;
 }
 .germ {
   width: 100px;

@@ -7,6 +7,10 @@
         {{item.text}}
       </div>
     </router-link>
+    <div v-if="!hideNav" style="margin:30px 0px;text-align:center;">
+        <router-link to="/" slot="left"> Back
+        </router-link>
+    </div>
   </div>
 </template>
 
@@ -74,7 +78,13 @@ export default {
         },
       ],
     }
-  }
+  },
+  props: {
+    hideNav: {
+      type: Boolean,
+      default: false,
+    },
+  },
 }
 </script>
 
