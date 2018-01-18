@@ -20,4 +20,4 @@ if [ -z "$SKIP_BUILD" ]; then
 fi
 mkdir -p /srv/cailab-homepage/db
 cp -n ./api-server/db/* /srv/cailab-homepage/db/
-docker-compose up --build
+docker-compose up --build -d
