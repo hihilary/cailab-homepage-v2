@@ -1,12 +1,12 @@
-FROM node:carbon
-RUN npm install -g forever
+FROM node
+RUN yarn global add forever
 WORKDIR /app
 ADD package*.json ./
+ADD yarn.* ./
 VOLUME /app/db
-RUN npm install
+RUN yarn install
 ADD . .
 EXPOSE 3000
-EXPOSE 3001
 RUN npm run build
 CMD ["sh", "./start_prod.sh"]
 
