@@ -1,7 +1,6 @@
 FROM node:alpine
 WORKDIR /app
-ADD ./package.json ./
-ADD ./yarn* ./
+ADD ./package.json ./yarn* ./
 RUN yarn install
 ADD . .
 EXPOSE 3030

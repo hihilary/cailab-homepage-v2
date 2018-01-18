@@ -10,7 +10,7 @@ the website is using Docker
 Linux, Node.js, yarn, docker, docker-compose are required.
 
 ``` bash
-git clone https://github.com/hihilary/cailab-homepage-v2.git
+git clone --recursive https://github.com/hihilary/cailab-homepage-v2.git
 cd cailab-homepage-v2
 sh ./setup.sh
 ```
