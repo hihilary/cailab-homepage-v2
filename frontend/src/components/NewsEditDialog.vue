@@ -1,5 +1,5 @@
 <template>
-  <el-dialog class="news-dialog" width="500px" top="27vh" title="News" :visible="visible" v-on:update:visible="val => this.$emit('update:visible', val)"> 
+  <el-dialog class="news-dialog" width="500px" top="27vh" title="News" :visible="visible" @update:visible="val => this.$emit('update:visible', val)"> 
     <el-switch v-model="ifMultipleDate" active-text="multiple days event" class="margin-between"></el-switch>
     <div class="margin-between">
       <el-date-picker v-model="item.dateBegin" type="date" placeholder="start date" format="dd-MM-yyyy"></el-date-picker>

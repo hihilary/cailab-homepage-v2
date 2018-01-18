@@ -18,7 +18,6 @@
       <li class="itemxx" @click="onOpenLogin" v-if="!adminLoggedIn">login</li>
       <li class="itemxx" @click="onLogout" v-else>logout</li>
     </el-menu>
-    <div class="line"></div>
   </div>
 </template>
 
@@ -90,7 +89,7 @@ export default {
     }
   },
   created () {
-    this.$http.post('/api/myIdentity', {}).then((response) => {
+    this.$http.get('/api/myIdentity', {}).then((response) => {
       if (response.body.id === 'admin') {
         this.adminLoggedIn = true
       }

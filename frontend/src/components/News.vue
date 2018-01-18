@@ -3,20 +3,21 @@
     <h1>News</h1>{{msg}}
     <div v-loading="loading" element-loading-text="loading...">
       <el-button type="primary" @click="openNewItemDialog" v-if="canEdit" icon="el-icon-circle-plus-outline" class="new-button">New Item</el-button>
-        <el-row v-for="(item, key) in news" :key="key" v-if="ifShowPage(key)" class="row-panel">
-          <el-col :span="leftSpan">
-            <span v-html="item.description"></span>
-          </el-col>
-          <el-col :span="2" v-if="canEdit">
-            <div class="oper-panel">
-            <i class="el-icon-edit" @click="editItem(key)"></i>&nbsp;
-            <i class="el-icon-delete" @click="deleteItem(key)"></i>
-            </div>
-          </el-col>
-        </el-row>
-      <el-pagination layout="prev, pager, next" :total="news.length" :page-size="pageSize" :current-page.sync="currentPage" />
+      <el-row v-for="(item, key) in news" :key="key" v-if="ifShowPage(key)" class="row-panel">
+        <el-col :span="leftSpan">
+          <span v-html="item.description"></span>
+        </el-col>
+        <el-col :span="2" v-if="canEdit">
+          <div class="oper-panel">
+          <i class="el-icon-edit" @click="editItem(key)"></i>&nbsp;
+          <i class="el-icon-delete" @click="deleteItem(key)"></i>
+          </div>
+        </el-col>
+      </el-row>
+      <el-pagination layout="prev, pager, next" background :total="news.length" :page-size="pageSize" :current-page.sync="currentPage" />
     </div>
     <NewsEditDialog :visible.sync="ifShowEditDialog" :newsdata="submitNews" @dataChanged="submitItem"/>
+    <!-- <NewsEditDialog :visible="ifShowEditDialog" @update:visible="val=>this.ifShowEditDialog = val"/> -->
   </div>
 </template>
 
@@ -69,7 +70,7 @@ export default {
       }
     }
 
-    this.$http.get('/api/listNews').then((response) => {
+    this.$http.get('/api/news').then((response) => {
       let backendNews = response.body
       let news = JSON.stringify(backendNews)
       localStorage.setItem('news', news)
@@ -79,7 +80,7 @@ export default {
       this.msg = response.statusText
     })
 
-    this.$http.post('/api/myIdentity', {}).then((response) => {
+    this.$http.get('/api/myIdentity', {}).then((response) => {
       if (response.body.id === 'admin') {
         this.canEdit = true
       }
@@ -117,9 +118,6 @@ export default {
       let htmlText = ubb2html(news.text)
       return `${date}, ${htmlText}`
     },
-    onClick () {
-      this.$router.push({ path: '/news_edit' })
-    },
     ifShowPage (idx) {
       return idx >= (this.currentPage - 1) * 20 && idx < (this.currentPage) * 20
     },
@@ -151,14 +149,14 @@ export default {
         this.news[this.editingIndex].dateEnd = dateEndISO
         this.news[this.editingIndex].text = newsItem.text
         this.$set(this.news[this.editingIndex], 'description', this.getDescription(newsItem))
-        this.$http.put('/api/updateNews', this.newsSubmitArray).then((response) => {
+        this.$http.put('/api/news', this.newsSubmitArray).then((response) => {
           this.$message({type: 'success', message: 'Update succeeded!'})
         }, (response) => {
           this.$message.error('Update error!')
         })
       } else if (this.editingIndex === -1) {
         this.news.unshift({description: this.getDescription(newsItem), dateBegin: dateBeginISO, dateEnd: dateEndISO, text: newsItem.text})
-        this.$http.put('/api/updateNews', this.newsSubmitArray).then((response) => {
+        this.$http.put('/api/news', this.newsSubmitArray).then((response) => {
           this.$message({type: 'success', message: 'New item succeeded!'})
         }, (response) => {
           this.$message.error('New item error!')
@@ -173,7 +171,7 @@ export default {
         type: 'warning'
       }).then(() => {
         this.news.splice(idx, 1)
-        this.$http.put('/api/updateNews', this.newsSubmitArray).then((response) => {
+        this.$http.put('/api/news', this.newsSubmitArray).then((response) => {
           this.$message({type: 'success', message: 'Delete succeeded!'})
         }, (response) => {
           this.$message.error('Delete error!')

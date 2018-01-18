@@ -8,13 +8,13 @@ import People from '@/components/People'
 import Contact from '@/components/Contact'
 import PublicationEdit from '@/components/PublicationEdit'
 import Collaborators from '@/components/Collaborators'
-import NewsEdit from '@/components/NewsEdit'
 import OpenPositions from '@/components/OpenPositions'
 import Lab from '@/components/Lab'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
@@ -55,11 +55,6 @@ export default new Router({
       path: '/collaborators',
       name: 'Collaborators',
       component: Collaborators
-    },
-    {
-      path: '/news_edit',
-      name: 'NewsEdit',
-      component: NewsEdit
     },
     {
       path: '/openpositions',

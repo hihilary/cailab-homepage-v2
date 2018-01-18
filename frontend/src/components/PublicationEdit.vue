@@ -36,7 +36,7 @@ export default {
     }
   },
   created () {
-    this.$http.post('/api/listPublications').then((response) => {
+    this.$http.post('/api/publications').then((response) => {
       let publications = []
       let index = response.body.length
       for (let ubbText of response.body) {
@@ -77,7 +77,7 @@ export default {
           i--
         }
       }
-      this.$http.put('/api/updatePublications', this.pubsubmit).then((response) => {
+      this.$http.put('/api/publications', this.pubsubmit).then((response) => {
         this.$message({
           message: 'submit succeeded!',
           type: 'success'

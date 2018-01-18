@@ -50,14 +50,14 @@ export default {
     },
   },
   created () {
-    this.$http.get('/api/listOpenPositions').then((response) => {
+    this.$http.get('/api/openPositions').then((response) => {
       this.positions = response.body
       this.loading = false
     }, (response) => {
       this.msg = response.statusText
     })
 
-    this.$http.post('/api/myIdentity', {}).then((response) => {
+    this.$http.get('/api/myIdentity', {}).then((response) => {
       if (response.body.id === 'admin') {
         this.canEdit = true
       }
@@ -89,7 +89,7 @@ export default {
       }).then(() => {
         this.positions.splice(idx, 1)
         console.log(this.positions)
-        this.$http.put('/api/updateOpenPositions', this.positions).then((response) => {
+        this.$http.put('/api/openPositions', this.positions).then((response) => {
           this.$message({type: 'success', message: 'Delete succeeded!'})
         }, (response) => {
           this.$message.error('Delete error!')
@@ -110,14 +110,14 @@ export default {
       }
       if (this.editingIndex >= 0) {
         this.$set(this.positions, this.editingIndex, item)
-        this.$http.put('/api/updateOpenPositions', this.positions).then((response) => {
+        this.$http.put('/api/openPositions', this.positions).then((response) => {
           this.$message({type: 'success', message: 'Update succeeded!'})
         }, (response) => {
           this.$message.error('Update error!')
         })
       } else if (this.editingIndex === -1) {
         this.positions.unshift(item)
-        this.$http.put('/api/updateOpenPositions', this.positions).then((response) => {
+        this.$http.put('/api/openPositions', this.positions).then((response) => {
           this.$message({type: 'success', message: 'New item succeeded!'})
         }, (response) => {
           this.$message.error('New item error!')

@@ -8,13 +8,13 @@
 
     <div v-for="(item, key) in news" :key="key" class="row-panel">
       <span v-html="item.description"></span>
-    </div>          
+    </div>
 
   </div>
 </template>
 
 <script>
-import ubb2html from '../../../src/tools/ubb2html'
+import ubb2html from '../../../frontend/src/tools/ubb2html'
 
 export default {
   name: 'News',
@@ -41,7 +41,7 @@ export default {
       }
     }
 
-    this.$http.get('/api/listNews').then((response) => {
+    this.$http.get('/api/news').then((response) => {
       let backendNews = response.body
       let news = JSON.stringify(backendNews)
       localStorage.setItem('news', news)

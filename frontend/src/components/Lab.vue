@@ -42,7 +42,7 @@ export default {
     this.currentIdx = 0
     this.expectedPics = []
 
-    this.$http.get('/api/listLabPics').then((response) => {
+    this.$http.get('/api/labPics').then((response) => {
       let thumbs = []
       let pics = response.body
       for (let picItem of pics) {

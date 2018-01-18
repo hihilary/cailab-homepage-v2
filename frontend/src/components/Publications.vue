@@ -66,7 +66,7 @@ export default {
       }
     }
 
-    this.$http.get('/api/listPublications').then((response) => {
+    this.$http.get('/api/publications').then((response) => {
       let backendPubs = response.body
       let publications = JSON.stringify(backendPubs)
       localStorage.setItem('publications', publications)
@@ -76,7 +76,7 @@ export default {
     })
 
     // edit button will appear when you are an admin while the component created.
-    this.$http.post('/api/myIdentity', '').then((response) => {
+    this.$http.get('/api/myIdentity', '').then((response) => {
       if (response.body.id === 'admin') {
         this.canEdit = true
       }
@@ -121,7 +121,7 @@ export default {
       if (this.editingIndex >= 0) {
         this.publications[this.editingIndex].ubbText = editingText
         this.$set(this.publications[this.editingIndex], 'htmlText', ubb2html(editingText))
-        this.$http.put('/api/updatePublications', this.pubsubmit).then((response) => {
+        this.$http.put('/api/publications', this.pubsubmit).then((response) => {
           this.$message({type: 'success', message: 'Update succeeded!'})
         }, (response) => {
           this.$message.error('Update error!')
@@ -129,7 +129,7 @@ export default {
       } else if (this.editingIndex === -1) {
         // console.log(this.editingIndex)
         this.publications.unshift({index: this.publications.length + 1, ubbText: editingText, htmlText: ubb2html(editingText)})
-        this.$http.put('/api/updatePublications', this.pubsubmit).then((response) => {
+        this.$http.put('/api/publications', this.pubsubmit).then((response) => {
           this.$message({type: 'success', message: 'New item succeeded!'})
         }, (response) => {
           this.$message.error('New item error!')
@@ -144,7 +144,7 @@ export default {
         type: 'warning'
       }).then(() => {
         this.publications.splice(idx, 1)
-        this.$http.put('/api/updatePublications', this.pubsubmit).then((response) => {
+        this.$http.put('/api/publications', this.pubsubmit).then((response) => {
           this.$message({type: 'success', message: 'Delete succeeded!'})
         }, (response) => {
           this.$message.error('Delete error!')

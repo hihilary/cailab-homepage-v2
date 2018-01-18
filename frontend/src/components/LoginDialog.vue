@@ -1,7 +1,7 @@
 <template>
   <el-dialog title="Login" :visible.sync="dialogFormVisible" width="300px">
-    <el-input v-model="username" auto-complete="off"  placeholder="username"></el-input>
-    <el-input type="password" v-model="password" auto-complete="off"  placeholder="password"></el-input>
+    <el-input v-model="username" auto-complete="off"  placeholder="username" />
+    <el-input type="password" v-model="password" auto-complete="off"  placeholder="password" />
     <div v-if="message">{{message}}</div>
     <div slot="footer">
       <el-button type="primary" @click="login">Submit</el-button>

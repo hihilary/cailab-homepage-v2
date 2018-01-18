@@ -19,3 +19,4 @@ selenium-debug.log
 /sessions
 /package-lock.json
 /mobile/package-lock.json
+/api-server/secret.json

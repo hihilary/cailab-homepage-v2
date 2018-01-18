@@ -44,7 +44,7 @@ export default {
     },
   },
   created () {
-    this.$http.get('/api/listOpenPositions').then((response) => {
+    this.$http.get('/api/openPositions').then((response) => {
       this.positions = response.body
       this.loading = false
     }, (response) => {
@@ -56,28 +56,6 @@ export default {
       this.ifShowEditDialog = true
       this.editingIndex = -1
       this.positionPass = {}
-    },
-    deleteItem (idx) {
-      this.$confirm('Confirm deleting?', '', {
-        confirmButtonText: 'Confirm',
-        cancelButtonText: 'Cancel',
-        type: 'warning'
-      }).then(() => {
-        this.positions.splice(idx, 1)
-        console.log(this.positions)
-        this.$http.put('/api/updateOpenPositions', this.positions).then((response) => {
-          this.$message({type: 'success', message: 'Delete succeeded!'})
-        }, (response) => {
-          this.$message.error('Delete error!')
-        })
-      }).catch(() => {
-        this.$message({type: 'info', message: 'Delete canceled!'})
-      })
-    },
-    editItem (idx) {
-      this.ifShowEditDialog = true
-      this.editingIndex = idx
-      this.positionPass = this.positions[idx]
     },
     positionSubmit (item) {
       this.ifShowEditDialog = false

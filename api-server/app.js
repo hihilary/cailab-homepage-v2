@@ -9,27 +9,20 @@ var FileStore = require('session-file-store')(session)
 
 var app = express()
 
-var news = require('../db/news.json')
-var publications = require('../db/publications.json')
-var openpositions = require('../db/openpositions.json')
+var news = require('./db/news.json')
+var publications = require('./db/publications.json')
+var openpositions = require('./db/openpositions.json')
+var labPics = require('./db/labPics.json')
 var fs = require('fs')
 var comparePassword = require('./comparePassword')
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'pug')
-
 // uncomment after placing your favicon in /public
-// app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
+//app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')))
 
 app.use(logger('dev'))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(cookieParser()) // req.headers => req.cookie
-// app.use(express.static(path.join(__dirname, 'public')))
-app.use(express.static('dist'))
-// app.use('/', index)
-// app.use('/users', users)
 app.use(session({ // req.cookie => req.session
   name: 'cailab-homepage',
   secret: 'cailab-homepage', // for signing session
@@ -48,18 +41,20 @@ var requireAdmin = function (req, res, next) {
   if (sess.admin) {
     next()
   } else {
-    res.status(401).send({message: 'require login'})
+    res.status(401).json({message: 'require login'})
   }
 }
 
-app.use('/api/test2', requireAdmin, function (req, res) {
-  res.send({cookie: req.cookies, sess: req.session})
+app.all('*', function (req, res, next) {
+  // res.header('Access-Control-Allow-Origin','*')
+  res.header('Content-Type', 'application/json;charset=utf-8')
+  res.header('Cache-Control','no-store')
+  res.header('X-Powered-By', 'HilaryDeng')
+  next()
 })
 
 app.post('/api/login', function (req, res, next) {
-  // console.log(req.body)
   let password = req.body.password
-
   comparePassword(password).then(
     () => {
       req.session.regenerate(function (err) {
@@ -78,16 +73,16 @@ app.post('/api/login', function (req, res, next) {
   )
 })
 
-app.post('/api/myIdentity', (req, res) => {
+app.get('/api/myIdentity', (req, res) => {
   var sess = req.session
   if (sess.admin) {
-    res.send({id: 'admin'})
+    res.json({id: 'admin'})
   } else {
-    res.send({id: 'guest'})
+    res.json({id: 'guest'})
   }
 })
 
-// 退出登录
+// logout
 app.post('/api/logout', function (req, res, next) {
   // req.session.admin = false
   let message
@@ -103,51 +98,39 @@ app.post('/api/logout', function (req, res, next) {
       return
     }
     res.clearCookie('cailab-homepage')
-    res.send({ message })
+    res.json({ message })
   })
 })
 
-app.use('/api/test/', (req, res) => {
-  res.send('hello world!')
+app.use('/api/test', (req, res) => {
+  res.json({'message':'hello world!'})
 })
 
-app.use('/api/listNews', (req, res) => {
+app.get('/api/news', (req, res) => {
   console.log(req.body)
-  res.send(news)
+  res.json(news)
 })
 
-app.use('/api/listPublications', (req, res) => {
-  res.send(publications)
+app.get('/api/publications', (req, res) => {
+  res.json(publications)
 })
 
-app.use('/api/listOpenPositions', (req, res) => {
-  res.send(openpositions)
+app.get('/api/openPositions', (req, res) => {
+  res.json(openpositions)
 })
 
-app.use('/api/listLabPics', (req, res) => {
-  let dir = './static/labPics'
-  fs.readdir(dir, (err, files) => {
-    if (err) {
-      res.status(500).send({err})
-    } else {
-      files = files.filter(fileName => /.*\.jpg$/.test(fileName))
-      for (let x in files) {
-        files[x] = path.posix.join('/static/labPics', files[x])
-      }
-      console.log(files)
-      res.send(files)
-    }
-  })
+app.get('/api/labPics', (req, res) => {
+  res.json(labPics.map(fileName => '/static/labPics/' + fileName))
 })
 
-app.put('/api/updatePublications', requireAdmin, (req, res) => {
+app.put('/api/publications', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
   fs.writeFile('db/publications.json', json, 'utf-8', (err, data) => {
     if (err) {
-      res.status(500).send({err})
+      res.status(500).json({err})
     } else {
       publications = req.body
-      res.send({message: 'OK'})
+      res.json({message: 'OK'})
     }
   })
   let date = new Date()
@@ -156,14 +139,14 @@ app.put('/api/updatePublications', requireAdmin, (req, res) => {
   })
 })
 
-app.put('/api/updateNews', requireAdmin, (req, res) => {
+app.put('/api/news', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
   fs.writeFile('db/news.json', json, 'utf-8', (err, data) => {
     if (err) {
-      res.status(500).send({err})
+      res.status(500).json({err})
     } else {
       news = req.body
-      res.send({message: 'OK'})
+      res.json({message: 'OK'})
     }
   })
   let date = new Date()
@@ -172,14 +155,14 @@ app.put('/api/updateNews', requireAdmin, (req, res) => {
   })
 })
 
-app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
+app.put('/api/openPositions', requireAdmin, (req, res) => {
   let json = JSON.stringify(req.body, null, 2)
   fs.writeFile('db/openpositions.json', json, 'utf-8', (err, data) => {
     if (err) {
-      res.status(500).send({err})
+      res.status(500).json({err})
     } else {
       openpositions = req.body
-      res.send({message: 'OK'})
+      res.json({message: 'OK'})
     }
   })
   let date = new Date()
@@ -187,18 +170,11 @@ app.put('/api/updateOpenPositions', requireAdmin, (req, res) => {
     if (err) console.log('backup failed')
   })
 })
-
-app.use('/favicon.ico', (req, res) => {
-  res.sendFile('favicon.ico', { root: path.resolve(__dirname, '../') })
-})
-app.use('/robots.txt', (req, res) => {
-  res.sendFile('robots.txt', { root: path.resolve(__dirname, '../') })
-})
 // -----------------------------------------API--------------------------------
 
-// catch 404 and forward to error handler
+// catch 404 and return error message
 app.use(function (req, res, next) {
-  res.status(404).send({message: 'error'})
+  res.status(404).json({message: 'error'})
 })
 
 // error handler

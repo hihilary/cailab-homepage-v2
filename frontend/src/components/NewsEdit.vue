@@ -32,7 +32,7 @@ export default {
     }
   },
   created () {
-    this.$http.get('/api/listNews').then((response) => {
+    this.$http.get('/api/news').then((response) => {
       let tmps = response.body
       let news = []
       for (let x of tmps) {
