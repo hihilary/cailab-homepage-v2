@@ -15,8 +15,6 @@ selenium-debug.log
 *.ntvs*
 *.njsproj
 *.sln
-/backend/secret.json
-/sessions
-/package-lock.json
-/mobile/package-lock.json
+/api-server/sessions
+yarn.lock
 /api-server/secret.json
