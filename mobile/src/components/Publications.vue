@@ -41,7 +41,7 @@ export default {
       }
     }
 
-    this.$http.get('/api/listPublications').then((response) => {
+    this.$http.get('/api/publications').then((response) => {
       let backendPubs = response.body
       let publications = JSON.stringify(backendPubs)
       localStorage.setItem('publications', publications)
