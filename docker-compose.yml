@@ -2,6 +2,7 @@ version: '3.0'
 services:
   website:
     image: nginx:alpine
+    restart: always
     ports:
       - "10000:80"
     volumes:
@@ -14,6 +15,7 @@ services:
 
   mobile-website:
     image: nginx:alpine
+    restart: always
     ports:
       - "10001:80"
     volumes:
@@ -26,5 +28,6 @@ services:
       
   api-server:
     build: ./api-server
+    restart: always
     volumes:
       - /srv/cailab-homepage/db:/app/db
