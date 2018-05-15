@@ -49,10 +49,25 @@
         "portrait": "Sally.jpg"
     },
     {
-      "title": "",
-      "name": "Marco Monti",
-      "email": "marco.monti21@liveunibo.onmicrosoft.com",
-      "description": "Marco Monti graduated with a BSc Hons in Biological Sciences in 2016 at the University of Bologna. He is a 2nd year Master student in Molecular and Cellular Biology at the University of Bologna. His current project at Cai Lab focuses on the study and the molecular characterization of the SCRaMbLE yeast genome using the Oxford Nanopore technology. In his free time, Marco enjoys reading, watching films and playing chess.",
-      "portrait": "Marco.jpg"
+        "title": "",
+        "name": "Marco Monti",
+        "email": "marco.monti21@liveunibo.onmicrosoft.com",
+        "description": "Marco Monti graduated with a BSc Hons in Biological Sciences in 2016 at the University of Bologna. He is a 2nd year Master student in Molecular and Cellular Biology at the University of Bologna. His current project at Cai Lab focuses on the study and the molecular characterization of the SCRaMbLE yeast genome using the Oxford Nanopore technology. In his free time, Marco enjoys reading, watching films and playing chess.",
+        "portrait": "Marco.jpg"
+    },
+    {
+        "title": "",
+        "name": "Yingying Li",
+        "email": "lyy092010@hotmail.com",
+        "description": "Yingying is currently working as a postdoctoral research associate in Dr. Patrick Cai`s group. She graduated with a first class MSc degree in Microbial and Biochemical Pharmacy from China Pharmaceutical University. She then moved to Belgium for her PhD studying and obtained her PhD in Biology from KULeuven supervised by Professor Johan Thevelein and Dr. Maria Foulquié. Her research focused on the development of superior industrial yeast strains that can convert pentose and hexose (xylose) sugars to bioethanol and improvement of inhibitors (salt, furfural, HMF, acids, etc.) tolerance of yeast strains. Following graduation, she worked as a Knowledge Exchange Associate at the University of Strathclyde and a Lab facility manager at IBioIC.[br]Her current research is focused on the yeast chromosomal rDNA repeats combined with the synthetic chromosomes, exploring the influence of the rDNA copy number and instability in the important functions of the nucleolus and lifespan.",
+        "portrait": "Yingying.jpg"
+    },
+    {
+        "title": "",
+        "name": "Shuangying Jiang",
+        "email": "jiang.shuangying@163.com",
+        "description": "Shuangying Jiang is currently a visiting scholar from Shenzhen Institutes of Advanced Technology (China). She received her Ph.D in Biology at Tsinghua University in China, supervised by Professor Junbiao Dai. She focused on the functional analysis of core histones in budding yeast for graduate research. Now she is working as postdoctoral research associate in the lab of Dr. Junbiao Dai. Her current research is to design, construct and analyze the eukaryotic genome.",
+        "portrait": "Shuangying.jpg"
     }
+    
 ]
