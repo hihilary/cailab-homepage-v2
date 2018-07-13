@@ -38,6 +38,9 @@
   <div class="item-div">
     <img src="../assets/logo/bgi.png" class="smallLogo">
     </div>
+  <div class="item-div">
+    <img src="../assets/logo/vwst.svg" style="width:180px">
+    </div>
   </div>
 </template>
 

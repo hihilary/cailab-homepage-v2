@@ -9,11 +9,12 @@
     <div>
       <img src="../assets/logo/wctrust.png">
       <img src="../assets/logo/gates.png">
+      <img src="../assets/logo/thermo.png" class="smallLogo">
     </div>
     <div>
-      <img src="../assets/logo/thermo.png" class="smallLogo">
       <img src="../assets/logo/agilent_tech.png" class="smallLogo">
       <img src="../assets/logo/bgi.png" class="smallLogo">
+      <img src="../assets/logo/vwst.svg">
     </div>
   </footer>
 </template>
