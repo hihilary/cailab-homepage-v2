@@ -2,11 +2,11 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/components/Home'
 import Projects from '@/components/Projects'
-import News from '@/components/News'
+// import News from '@/components/News'
 import Publications from '@/components/Publications'
 import People from '@/components/People'
 import Contact from '@/components/Contact'
-import PublicationEdit from '@/components/PublicationEdit'
+// import PublicationEdit from '@/components/PublicationEdit'
 import Collaborators from '@/components/Collaborators'
 import OpenPositions from '@/components/OpenPositions'
 import Lab from '@/components/Lab'
@@ -26,21 +26,21 @@ export default new Router({
       name: 'Projects',
       component: Projects
     },
-    {
-      path: '/news_items',
-      name: 'News',
-      component: News
-    },
+    // {
+    //   path: '/news_items',
+    //   name: 'News',
+    //   component: News
+    // },
     {
       path: '/publications',
       name: 'Publications',
       component: Publications
     },
-    {
-      path: '/publication_edit',
-      name: 'PublicationEdit',
-      component: PublicationEdit
-    },
+    // {
+    //   path: '/publication_edit',
+    //   name: 'PublicationEdit',
+    //   component: PublicationEdit
+    // },
     {
       path: '/users',
       name: 'People',

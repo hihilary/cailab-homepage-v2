@@ -131,6 +131,7 @@ export default {
         this.publications.unshift({index: this.publications.length + 1, ubbText: editingText, htmlText: ubb2html(editingText)})
         this.$http.put('/api/publications', this.pubsubmit).then((response) => {
           this.$message({type: 'success', message: 'New item succeeded!'})
+          this.ubbText = editingText
         }, (response) => {
           this.$message.error('New item error!')
         })

@@ -31,12 +31,10 @@ export default {
   methods: {
     login () {
       this.$http.post('/api/login', {password: this.password}).then((response) => {
-        if (response.status === 200) {
-          this.dialogFormVisible = false
-          Global.bus.$emit('adminLogin')
-        } else {
-          this.message = response.body.message
-        }
+        this.dialogFormVisible = false
+        Global.bus.$emit('adminLogin')
+      }).catch((response) => {
+        this.message = response.body.message
       })
     }
   }

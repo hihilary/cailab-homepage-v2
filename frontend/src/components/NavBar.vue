@@ -42,12 +42,12 @@ export default {
           text: 'Projects',
           class: '',
         },
-        {
-          index: '3',
-          path: '/news_items',
-          text: 'News',
-          class: '',
-        },
+        // {
+        //   index: '3',
+        //   path: '/news_items',
+        //   text: 'News',
+        //   class: '',
+        // },
         {
           index: '4',
           path: '/publications',

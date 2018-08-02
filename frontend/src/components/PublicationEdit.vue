@@ -21,7 +21,6 @@
           <i class="el-icon-circle-close-outline" @click="deleteItem(key)"></i>
         </el-col>
       </el-row>
-    </el-form>
 
   </div>
 </template>
