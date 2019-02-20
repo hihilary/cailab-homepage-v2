@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import ubb2html from '../../../frontend/src/tools/ubb2html'
+import ubb2html from '../tools/ubb2html'
 
 export default {
   name: 'News',

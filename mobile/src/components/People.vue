@@ -48,7 +48,7 @@
 <script>
 
 import crewMember from '../assets/people.json'
-import ubb2html from '../../../frontend/src/tools/ubb2html'
+import ubb2html from '../tools/ubb2html'
 import Alumni from './Alumni'
 
 export default {
