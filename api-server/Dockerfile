@@ -1,8 +1,7 @@
 FROM node:alpine
 WORKDIR /app
-ADD ./package.json ./yarn* ./
+ADD ./package.json ./
 RUN yarn install
 ADD . .
-EXPOSE 3030
-VOLUME /app/db
+EXPOSE 13030
 CMD ["yarn","start"]
