@@ -1,0 +1,80 @@
+[
+  {
+      "title": "",
+      "name": "Paulina Kanigowska",
+      "email": "kanigowska.paulina@gmail.com",
+      "description": "Paulina is a PhD student from Poland. Her main interest and scientific focus is laboratory automation and its application in the synthetic biology domain. In the Cai Lab, she works on establishing high-throughput DNA manufacturing and editing protocols, as well as investigates the biological workflows from a process engineering perspective, to better understand and address their limitations. Prior to the postgraduate studies, Paulina obtained a bachelor’s degree in Biotechnology from the University of Edinburgh. ",
+      "portrait": "Paulina.jpg"
+  },
+  {
+      "title": "",
+      "name": "Chantal Yue Shen",
+      "email": "shenyue226@gmail.com",
+      "description": "Chantal Yue Shen is currently a PhD student of Dr. Patrick Cai and Dr. Chris French. She received a bachelor degree of Bioengineering from South China University of Technology (China) and a master degree of Biomedical Engineering from The University of Melbourne (Australia). Chantal has earned four years experiences involving bioinformatics, molecular biology as well as project management in BGI-Shenzhen. Her research interests are combing Bioinformatics, Engineering and Molecular Biology for exploring potential applications of Synthetic Biology. Chantal is now focusing on the Sc2.0 project and the development of DNA synthesis and assembly platform with automation of technologies. ",
+      "portrait": "Chantal.jpg"
+  },
+  {
+      "title": "",
+      "name": "Jamie Auxillos",
+      "email": "jamie@auxillos.com",
+      "description": "Jamie is a PhD student at the Cai lab under the supervision of Dr. Patrick Cai and Professor Chris French. She graduated with a BSc Hons in Biomedical Sciences with Medical Microbiology in 2014 at Newcastle University and an MSc in Systems and Synthetic Biology at the University of Edinburgh in 2015. [br]Her project focusses on the application of synthetic biology and high-throughput biology in drug discovery, specifically antibiotics against tuberculosis. This project is in collaboration with researchers at the Tyres lab (University of Montreal) and the Wright lab (McMaster University). Her interests lie in the application of synthetic biology in the development of treatments and therapies against diseases. ",
+      "portrait": "Jamie.jpg"
+  },
+  {
+      "title": "",
+      "name": "Katarina Jonsson",
+      "email": "katijonsson@hotmail.com",
+      "description": "Katarina graduated from the University of Edinburgh in June 2015 with a BSc (Hons) in Molecular Biology. She is continuing her studies here in Edinburgh as a PhD student in the Cai and Marston labs where she is synthesising mini-yeast chromosomes and testing their ability to segregate during mitosis. During Katarina’s spare time she likes to read, hike and go to the cinema. ",
+      "portrait": "Katarina.jpg"
+  },
+  {
+      "title": "Dr. ",
+      "name": "Eva Garcia-Ruiz",
+      "email": "evagarciaruiz.edu@gmail.com",
+      "description": "Eva works at Cai’s group at University of Edinburgh as a postdoctoral research associate. Prior to coming to Edinburgh, she gained extensive research experience from several fellowships and internships at industry (MSD) and academia. She received her B.S. in Biology from Universidad de Alcala de Henares in Spain, and went on to receive her M.S. and Ph.D. from the Universidad Complutense de Madrid at the Spanish Research Council supervised by Prof. Miguel Alcalde and Prof. Angel T. Martinez. Following graduation, she worked as a postdoctoral research associate at Huimin Zhao’s group at University of Illinois (UIUC) for 3 years. [br]   Her current research is focused on engineering and biosynthesizing diversified natural product-like drugs active against human pathogens. She is also working on automation of synthetic biology protocols. [br]In her free time, she enjoys cooking, ice skating and painting. ",
+      "portrait": "Eva.jpg"
+  },
+  {
+      "title": "Dr. ",
+      "name": "Daniel Schindler",
+      "email": "daniel.schindler@manchester.ac.uk",
+      "description": "Daniel Schindler is currently working as postdoctoral research associate in the lab of Dr Patrick Cai. He obtained his Ph.D. in Biology at the Philipps-Universität Marburg in Germany, at the LOEWE Center for Synthetic Microbiology under Prof Torsten Waldminghaus. His research focused on the construction of synthetic secondary chromosomes to analyse chromosome maintenance systems in Escherichia coli. [br]His current research projects are straightened to the design, construction and characterization of neochromosomes in baker´s yeast Saccharomyces cerevisiae. In his opinion there are many open questions in the field of chromosome research and recent progress in Synthetic Biology can provide answers through construction of synthetic chromosomes.[br]In his free time, Daniel enjoys outdoor sports (climbing, mountaineering and running), travelling and good food. ",
+      "portrait": "Daniel.jpg"
+  },
+  {
+      "title": "",
+      "name": "Sally Jones",
+      "email": "sally.jones-3@manchester.ac.uk",
+      "description": "Sally is acting as a laboratory research technician in the Cai lab. She graduated from the University of Bath in June 2017 with a BSc (Hons) in Biochemistry. In her free time she enjoys painting and gardening.",
+      "portrait": "Sally.jpg"
+  },
+  {
+    "title": "",
+    "name": "Marco Monti",
+    "email": "marco.monti21@liveunibo.onmicrosoft.com",
+    "description": "Marco Monti graduated with a BSc Hons in Biological Sciences in 2016 at the University of Bologna. He is a 2nd year Master student in Molecular and Cellular Biology at the University of Bologna. His current project at Cai Lab focuses on the study and the molecular characterization of the SCRaMbLE yeast genome using the Oxford Nanopore technology. In his free time, Marco enjoys reading, watching films and playing chess.",
+    "portrait": "Marco.jpg"
+  },
+  {
+      "title": "",
+      "name": "Yingying Li",
+      "email": "lyy092010@hotmail.com",
+      "description": "Yingying is currently working as a postdoctoral research associate in Dr. Patrick Cai`s group. She graduated with a first class MSc degree in Microbial and Biochemical Pharmacy from China Pharmaceutical University. She then moved to Belgium for her PhD studying and obtained her PhD in Biology from KULeuven supervised by Professor Johan Thevelein and Dr. Maria Foulquié. Her research focused on the development of superior industrial yeast strains that can convert pentose and hexose (xylose) sugars to bioethanol and improvement of inhibitors (salt, furfural, HMF, acids, etc.) tolerance of yeast strains. Following graduation, she worked as a Knowledge Exchange Associate at the University of Strathclyde and a Lab facility manager at IBioIC.[br]Her current research is focused on the yeast chromosomal rDNA repeats combined with the synthetic chromosomes, exploring the influence of the rDNA copy number and instability in the important functions of the nucleolus and lifespan.",
+      "portrait": "Yingying.jpg"
+  },
+  {
+      "title": "",
+      "name": "Shuangying Jiang",
+      "email": "jiang.shuangying@163.com",
+      "description": "Shuangying Jiang is currently a visiting scholar from Shenzhen Institutes of Advanced Technology (China). She received her Ph.D in Biology at Tsinghua University in China, supervised by Professor Junbiao Dai. She focused on the functional analysis of core histones in budding yeast for graduate research. Now she is working as postdoctoral research associate in the lab of Dr. Junbiao Dai. Her current research is to design, construct and analyze the eukaryotic genome.",
+      "portrait": "Shuangying.jpg"
+  },
+  {
+      "title": "Dr. ",
+      "name": "Reem Swidah",
+      "email": "reem.swidah@manchester.ac.uk",
+      "description": "Reem started working as a postdoctoral research associate in the lab of Prof. Patrick Cai in 2018. Reem obtained her PhD in Biotechnology from the University of Manchester under the supervision of Prof. Mark Ashe and Prof. Chris Grant. She constructed various mutants of S. cerevisiae strains to produce butanol by introducing the ABE pathway into yeast, applying metabolic engineering and synthetic biology strategies to enhance butanol production. Reem started working as a Post-doc prior to finishing her PhD in Mark Ashe lab. Reem has obtained her MSc in Biotechnology and her Bachelor degree in Agricultural Engineering and Food Science from the University of Damascus. Reem has gained extensive experience in teaching as she worked as assistant lecturer at the University of Damascus and the University of Tishreen.[br]Reem currently is working on multiple projects. First, she is focusing on engineering and biosynthesizing natural product-like drugs such as Pentalenolactone, which is active against Mycobacterium tuberculosis. She assembles biosynthesis pathways using YeastFab technology. Second, her research interests are combining Engineering and Molecular Biology for exploring potential applications of Synthetic Biology. Reem is also using SCRaMBLE system to generate high-fitness yeast cells bearing the synthetic chromosomes  and under specific conditions and this will allow her to create genome diversity with the ability to produce new biological functions. In her free time, she enjoys working as a volunteer and contributes to fund raising for many UK registered charities including Syria relief. Reem loves reading, painting, cooking, travelling and exploring life. ",
+      "portrait": "Reem.jpg"
+  }
+  
+]
