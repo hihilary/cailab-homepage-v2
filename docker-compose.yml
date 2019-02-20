@@ -37,6 +37,17 @@ services:
   #   links:
   #     - api-server
   #   network_mode: bridge
+
+  mobile-website:
+    build: ./frontend
+    ports:
+      - "10001:80"
+    links:
+      - api-server
+    depends_on:
+      - api-server
+    network_mode: bridge
+    command: ['nginx', '-g', 'daemon off;']
       
   api-server:
     build: ./api-server
