@@ -39,7 +39,7 @@ services:
   #   network_mode: bridge
 
   mobile-website:
-    build: ./frontend
+    build: ./mobile
     ports:
       - "10001:80"
     links:
