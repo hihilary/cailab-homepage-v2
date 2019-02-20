@@ -12,8 +12,7 @@ services:
       - api-server
     links:
       - api-server
-    networks:
-      - bridge
+    network_mode: bridge
 
   mobile-website:
     image: nginx:alpine
@@ -27,17 +26,11 @@ services:
       - api-server
     links:
       - api-server
-    networks:
-      - bridge
+    network_mode: bridge
       
   api-server:
     build: ./api-server
     restart: always
     volumes:
       - /srv/cailab-homepage/db:/app/db
-    networks:
-      - bridge
-
-networks:
-  bridge:
-    external: true
+    network_mode: bridge
