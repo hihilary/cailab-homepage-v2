@@ -61,5 +61,12 @@
         "email": "jun.ong-2@student.manchester.ac.uk",
         "description": "Jun Yang is a 4th year MChem student at the University of Manchester. He is currently working on the condition-specific evolution of synthetic yeast using SCRaMbLE under the supervision of Dr Reem Swidah and Prof Patrick Cai. His research interest lies at the interface of chemistry and biology, especially in enzymes and biomimetic catalysts. Away from the lab, he enjoys reading, playing board games and travelling.",
         "portrait": "Jun.jpg"
+    },
+    {
+        "title": "Dr.",
+        "name": "Jason Shijian Liu",
+        "email": "shijian.liu@manchester.ac.uk",
+        "description": "Jason is a visiting academic from China. He is a lecturer of the Fujian University of Technology, and a member of the Fujian Provincial Key Laboratory of Big Data Mining and Applications. He received his B.S. degree in Mathematics from Xiangtan University, a Master degree in Computer Science from Changsha University of Science & Technology and a Ph.D. degree in Computer Science from Central South University. His research focus on the bio-medical data processing, which include modeling, visualization, segmentation, 3D reconstruction and so on. The period of his visit in Cai's Lab is from 1 Sep., 2018 to 1 Sep., 2019.",
+        "portrait": "Jason.jpg"
     }
 ]
