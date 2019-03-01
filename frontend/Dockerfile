@@ -1,4 +1,4 @@
-FROM node:10 as builder
+FROM node:8 as builder
 WORKDIR /app
 ADD ./package.json ./
 RUN yarn install
