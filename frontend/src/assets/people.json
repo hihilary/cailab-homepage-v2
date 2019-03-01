@@ -68,5 +68,12 @@
         "email": "shijian.liu@manchester.ac.uk",
         "description": "Jason is a visiting academic from China. He is a lecturer of the Fujian University of Technology, and a member of the Fujian Provincial Key Laboratory of Big Data Mining and Applications. He received his B.S. degree in Mathematics from Xiangtan University, a Master degree in Computer Science from Changsha University of Science & Technology and a Ph.D. degree in Computer Science from Central South University. His research focus on the bio-medical data processing, which include modeling, visualization, segmentation, 3D reconstruction and so on. The period of his visit in Cai's Lab is from 1 Sep., 2018 to 1 Sep., 2019.",
         "portrait": "Jason.jpg"
+    },
+    {
+        "title": "",
+        "name":"Francesco Ragazzini",
+        "email":"francesco.ragazzini-2@postgrad.manchester.ac.uk",
+        "description":"Francesco Ragazzini is a 2nd year master student in Molecular Biotechnology at the University of Pisa. He is in the CaiLab to do a traineeship in order to write his master thesis. [br]His research focuses on the SCRaMBLE system, under the supervision of Dr Reem Swidah and Prof Patrick Cai. [br]In his free time he enjoys climbing, hiking and travelling.",
+        "portrait":"Francesco.jpg"
     }
 ]
