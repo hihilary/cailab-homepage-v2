@@ -77,6 +77,13 @@
         "portrait":"Francesco.jpg"
     },
     {
+        "title": "",
+        "name":"Alba Ballerini",
+        "email":"albaballerini@virgilio.it",
+        "description":"Alba Ballerini graduated with a BSc Hons in Biotechnology in 2017 at the University of Pisa. She is a master student in Molecular Biotechnology at the University of Pisa and she is doing a traineeship in the Cai Lab. Her research project concerns the biosynthesis of Natural Products through their expression in yeast. In her free time she enjoy trekking and reading.",
+        "portrait":"Alba.jpg"
+    },
+    {
         "title": "Dr. ",
         "name":"Stefan Hoffmann",
         "email":"stefan.hoffmann@manchester.ac.uk",
