@@ -11,7 +11,7 @@
       <li v-for="(item, key) in positions" :key="key" class="row-panel">
           <a :href="item.link" target="_blank" v-if="item.link&&item.link.trim().length">{{item.text}}</a>
       </li>
-      <p v-if="positions&&positions.length">Our group also has a number of PhD student openings. Please get in touch with Prof. Cai to discuss potential projects if interested.</p>
+      <p v-if="positions&&positions.length">Our lab is always looking for talented students/technicians/postdocs. Please get in touch with Prof. Cai to discuss your interests.</p>
       <p v-else>To enquire about open positions, please send your CV and a cover letter to Dr. Patrick Cai at <a :href="'mailto:yizhi.cai@manchester.ac.uk'">yizhi.cai@manchester.ac.uk</a></p>
     </div>
   </div>

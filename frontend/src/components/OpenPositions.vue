@@ -13,7 +13,7 @@
           <i class="el-icon-delete" @click="deleteItem(key)"></i>
         </el-col>
       </el-row>
-      <p v-if="positions&&positions.length">Our group also has a number of PhD student openings. Please get in touch with Prof. Cai to discuss potential projects if interested.</p>
+      <p v-if="positions&&positions.length">Our lab is always looking for talented students/technicians/postdocs. Please get in touch with Prof. Cai to discuss your interests.</p>
       <p v-else>To enquire about open positions, please send your CV and a cover letter to Dr. Patrick Cai at <a :href="'mailto:yizhi.cai@manchester.ac.uk'">yizhi.cai@manchester.ac.uk</a></p>
     </div>
     <OpenPositionEditDialog :visible.sync="ifShowEditDialog" :data="positionPass" @textChanged="positionSubmit"/>
