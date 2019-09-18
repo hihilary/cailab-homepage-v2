@@ -22,13 +22,6 @@
     },
     {
         "title": "",
-        "name": "Sally Jones",
-        "email": "sally.jones-3@manchester.ac.uk",
-        "description": "Sally is acting as a laboratory research technician in the Cai lab. She graduated from the University of Bath in June 2017 with a BSc (Hons) in Biochemistry. In her free time she enjoys painting and gardening.",
-        "portrait": "Sally.jpg"
-    },
-    {
-        "title": "",
         "name": "Marco Monti",
         "email": "marco.monti@postgrad.manchester.ac.uk",
         "description": "Marco Monti graduated with a BSc Hons in Biological Sciences in 2016 at the University of Bologna. He is a 2nd year Master student in Molecular and Cellular Biology at the University of Bologna. His current project at Cai Lab focuses on the study and the molecular characterization of the SCRaMbLE yeast genome using the Oxford Nanopore technology. In his free time, Marco enjoys reading, watching films and playing chess.",
@@ -57,20 +50,6 @@
     },
     {
         "title": "",
-        "name": "Jun Yang Ong",
-        "email": "jun.ong-2@student.manchester.ac.uk",
-        "description": "Jun Yang is a 4th year MChem student at the University of Manchester. He is currently working on the condition-specific evolution of synthetic yeast using SCRaMbLE under the supervision of Dr Reem Swidah and Prof Patrick Cai. His research interest lies at the interface of chemistry and biology, especially in enzymes and biomimetic catalysts. Away from the lab, he enjoys reading, playing board games and travelling.",
-        "portrait": "Jun.jpg"
-    },
-    {
-        "title": "Dr. ",
-        "name": "Jason Shijian Liu",
-        "email": "shijian.liu@manchester.ac.uk",
-        "description": "Jason is a visiting academic from China. He is a lecturer of the Fujian University of Technology, and a member of the Fujian Provincial Key Laboratory of Big Data Mining and Applications. He received his B.S. degree in Mathematics from Xiangtan University, a Master degree in Computer Science from Changsha University of Science & Technology and a Ph.D. degree in Computer Science from Central South University. His research focus on the bio-medical data processing, which include modeling, visualization, segmentation, 3D reconstruction and so on. The period of his visit in Cai's Lab is from 1 Sep., 2018 to 1 Sep., 2019.",
-        "portrait": "Jason.jpg"
-    },
-    {
-        "title": "",
         "name":"Francesco Ragazzini",
         "email":"francesco.ragazzini-2@postgrad.manchester.ac.uk",
         "description":"Francesco Ragazzini is a 2nd year master student in Molecular Biotechnology at the University of Pisa. He is in the CaiLab to do a traineeship in order to write his master thesis. [br]His research focuses on the SCRaMBLE system, under the supervision of Dr Reem Swidah and Prof Patrick Cai. [br]In his free time he enjoys climbing, hiking and travelling.",
@@ -89,13 +68,6 @@
         "email":"stefan.hoffmann@manchester.ac.uk",
         "description":"Stefan joined the group of Professor Patrick Cai in 2019 as a postdoctoral research associate. He did his PhD at the University of Potsdam, Germany under the supervision of Professor Katja Arndt, focussing on synthetic systems for directed evolution and transcriptional regulation in E. coli. Currently, he is looking to leverage the SCRaMbLE system and the extensive automation hardware at the lab’s disposal for adaptive laboratory evolution projects. In his spare time, Stefan enjoys kickboxing, gardening, DIYing and a variety of outdoor activities.",
         "portrait":"Stefan.jpg"
-    },
-    {
-        "title": "",
-        "name": "Ivy Yunjia Zhang",
-        "email":"1155091877@link.cuhk.edu.hk",
-        "description":"Ivy is a visiting student from the Chinese University of Hong Kong (CUHK). She is a full-scholarship 3rd year student majored in Cell and Molecular Biology. Ivy joined Cailab in May 2019 recommended by Professor CHAN Ting Fung from CUHK under the support of Dedicated Research Exchange And Mentorship (DREAM) Programme. Her current project focuses on cloning and characterising a Cre recombinase activity reporter, under the supervision of Dr. Stefan Hoffmann and Prof. Patrick Cai. In her free time, Ivy enjoys cooking and travelling.",
-        "portrait":"Ivy.jpg"
     }
 
 ]
