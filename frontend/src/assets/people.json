@@ -68,6 +68,13 @@
         "email":"stefan.hoffmann@manchester.ac.uk",
         "description":"Stefan joined the group of Professor Patrick Cai in 2019 as a postdoctoral research associate. He did his PhD at the University of Potsdam, Germany under the supervision of Professor Katja Arndt, focussing on synthetic systems for directed evolution and transcriptional regulation in E. coli. Currently, he is looking to leverage the SCRaMbLE system and the extensive automation hardware at the lab’s disposal for adaptive laboratory evolution projects. In his spare time, Stefan enjoys kickboxing, gardening, DIYing and a variety of outdoor activities.",
         "portrait":"Stefan.jpg"
+    },
+    {
+        "title": "",
+        "name": "Josh James",
+        "email": "joshua.james-2@postgrad.manchester.ac.uk",
+        "description": "Josh joined the Cai lab group in 2019 as a PhD student, shortly after graduating with a Biology MSci from the University of Bristol. His work involves using CRISPR and adeno-associated virus (AAV) to develop tools for rewriting human genomes. These will allow analysis of the functionalities of genetic sequences at a previously unattained resolution. This project is in collaboration with the Chew Lab (Genome Institute of Singapore). Outside of the lab, Josh enjoys travel, SCUBA diving and climbing.",
+        "portrait": "Josh.jpg"
     }
 
 ]
