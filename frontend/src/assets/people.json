@@ -75,6 +75,13 @@
         "email": "joshua.james-2@postgrad.manchester.ac.uk",
         "description": "Josh joined the Cai lab group in 2019 as a PhD student, shortly after graduating with a Biology MSci from the University of Bristol. His work involves using CRISPR and adeno-associated virus (AAV) to develop tools for rewriting human genomes. These will allow analysis of the functionalities of genetic sequences at a previously unattained resolution. This project is in collaboration with the Chew Lab (Genome Institute of Singapore). Outside of the lab, Josh enjoys travel, SCUBA diving and climbing.",
         "portrait": "Josh.jpg"
+    },
+    {
+        "title": "Dr. ",
+        "name": "Kewin Gombeau",
+        "email": "kewin.gombeau@manchester.ac.uk",
+        "description": "Kewin joined the group of Professor Patrick Cai in 2019 as a postdoctoral research associate. He performed his PhD at the University Aix-Marseille, France, under the supervision of Prof. Jean-Paul Bourdineaud and Dr. Christelle Adam-Guillermin, aiming at integrating the epigenetic response in the field of radioecotoxicology. He then joined in 2017 the research team lead by Dr. Jean-Paul di Rago, France, to work on the nuclear relocation of mitochondrial genes in the budding yeast Saccharomyces cerevisiae.[br]His current research aims at implementing a fully synthetic, size-reduced and functional mitochondrial genome in S. cerevisiae by removing the presumably non-essential inter- and intragenic sequences, representing more than 80% of the mitochondrial genome size. Kewin truly believes that mitochondria play a central role in eukaryotic cell’s adaptive capabilities and evolution.[br]In his spare time, Kewin enjoys learning about psychology, playing guitar and cooking.",
+        "portrait": "Kewin.jpg"
     }
 
 ]
