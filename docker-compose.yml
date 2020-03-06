@@ -15,6 +15,7 @@ services:
   #   network_mode: bridge
   website:
     build: ./frontend
+    restart: always
     ports:
       - "10000:80"
     links:
@@ -40,6 +41,7 @@ services:
 
   mobile-website:
     build: ./mobile
+    restart: always
     ports:
       - "10001:80"
     links:
@@ -51,7 +53,7 @@ services:
       
   api-server:
     build: ./api-server
-    # restart: always
+    restart: always
     volumes:
       - /srv/cailab-homepage/db:/app/db
     network_mode: bridge
