@@ -1,19 +1,5 @@
 [
     {
-        "title": "",
-        "name": "Jamie Auxillos",
-        "email": "jamie@auxillos.com",
-        "description": "Jamie is a PhD student at the Cai lab under the supervision of Dr. Patrick Cai and Professor Chris French. She graduated with a BSc Hons in Biomedical Sciences with Medical Microbiology in 2014 at Newcastle University and an MSc in Systems and Synthetic Biology at the University of Edinburgh in 2015. [br]Her project focusses on the application of synthetic biology and high-throughput biology in drug discovery, specifically antibiotics against tuberculosis. This project is in collaboration with researchers at the Tyres lab (University of Montreal) and the Wright lab (McMaster University). Her interests lie in the application of synthetic biology in the development of treatments and therapies against diseases. ",
-        "portrait": "Jamie.jpg"
-    },
-    {
-        "title": "",
-        "name": "Katarina Jonsson",
-        "email": "katijonsson@hotmail.com",
-        "description": "Katarina graduated from the University of Edinburgh in June 2015 with a BSc (Hons) in Molecular Biology. She is continuing her studies here in Edinburgh as a PhD student in the Cai and Marston labs where she is synthesising mini-yeast chromosomes and testing their ability to segregate during mitosis. During Katarina’s spare time she likes to read, hike and go to the cinema. ",
-        "portrait": "Katarina.jpg"
-    },
-    {
         "title": "Dr. ",
         "name": "Daniel Schindler",
         "email": "daniel.schindler@manchester.ac.uk",
@@ -47,13 +33,6 @@
         "email": "yisha.luo@manchester.ac.uk",
         "description": "Isaac is a full stack network software engineer who rejoined in Cailab in 2018. He creates web apps and automatic scripts compiler for Synthetic Biology. Isaac is a big fan of new technologies, he also loves travelling, hiking and cooking",
         "portrait": "isaac.jpg"
-    },
-    {
-        "title": "",
-        "name":"Francesco Ragazzini",
-        "email":"francesco.ragazzini-2@postgrad.manchester.ac.uk",
-        "description":"Francesco Ragazzini is a 2nd year master student in Molecular Biotechnology at the University of Pisa. He is in the CaiLab to do a traineeship in order to write his master thesis. [br]His research focuses on the SCRaMBLE system, under the supervision of Dr Reem Swidah and Prof Patrick Cai. [br]In his free time he enjoys climbing, hiking and travelling.",
-        "portrait":"Francesco.jpg"
     },
     {
         "title": "",
