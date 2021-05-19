@@ -59,7 +59,7 @@ export default {
         'title': 'Dr. ',
         'name': 'Patrick Yizhi Cai',
         'email': 'yizhi.cai@manchester.ac.uk',
-        'link': '/static/YCai-CV-Full-2017-11-9.pdf',
+        'link': '/static/YCai-CV-Full-2020-11-4.pdf',
         'portrait': 'Patrick.jpg'
       },
       crew: crewMember,
