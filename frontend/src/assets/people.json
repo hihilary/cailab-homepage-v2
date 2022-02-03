@@ -1,24 +1,10 @@
 [
     {
-        "title": "Dr. ",
-        "name": "Daniel Schindler",
-        "email": "daniel.schindler@manchester.ac.uk",
-        "description": "Daniel Schindler is currently working as postdoctoral research associate in the lab of Dr Patrick Cai. He obtained his Ph.D. in Biology at the Philipps-Universität Marburg in Germany, at the LOEWE Center for Synthetic Microbiology under Prof Torsten Waldminghaus. His research focused on the construction of synthetic secondary chromosomes to analyse chromosome maintenance systems in Escherichia coli. [br]His current research projects are straightened to the design, construction and characterization of neochromosomes in baker´s yeast Saccharomyces cerevisiae. In his opinion there are many open questions in the field of chromosome research and recent progress in Synthetic Biology can provide answers through construction of synthetic chromosomes.[br]In his free time, Daniel enjoys outdoor sports (climbing, mountaineering and running), travelling and good food. ",
-        "portrait": "Daniel.jpg"
-    },
-    {
         "title": "",
         "name": "Marco Monti",
         "email": "marco.monti@postgrad.manchester.ac.uk",
-        "description": "Marco Monti graduated with a BSc Hons in Biological Sciences in 2016 at the University of Bologna. He is a 2nd year Master student in Molecular and Cellular Biology at the University of Bologna. His current project at Cai Lab focuses on the study and the molecular characterization of the SCRaMbLE yeast genome using the Oxford Nanopore technology. In his free time, Marco enjoys reading, watching films and playing chess.",
+        "description": "Marco joined the Cai lab in 2017 as a  Master's student. Shortly after he graduated with an MSc Hons in Molecular and Cellular Biology at the University of Bologna. He remained in the Cai lab group to persue his PhD. His current projects focus on simulations and modelling of genome evolution, speciation, genome sequencing and assembly algorithms. In his free time, Marco enjoys reading, watching films and playing chess.",
         "portrait": "Marco.jpg"
-    },
-    {
-        "title": "Dr. ",
-        "name": "Yingying Li",
-        "email": "yingying.li@manchester.ac.uk",
-        "description": "Yingying is currently working as a postdoctoral research associate in Dr. Patrick Cai`s group. She graduated with a first class MSc degree in Microbial and Biochemical Pharmacy from China Pharmaceutical University. She then moved to Belgium for her PhD studying and obtained her PhD in Biology from KULeuven supervised by Professor Johan Thevelein and Dr. Maria Foulquié. Her research focused on the development of superior industrial yeast strains that can convert pentose and hexose (xylose) sugars to bioethanol and improvement of inhibitors (salt, furfural, HMF, acids, etc.) tolerance of yeast strains. Following graduation, she worked as a Knowledge Exchange Associate at the University of Strathclyde and a Lab facility manager at IBioIC.[br]Her current research is focused on the yeast chromosomal rDNA repeats combined with the synthetic chromosomes, exploring the influence of the rDNA copy number and instability in the important functions of the nucleolus and lifespan.",
-        "portrait": "Yingying.jpg"
     },
     {
         "title": "Dr. ",
@@ -29,16 +15,9 @@
     },
     {
         "title": "",
-        "name": "Isaac Yisha Luo",
-        "email": "yisha.luo@manchester.ac.uk",
-        "description": "Isaac is a full stack network software engineer who rejoined in Cailab in 2018. He creates web apps and automatic scripts compiler for Synthetic Biology. Isaac is a big fan of new technologies, he also loves travelling, hiking and cooking",
-        "portrait": "isaac.jpg"
-    },
-    {
-        "title": "",
         "name":"Alba Ballerini",
-        "email":"albaballerini@virgilio.it",
-        "description":"Alba Ballerini graduated with a BSc Hons in Biotechnology in 2017 at the University of Pisa. She is a master student in Molecular Biotechnology at the University of Pisa and she is doing a traineeship in the Cai Lab. Her research project concerns the biosynthesis of Natural Products through their expression in yeast. In her free time she enjoy trekking and reading.",
+        "email":"alba.ballerini@postgrad.manchester.ac.uk",
+        "description":"Alba is a PhD student in the Cai Lab. She joined the group of Professor Patrick Cai in 2019 as a master student and, after her graduation with a Molecular Biotechnology MSci from University of Pisa, she started her PhD. Her work involves the engineering of the next generation of tRNA neochromosomes. She believes that the tRNA neochromosome research within the Sc2.0 project is a highly fascinating research field which will allow observation towards de novo chromosome building but also to study fundamentals of tRNA biology which would not be accessible in a standard biological system. In her free time, she volunteers in science research events, she enjoys travel, reading, going to the cinema and loves good food.",
         "portrait":"Alba.jpg"
     },
     {
@@ -61,6 +40,40 @@
         "email": "kewin.gombeau@manchester.ac.uk",
         "description": "Kewin joined the group of Professor Patrick Cai in 2019 as a postdoctoral research associate. He performed his PhD at the University Aix-Marseille, France, under the supervision of Prof. Jean-Paul Bourdineaud and Dr. Christelle Adam-Guillermin, aiming at integrating the epigenetic response in the field of radioecotoxicology. He then joined in 2017 the research team lead by Dr. Jean-Paul di Rago, France, to work on the nuclear relocation of mitochondrial genes in the budding yeast Saccharomyces cerevisiae.[br]His current research aims at implementing a fully synthetic, size-reduced and functional mitochondrial genome in S. cerevisiae by removing the presumably non-essential inter- and intragenic sequences, representing more than 80% of the mitochondrial genome size. Kewin truly believes that mitochondria play a central role in eukaryotic cell’s adaptive capabilities and evolution.[br]In his spare time, Kewin enjoys learning about psychology, playing guitar and cooking.",
         "portrait": "Kewin.jpg"
+    },
+    {
+      "title": "",
+      "name": "Miriam Montserrat Vega-Gordillo",
+      "email": "miriam.vegagordillo@postgrad.manchester.ac.uk",
+      "description": "Miriam studied Biotechnology at the Autonomous University of Queretaro and completed the MSc. in Genetic Manipulation and Molecular Cell Biology at Sussex University. She has worked on different projects of functional genomics, experimental oncology and immunology in Mexico, Spain and Canada. Currently enrolled in the dual Manchester-Beijing PhD programme she focusses on applying synthetic biology, genomics and AI to develop novel therapeutic approaches for cancer. Outside of the academic world, she has launched start up initiatives to promote a more inclusive world; she enjoys chess, independent films, theatre and reading.",
+      "portrait": "Miriam.jpg"
+    },
+    {
+      "title": "",
+      "name": "James Sanders",
+      "email": "james.sanders-3@postgrad.manchester.ac.uk",
+      "description": "James joined the Cai lab in 2021 as a PhD student with a focus on expanding the genetic code of synthetic yeast. This work aims to leverage the unique design features of Sc2.0 to engineer new strains of yeast that are able to efficiently use amino acids not found in nature. Before joining the lab, James graduated with a BSc (Hons) in Genetics from the University of Glasgow followed by an MRes in Synthetic Biology from the University College London.",
+      "portrait": "James.jpg"
+    },
+    {
+      "title": "",
+      "name": "Ellie Payne",
+      "email": "ellie.payne@manchester.ac.uk",
+      "description": "Ellie is the Cai lab’s technician, having joined the group shortly after completing her Masters in Biochemistry at the University of Liverpool in the Department of Molecular and Clinical Cancer Medicine. In her spare time she enjoys cooking, making her own clothes, and exploring nature.",
+      "portrait": "Ellie.jpg"
+    },
+    {
+      "title": "",
+      "name": "Eloise O'Connor",
+      "email": "eloise.oconnor@postgrad.manchester.ac.uk",
+      "description": "Eloise graduated with a BSc Hons in Biochemistry from Imperial College London in 2019. She joined the Cai lab group in 2021 working in conjunction with Prof Jason Micklefield. Her project is on synthetic biology approaches for re-assembling biosynthetic pathways in heterologous host strains and biosensing technologies. Eloise is funded by the EPSRC Centre for Doctoral Training in BioDesign Engineering. Outside of the lab Eloise enjoys art, fitness and bouldering.",
+      "portrait": "Eloise.jpg"
+    },
+    {
+      "title": "",
+      "name": "Perrine Dalby",
+      "email": "pd421@ic.ac.uk",
+      "description": "Perrine engineers novel ribosomal DNA to reduce the expression burden in cells. She is co-supervised by Prof. Guy-Bart Stan and is part of the CDT BioDesign programme hosted by Imperial College London. Prior to working in the field of synthetic biology, she did a master’s degree in plant molecular biology between Durham University (UK) and Tübingen University (Germany). If you can’t find her in the lab, she is probably on a climbing wall or hiking in the mountains with her friends and family. In her free time, she also tries to be her own sunshine as there is not enough in Manchester.",
+      "portrait": "Perrine.jpg"
     }
-
 ]
