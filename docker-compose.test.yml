@@ -1,31 +1,48 @@
 version: '3.0'
 services:
 
-  website:
-    build: ./frontend
-    restart: always
+  cailab-homepage-frontend:
+    container_name: cailab-homepage-frontend-vm1
+    image: cailab-homepage-frontend-vm1
     ports:
       - "10000:80"
-    links:
-      - api-server
+    build: ./frontend
+    restart: always
     depends_on:
-      - api-server
-    network_mode: bridge
+      - cailab-homepage-api
+    networks:
+      webservice:
+        aliases:
+          - cailab-homepage-frontend
     command: ['nginx', '-g', 'daemon off;']
 
-  mobile-website:
-    build: ./mobile
-    restart: always
+  cailab-homepage-mobile:
+    container_name: cailab-homepage-mobile-vm1
+    image: cailab-homepage-mobile-vm1
     ports:
       - "10001:80"
-    links:
-      - api-server
+    build: ./mobile
+    restart: always
     depends_on:
-      - api-server
-    network_mode: bridge
+      - cailab-homepage-api
+    networks:
+      webservice:
+        aliases:
+          - cailab-homepage-mobile
     command: ['nginx', '-g', 'daemon off;']
-      
-  api-server:
+
+  cailab-homepage-api:
+    container_name: cailab-homepage-api-vm1
+    image: cailab-homepage-api-vm1
     build: ./api-server
     restart: always
-    network_mode: bridge
+    networks:
+      webservice:
+        aliases:
+          - cailab-homepage-api
+          - api-server
+
+networks:
+  webservice:
+    driver: bridge
+
